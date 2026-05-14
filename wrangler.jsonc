@@ -10,6 +10,13 @@
     "directory": ".",
     "binding": "ASSETS"
   },
+  "d1_databases": [
+    {
+      "binding": "WOPA_WAITLIST_DB",
+      "database_name": "wopa-waitlist",
+      "database_id": "03dbe986-38ae-412d-8d96-85c997d43042"
+    }
+  ],
   "compatibility_flags": [
     "nodejs_compat"
   ]
