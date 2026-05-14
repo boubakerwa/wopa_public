@@ -12,6 +12,19 @@ WOPA is a chat-native invoicing assistant for UK tradespeople. It turns everyday
 
 [View the landing page](https://boubakerwa.github.io/wopa_public/)
 
+## Waitlist on Cloudflare
+
+The landing page posts waitlist submissions to `/api/waitlist`, implemented by the Cloudflare Worker entrypoint in `src/index.js` and the handler in `functions/api/waitlist.js`.
+
+Recommended storage is D1:
+
+```sh
+wrangler d1 create wopa-waitlist
+wrangler d1 execute wopa-waitlist --file=schema.sql
+```
+
+Bind the database to the `wopa` Worker project as `WOPA_WAITLIST_DB`. The function also supports a KV namespace bound as `WOPA_WAITLIST` if you want a simpler append-only MVP.
+
 ## Modes
 
 - **Telegram mode:** chat-native invoicing through Telegram.

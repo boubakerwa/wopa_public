@@ -87,6 +87,11 @@
 
   /* SECTIONS */
   section { padding: 96px 5vw; }
+  #waitlist {
+    padding-top: 40px !important;
+    padding-bottom: 128px !important;
+    scroll-margin-top: 80px;
+  }
 
   /* HERO */
   .hero {
@@ -168,6 +173,11 @@
     display: inline-flex; align-items: center; gap: 8px;
   }
   .btn-primary:hover { background: #40e87a; transform: translateY(-1px); }
+  .btn-primary:disabled {
+    opacity: 0.62;
+    cursor: wait;
+    transform: none;
+  }
   .btn-primary svg { width: 18px; height: 18px; }
 
   .btn-ghost {
@@ -621,7 +631,7 @@
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 20px;
-    padding: 72px 64px;
+    padding: 56px 64px 64px;
     text-align: center;
     position: relative;
     overflow: hidden;
@@ -632,6 +642,7 @@
     top: -1px; left: 15%; right: 15%; height: 2px;
     background: linear-gradient(90deg, transparent, var(--amber), transparent);
   }
+  .cta-bg-text {
     position: absolute;
     font-family: 'Barlow Condensed', sans-serif;
     font-weight: 800;
@@ -662,6 +673,80 @@
     position: relative;
   }
   .cta-actions { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; position: relative; }
+  .waitlist-form {
+    position: relative;
+    max-width: 560px;
+    margin: 0 auto;
+    display: grid;
+    gap: 16px;
+    text-align: left;
+  }
+  .waitlist-fields {
+    display: grid;
+    gap: 12px;
+  }
+  .waitlist-requirement {
+    color: var(--text-mid);
+    font-size: 13px;
+    line-height: 1.5;
+    text-align: center;
+  }
+  .waitlist-field label {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 8px;
+    color: var(--text);
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .waitlist-field label span {
+    color: var(--text-dim);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.04em;
+    text-transform: none;
+  }
+  .waitlist-field input {
+    width: 100%;
+    min-height: 50px;
+    padding: 0 14px;
+    background: #101010;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    font: inherit;
+    outline: none;
+  }
+  .waitlist-field input:focus {
+    border-color: rgba(37,211,102,0.58);
+    box-shadow: 0 0 0 3px var(--amber-glow);
+  }
+  .waitlist-help,
+  .waitlist-privacy,
+  .waitlist-status {
+    color: var(--text-dim);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .waitlist-status {
+    min-height: 18px;
+    text-align: center;
+  }
+  .waitlist-status[data-state="success"] { color: var(--green); }
+  .waitlist-status[data-state="error"] { color: #ff8f7a; }
+  .waitlist-hidden {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
   .btn-outline {
     background: transparent;
     color: var(--text);
@@ -770,7 +855,7 @@
     .timeline::before { display: none; }
     .timeline-item { flex-direction: row; align-items: center; gap: 20px; }
     .timeline-node { margin-bottom: 0; flex-shrink: 0; }
-    .cta-section { padding: 48px 32px; }
+    .cta-section { padding: 40px 24px 48px; }
     footer { flex-direction: column; gap: 16px; text-align: center; }
     .footer-links { flex-wrap: wrap; justify-content: center; }
     .nav-links { display: none; }
@@ -791,7 +876,7 @@
     <li><a href="#demo">Demo</a></li>
     <li><a href="#reminders">Reminders</a></li>
   </ul>
-  <a href="https://github.com" class="nav-cta">View on GitHub</a>
+  <a href="#waitlist" class="nav-cta">Join waitlist</a>
 </nav>
 
 <!-- HERO -->
@@ -812,10 +897,7 @@
         Just type naturally.
       </p>
       <div class="hero-actions">
-        <a href="https://github.com" class="btn-primary">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-          Get Started
-        </a>
+        <a href="#waitlist" class="btn-primary">Join waitlist</a>
         <a href="#how" class="btn-ghost">
           See how it works →
         </a>
@@ -900,6 +982,36 @@
         <p>Reminders fire automatically at 7, 14 and 28 days. Mark paid from WhatsApp. WOPA stops chasing. Done.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<hr class="section-divider"/>
+
+<!-- CTA -->
+<section id="waitlist">
+  <div class="cta-section fade-in">
+    <div class="cta-bg-text">WOPA</div>
+    <h2>Join early.<br><span>Pay less.</span></h2>
+    <p>Get early access to WOPA and founder pricing when we launch. Leave one contact method or both.</p>
+    <form class="waitlist-form" data-waitlist-form>
+      <div class="waitlist-fields" data-contact-fields>
+        <div class="waitlist-requirement">Fill either field. Add both if you want.</div>
+        <div class="waitlist-field">
+          <label for="waitlist-contact-email-whatsapp">Email address <span>optional</span></label>
+          <input id="waitlist-contact-email-whatsapp" data-email-input name="contact_email" type="email" placeholder="you@example.com" autocomplete="email">
+          <div class="waitlist-help">Use this if you prefer launch updates by email.</div>
+        </div>
+        <div class="waitlist-field">
+          <label for="waitlist-contact-messaging-whatsapp">WhatsApp / Telegram <span>optional</span></label>
+          <input id="waitlist-contact-messaging-whatsapp" data-messaging-input name="contact_messaging" type="text" placeholder="+44 7700 900123 or @yourhandle" autocomplete="tel">
+          <div class="waitlist-help">A phone number is best. A Telegram handle also works.</div>
+        </div>
+      </div>
+      <input class="waitlist-hidden" type="text" name="company" tabindex="-1" autocomplete="off">
+      <button class="btn-primary" type="submit" data-waitlist-submit>Reserve founder pricing</button>
+      <div class="waitlist-status" data-waitlist-status role="status" aria-live="polite"></div>
+      <div class="waitlist-privacy">No spam. We will only use this to contact you about WOPA early access.</div>
+    </form>
   </div>
 </section>
 
@@ -1103,21 +1215,6 @@
 
 <hr class="section-divider"/>
 
-<!-- CTA -->
-<section style="padding-top: 80px; padding-bottom: 80px;">
-  <div class="cta-section fade-in">
-    <div class="cta-bg-text">WOPA</div>
-    <h2>Stop chasing.<br><span>Start invoicing.</span></h2>
-    <p>A WhatsApp bot. Some env vars. Your invoices, sorted.</p>
-    <div class="cta-actions">
-      <a href="https://github.com" class="btn-primary">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:18px;height:18px"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        View on GitHub
-      </a>
-      <a href="#how" class="btn-outline">Read the Docs</a>
-    </div>
-  </div>
-</section>
 
 <!-- FOOTER -->
 <footer>
@@ -1132,7 +1229,7 @@
 </footer>
 
 <div class="privacy-note">
-  WOPA uses PostHog analytics to understand visits and clicks. No account, invoice, or payment details are collected on this landing page. See the <a href="privacy.html">privacy notice</a>.
+  WOPA uses PostHog analytics and collects waitlist contact details only if you submit them. No account, invoice, or payment details are collected on this landing page. See the <a href="privacy.html">privacy notice</a>.
 </div>
 
 <div class="mode-switch" aria-label="Switch WOPA mode">
@@ -1152,5 +1249,6 @@
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 <script src="analytics.js"></script>
+<script src="waitlist.js"></script>
 </body>
 </html>
