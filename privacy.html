@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>WOPA — Privacy Notice</title>
+<meta name="description" content="Privacy and cookie notice for the WOPA landing page."/>
+<link rel="canonical" href="https://mywopa.com/privacy.html"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0c0c0c;
+    --surface: #161616;
+    --border: #2a2a2a;
+    --amber: #f0a500;
+    --text: #ede9e0;
+    --text-mid: #a09a90;
+    --text-dim: #5a5450;
+    --radius: 6px;
+  }
+  body {
+    min-height: 100vh;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Barlow', sans-serif;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding: 0 5vw;
+    border-bottom: 1px solid var(--border);
+  }
+  .logo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    color: var(--text);
+    text-decoration: none;
+  }
+  .logo span { color: var(--amber); }
+  .back {
+    color: var(--text-mid);
+    font-size: 14px;
+    text-decoration: none;
+  }
+  .back:hover { color: var(--text); }
+  main {
+    width: min(760px, 90vw);
+    margin: 0 auto;
+    padding: 80px 0 96px;
+  }
+  .eyebrow {
+    color: var(--amber);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+  }
+  h1, h2 {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+  }
+  h1 {
+    font-size: clamp(46px, 7vw, 72px);
+    margin-bottom: 24px;
+  }
+  h2 {
+    font-size: 28px;
+    margin: 40px 0 12px;
+  }
+  p, li { color: var(--text-mid); font-size: 17px; }
+  ul { padding-left: 22px; }
+  li + li { margin-top: 8px; }
+  a { color: var(--amber); }
+  .panel {
+    margin-top: 32px;
+    padding: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+  }
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 28px 5vw;
+    color: var(--text-dim);
+    font-size: 13px;
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<nav>
+  <a class="logo" href="/">WO<span>P</span>A</a>
+  <a class="back" href="/">Back to site</a>
+</nav>
+
+<main>
+  <div class="eyebrow">Privacy and cookies</div>
+  <h1>Privacy notice</h1>
+  <p>WOPA is currently a landing page and proof of concept. The public site does not collect account, invoice, payment, bank, or customer details.</p>
+
+  <section class="panel">
+    <h2>Analytics</h2>
+    <p>We use PostHog analytics to understand how visitors use the landing page. This can include page views, clicks, scroll depth, browser metadata, referrer, and approximate location derived from network information.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Cookies and similar storage</h2>
+    <p>PostHog may use cookies or similar browser storage to distinguish visits and measure usage. These analytics help us improve the page and understand interest in WOPA.</p>
+  </section>
+
+  <section class="panel">
+    <h2>What we do not collect here</h2>
+    <ul>
+      <li>No invoice contents.</li>
+      <li>No payment details.</li>
+      <li>No bank details.</li>
+      <li>No Telegram or WhatsApp message contents.</li>
+      <li>No customer records.</li>
+    </ul>
+  </section>
+
+  <section class="panel">
+    <h2>Contact</h2>
+    <p>For privacy questions or removal requests, contact the WOPA project owner through the linked GitHub profile or repository.</p>
+  </section>
+</main>
+
+<footer>WOPA privacy notice. Last updated May 14, 2026.</footer>
+</body>
+</html>

@@ -4,6 +4,8 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>WOPA — Invoice from WhatsApp</title>
+<meta name="description" content="WOPA is a chat-native invoicing assistant for UK tradespeople, turning WhatsApp messages into invoices, reminders, and paid-status tracking."/>
+<link rel="canonical" href="https://mywopa.com/wopa-landing-2.html"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
@@ -692,6 +694,15 @@
   .footer-links { display: flex; gap: 24px; }
   .footer-links a { font-size: 13px; color: var(--text-dim); text-decoration: none; }
   .footer-links a:hover { color: var(--text-mid); }
+  .privacy-note {
+    border-top: 1px solid var(--border);
+    padding: 16px 5vw 88px;
+    color: var(--text-dim);
+    font-size: 12px;
+    text-align: center;
+  }
+  .privacy-note a { color: var(--text-mid); }
+  .privacy-note a:hover { color: var(--text); }
 
   /* MODE SWITCH */
   .mode-switch {
@@ -759,6 +770,7 @@
     .timeline-node { margin-bottom: 0; flex-shrink: 0; }
     .cta-section { padding: 48px 32px; }
     footer { flex-direction: column; gap: 16px; text-align: center; }
+    .footer-links { flex-wrap: wrap; justify-content: center; }
     .nav-links { display: none; }
     .mode-switch { bottom: 12px; }
     .mode-switch a,
@@ -1113,8 +1125,13 @@
     <a href="https://github.com">GitHub</a>
     <a href="#">Docs</a>
     <a href="#">WhatsApp</a>
+    <a href="privacy.html">Privacy</a>
   </div>
 </footer>
+
+<div class="privacy-note">
+  WOPA uses PostHog analytics to understand visits and clicks. No account, invoice, or payment details are collected on this landing page. See the <a href="privacy.html">privacy notice</a>.
+</div>
 
 <div class="mode-switch" aria-label="Switch WOPA mode">
   <a href="index.html">Telegram</a>
