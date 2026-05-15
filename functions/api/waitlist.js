@@ -117,7 +117,14 @@ async function sendConfirmationEmail(env, submission) {
   const email = getEmailContact(submission);
   if (!email) return { sent: false, reason: 'no_email' };
   if (!env.RESEND_API_KEY || !env.RESEND_EMAIL_FROM) {
-    return { sent: false, reason: 'resend_not_configured' };
+    return {
+      sent: false,
+      reason: 'resend_not_configured',
+      missing: [
+        !env.RESEND_API_KEY ? 'RESEND_API_KEY' : '',
+        !env.RESEND_EMAIL_FROM ? 'RESEND_EMAIL_FROM' : ''
+      ].filter(Boolean)
+    };
   }
 
   const payload = confirmationEmail(email, submission);
