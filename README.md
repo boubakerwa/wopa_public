@@ -25,6 +25,17 @@ wrangler d1 execute wopa-waitlist --file=schema.sql
 
 Bind the database to the `wopa` Worker project as `WOPA_WAITLIST_DB`. The function also supports a KV namespace bound as `WOPA_WAITLIST` if you want a simpler append-only MVP.
 
+### Confirmation email with Resend
+
+If the waitlist submission includes an email address, the Worker sends a confirmation email through Resend after the D1 write succeeds. The D1 write is still the source of truth; email failures are logged and do not reject the waitlist submission.
+
+Set these Worker values in Cloudflare:
+
+- `RESEND_API_KEY` as a secret
+- `RESEND_EMAIL_FROM` as a variable, for example `WOPA <hello@mywopa.com>`
+
+For local development, the same names can live in `.env` or `.dev.vars`, but production deploys only see values configured in Cloudflare.
+
 ## Modes
 
 - **Telegram mode:** chat-native invoicing through Telegram.

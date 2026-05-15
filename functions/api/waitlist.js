@@ -79,7 +79,68 @@ async function storeInKV(env, submission) {
   return true;
 }
 
-export async function onRequestPost({ request, env }) {
+function getEmailContact(submission) {
+  const item = submission.contacts.find((contact) => contact.channel === 'email');
+  return item ? item.contact : '';
+}
+
+function confirmationEmail(email, submission) {
+  const subject = "You're on the WOPA waitlist";
+  const text = [
+    "You're on the WOPA waitlist.",
+    '',
+    'Founder pricing is reserved for you. We will contact you when early access opens.',
+    '',
+    `Reference: ${submission.id}`,
+    '',
+    'WOPA'
+  ].join('\n');
+  const html = `
+    <div style="font-family:Arial,sans-serif;line-height:1.55;color:#171717;max-width:560px">
+      <h1 style="font-size:24px;line-height:1.15;margin:0 0 16px">You're on the WOPA waitlist.</h1>
+      <p style="margin:0 0 14px">Founder pricing is reserved for you. We will contact you when early access opens.</p>
+      <p style="margin:0 0 20px;color:#666">Reference: ${submission.id}</p>
+      <p style="margin:0;font-weight:700">WOPA</p>
+    </div>
+  `;
+
+  return {
+    from: '',
+    to: [email],
+    subject,
+    text,
+    html
+  };
+}
+
+async function sendConfirmationEmail(env, submission) {
+  const email = getEmailContact(submission);
+  if (!email) return { sent: false, reason: 'no_email' };
+  if (!env.RESEND_API_KEY || !env.RESEND_EMAIL_FROM) {
+    return { sent: false, reason: 'resend_not_configured' };
+  }
+
+  const payload = confirmationEmail(email, submission);
+  payload.from = env.RESEND_EMAIL_FROM;
+
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${env.RESEND_API_KEY}`,
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(payload)
+  });
+
+  if (!response.ok) {
+    const message = await response.text().catch(() => '');
+    throw new Error(`Resend failed with ${response.status}: ${message.slice(0, 240)}`);
+  }
+
+  return { sent: true };
+}
+
+export async function onRequestPost({ request, env, ctx }) {
   let body;
 
   try {
@@ -133,7 +194,21 @@ export async function onRequestPost({ request, env }) {
     return json({ error: 'Could not save the waitlist entry.' }, 500);
   }
 
-  return json({ ok: true, id: submission.id }, 201);
+  const emailTask = sendConfirmationEmail(env, submission).catch((error) => {
+    console.error('waitlist_confirmation_email_failed', error);
+  });
+
+  if (typeof ctx !== 'undefined' && ctx && typeof ctx.waitUntil === 'function') {
+    ctx.waitUntil(emailTask);
+  } else {
+    await emailTask;
+  }
+
+  return json({
+    ok: true,
+    id: submission.id,
+    confirmation_email: Boolean(getEmailContact(submission) && env.RESEND_API_KEY && env.RESEND_EMAIL_FROM)
+  }, 201);
 }
 
 export function onRequestOptions() {
