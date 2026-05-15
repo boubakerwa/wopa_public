@@ -137,7 +137,12 @@ async function sendConfirmationEmail(env, submission) {
     throw new Error(`Resend failed with ${response.status}: ${message.slice(0, 240)}`);
   }
 
-  return { sent: true };
+  const result = await response.json().catch(() => ({}));
+  return {
+    sent: true,
+    provider: 'resend',
+    provider_id: result.id || ''
+  };
 }
 
 export async function onRequestPost({ request, env, ctx }) {
@@ -194,20 +199,22 @@ export async function onRequestPost({ request, env, ctx }) {
     return json({ error: 'Could not save the waitlist entry.' }, 500);
   }
 
-  const emailTask = sendConfirmationEmail(env, submission).catch((error) => {
-    console.error('waitlist_confirmation_email_failed', error);
-  });
-
-  if (typeof ctx !== 'undefined' && ctx && typeof ctx.waitUntil === 'function') {
-    ctx.waitUntil(emailTask);
-  } else {
-    await emailTask;
+  let confirmationEmail = { sent: false, reason: 'not_attempted' };
+  try {
+    confirmationEmail = await sendConfirmationEmail(env, submission);
+  } catch (error) {
+    confirmationEmail = {
+      sent: false,
+      provider: 'resend',
+      error: error instanceof Error ? error.message : 'Unknown Resend error'
+    };
+    console.error('waitlist_confirmation_email_failed', confirmationEmail.error);
   }
 
   return json({
     ok: true,
     id: submission.id,
-    confirmation_email: Boolean(getEmailContact(submission) && env.RESEND_API_KEY && env.RESEND_EMAIL_FROM)
+    confirmation_email: confirmationEmail
   }, 201);
 }
 
