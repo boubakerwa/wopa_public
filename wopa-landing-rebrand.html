@@ -172,20 +172,40 @@ nav {
   align-items: center;
   gap: 18px;
   margin-bottom: 28px;
-  padding: 14px 18px;
+  padding: 12px 18px 12px 12px;
   background: rgba(255,255,255,0.52);
   border: 1px solid var(--hair);
   border-radius: 22px;
   box-shadow: 0 2px 12px rgba(20,32,27,0.04);
 }
-.hero-logo-lockup .nav-logo {
-  font-size: clamp(52px, 7vw, 76px);
+.hero-owl-logo {
+  width: clamp(72px, 8vw, 104px);
+  height: clamp(72px, 8vw, 104px);
+  border-radius: 50%;
+  background: var(--green);
+  display: grid;
+  place-items: center;
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.18);
+  flex-shrink: 0;
+}
+.hero-owl-logo svg {
+  width: 82%;
+  height: 82%;
+  display: block;
 }
 .hero-logo-lockup p {
-  max-width: 190px;
+  max-width: 220px;
   font: 600 14px/1.25 var(--sans);
   color: var(--ink-2);
   letter-spacing: -0.005em;
+}
+.hero-logo-lockup p strong {
+  display: block;
+  color: var(--ink);
+  font-size: 18px;
+  line-height: 1;
+  margin-bottom: 5px;
+  letter-spacing: -0.015em;
 }
 .hero-meta-strip {
   display: inline-flex; align-items: center; gap: 14px;
@@ -1033,6 +1053,7 @@ footer {
   .nav-links { display: none; }
   .hero { grid-template-columns: 1fr; gap: 48px; padding-top: 64px; }
   .hero-logo-lockup { align-items: flex-start; }
+  .hero-owl-logo { width: 78px; height: 78px; }
   .qr-cta { grid-template-columns: 96px minmax(0, 1fr); max-width: none; }
   .qr-cta img { width: 96px; height: 96px; }
   .phone-badge { display: none; }
@@ -1169,10 +1190,10 @@ footer {
       <!-- LEFT -->
       <div>
         <div class="hero-logo-lockup" aria-label="WOPA">
-          <a href="#" class="nav-logo" aria-label="WOPA home">
-            <span class="glyph">W</span><span class="o"></span><span class="glyph">P</span><span class="glyph">A</span>
-          </a>
-          <p>WhatsApp invoicing for UK tradespeople.</p>
+          <div class="hero-owl-logo" aria-hidden="true">
+            <svg viewBox="0 0 400 400"><use href="#owl-icon"/></svg>
+          </div>
+          <p><strong>WOPA</strong>WhatsApp invoicing for UK tradespeople.</p>
         </div>
         <div class="hero-meta-strip">
           <span class="pulse"></span>
@@ -1194,8 +1215,8 @@ footer {
         <a class="qr-cta" href="https://youtu.be/dQw4w9WgXcQ?is=0gUquPAd9bMgyA4_" target="_blank" rel="noopener">
           <img src="/wopa-bot-qr.png" alt="QR code for the WOPA bot"/>
           <span>
-            <strong>Scan to open the bot</strong>
-            <span>For now this opens the placeholder bot preview.</span>
+            <strong>Scan or click to open the bot</strong>
+            <span>This card and QR code both point to the temporary bot link.</span>
           </span>
         </a>
         <div class="hero-proof">
