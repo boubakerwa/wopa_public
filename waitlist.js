@@ -22,33 +22,39 @@
   }
 
   function validMessaging(value) {
-    return /^(@?[a-zA-Z0-9_]{5,}|(\+?[0-9][0-9\s().-]{6,}))$/.test(value);
+    return /^\+?[0-9][0-9\s().-]{6,}$/.test(value);
   }
 
-  function getContacts(form) {
+  function getContactDetails(form) {
     const email = (form.querySelector('[data-email-input]') || {}).value || '';
     const messaging = (form.querySelector('[data-messaging-input]') || {}).value || '';
     const trimmedEmail = email.trim();
     const trimmedMessaging = messaging.trim();
-    const contacts = [];
 
     if (!trimmedEmail && !trimmedMessaging) {
-      return { error: 'Add an email or WhatsApp / Telegram contact.', contacts: [] };
+      return { error: 'Add an email or WhatsApp contact.', email: '', messaging: '' };
     }
 
     if (trimmedEmail) {
-      if (!validEmail(trimmedEmail)) return { error: 'Enter a valid email address.', contacts: [] };
-      contacts.push({ channel: 'email', contact: trimmedEmail });
+      if (!validEmail(trimmedEmail)) {
+        return { error: 'Enter a valid email address.', email: '', messaging: '' };
+      }
     }
 
     if (trimmedMessaging) {
       if (!validMessaging(trimmedMessaging)) {
-        return { error: 'Enter a valid WhatsApp / Telegram number or handle.', contacts: [] };
+        return { error: 'Enter a valid WhatsApp number.', email: '', messaging: '' };
       }
-      contacts.push({ channel: 'messaging', contact: trimmedMessaging });
     }
 
-    return { error: '', contacts };
+    return { error: '', email: trimmedEmail, messaging: trimmedMessaging };
+  }
+
+  function getChannels(contactDetails) {
+    return [
+      contactDetails.email ? 'email' : '',
+      contactDetails.messaging ? 'messaging' : ''
+    ].filter(Boolean);
   }
 
   forms.forEach((form) => {
@@ -58,7 +64,7 @@
       event.preventDefault();
 
       const trap = form.querySelector('input[name="company"]');
-      const result = getContacts(form);
+      const result = getContactDetails(form);
       if (result.error) {
         setStatus(form, result.error, 'error');
         capture('wopa_waitlist_validation_failed', { reason: result.error });
@@ -73,7 +79,8 @@
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
-            contacts: result.contacts,
+            email: result.email,
+            messaging_contact: result.messaging,
             company: trap ? trap.value : '',
             mode: document.body.dataset.wopaMode || 'unknown',
             page_path: window.location.pathname,
@@ -89,13 +96,13 @@
         form.reset();
         setStatus(form, 'You are on the list. Founder pricing reserved.', 'success');
         capture('wopa_waitlist_joined', {
-          channels: result.contacts.map((item) => item.channel),
+          channels: getChannels(result),
           waitlist_id: data.id || ''
         });
       } catch (error) {
         setStatus(form, error.message || 'Something went wrong. Try again.', 'error');
         capture('wopa_waitlist_submit_failed', {
-          channels: result.contacts.map((item) => item.channel)
+          channels: getChannels(result)
         });
       } finally {
         if (submit) submit.disabled = false;
