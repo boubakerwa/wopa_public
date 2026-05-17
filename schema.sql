@@ -3,6 +3,8 @@ CREATE TABLE IF NOT EXISTS waitlist_submissions (
   group_id TEXT,
   channel TEXT NOT NULL CHECK (channel IN ('whatsapp', 'telegram', 'email', 'messaging')),
   contact TEXT NOT NULL,
+  email TEXT,
+  messaging_contact TEXT,
   mode TEXT NOT NULL DEFAULT 'unknown',
   page_path TEXT,
   incentive TEXT NOT NULL DEFAULT 'founder_pricing',

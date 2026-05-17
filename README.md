@@ -23,6 +23,19 @@ wrangler d1 create wopa-waitlist
 wrangler d1 execute wopa-waitlist --file=schema.sql
 ```
 
+For an existing database created before separate email and messaging columns were added, run this from your local terminal:
+
+```sh
+wrangler d1 execute wopa-waitlist --file=migrations/0001_add_waitlist_contact_columns.sql
+```
+
+Or run this SQL directly in the Cloudflare D1 console:
+
+```sql
+ALTER TABLE waitlist_submissions ADD COLUMN email TEXT;
+ALTER TABLE waitlist_submissions ADD COLUMN messaging_contact TEXT;
+```
+
 Bind the database to the `wopa` Worker project as `WOPA_WAITLIST_DB`. The function also supports a KV namespace bound as `WOPA_WAITLIST` if you want a simpler append-only MVP.
 
 ### Confirmation email with Resend

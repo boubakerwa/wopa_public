@@ -38,30 +38,51 @@ async function storeInD1(env, submission) {
   const db = env.WOPA_WAITLIST_DB || env.DB;
   if (!db || typeof db.prepare !== 'function') return false;
 
-  const statements = submission.contacts.map((item) => db.prepare(`
+  try {
+    await db.prepare(`
       INSERT INTO waitlist_submissions (
-        id, group_id, channel, contact, mode, page_path, incentive, user_agent, country, created_at
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        id, group_id, channel, contact, email, messaging_contact, mode, page_path, incentive, user_agent, country, created_at
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `).bind(
-      item.id,
       submission.id,
-      item.channel,
-      item.contact,
+      null,
+      submission.channel,
+      submission.contact,
+      submission.email,
+      submission.messagingContact,
       submission.mode,
       submission.pagePath,
       submission.incentive,
       submission.userAgent,
       submission.country,
       submission.createdAt
-    ));
-
-  if (typeof db.batch === 'function') {
-    await db.batch(statements);
-  } else {
-    for (const statement of statements) await statement.run();
+    ).run();
+  } catch (error) {
+    if (!isMissingColumnError(error)) throw error;
+    await db.prepare(`
+      INSERT INTO waitlist_submissions (
+        id, group_id, channel, contact, mode, page_path, incentive, user_agent, country, created_at
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+    `).bind(
+      submission.id,
+      null,
+      submission.channel,
+      getLegacyContact(submission),
+      submission.mode,
+      submission.pagePath,
+      submission.incentive,
+      submission.userAgent,
+      submission.country,
+      submission.createdAt
+    ).run();
   }
 
   return true;
+}
+
+function isMissingColumnError(error) {
+  const message = error instanceof Error ? error.message : String(error || '');
+  return /no column named|has no column named|table .* has no column/i.test(message);
 }
 
 async function storeInKV(env, submission) {
@@ -70,7 +91,7 @@ async function storeInKV(env, submission) {
 
   await kv.put(`waitlist:${submission.createdAt}:${submission.id}`, JSON.stringify(submission), {
     metadata: {
-      channels: submission.contacts.map((item) => item.channel).join(','),
+      channels: getSubmissionChannels(submission).join(','),
       mode: submission.mode,
       incentive: submission.incentive
     }
@@ -80,8 +101,21 @@ async function storeInKV(env, submission) {
 }
 
 function getEmailContact(submission) {
-  const item = submission.contacts.find((contact) => contact.channel === 'email');
-  return item ? item.contact : '';
+  return submission.email || '';
+}
+
+function getSubmissionChannels(submission) {
+  return [
+    submission.email ? 'email' : '',
+    submission.messagingContact ? 'messaging' : ''
+  ].filter(Boolean);
+}
+
+function getLegacyContact(submission) {
+  if (submission.email && submission.messagingContact) {
+    return `${submission.email} | ${submission.messagingContact}`;
+  }
+  return submission.contact;
 }
 
 function confirmationEmail(email, submission) {
@@ -165,28 +199,15 @@ export async function onRequestPost({ request, env, ctx }) {
     return json({ ok: true, id: 'accepted' });
   }
 
-  const rawContacts = Array.isArray(body.contacts)
-    ? body.contacts
-    : [{ channel: body.channel, contact: body.contact }];
-
-  const contacts = [];
-  for (const raw of rawContacts) {
-    const channel = String(raw && raw.channel || '').toLowerCase();
-    const contact = normalizeContact(channel, raw && raw.contact);
-    const validationError = validate(channel, contact);
-    if (validationError) return json({ error: validationError }, 400);
-    contacts.push({
-      id: crypto.randomUUID(),
-      channel,
-      contact
-    });
-  }
-
-  if (!contacts.length) return json({ error: 'Choose at least one contact channel.' }, 400);
+  const contactDetails = parseContactDetails(body);
+  if (contactDetails.error) return json({ error: contactDetails.error }, 400);
 
   const submission = {
     id: crypto.randomUUID(),
-    contacts,
+    email: contactDetails.email,
+    messagingContact: contactDetails.messagingContact,
+    channel: contactDetails.channel,
+    contact: contactDetails.contact,
     mode: String(body.mode || 'unknown').slice(0, 40),
     pagePath: String(body.page_path || '').slice(0, 160),
     incentive: String(body.incentive || 'founder_pricing').slice(0, 80),
@@ -227,4 +248,52 @@ export async function onRequestPost({ request, env, ctx }) {
 
 export function onRequestOptions() {
   return json({ ok: true });
+}
+
+function parseContactDetails(body) {
+  const rawEmail = body.email || body.contact_email || '';
+  const rawMessaging = body.messaging_contact || body.contact_messaging || '';
+  let email = normalizeContact('email', rawEmail);
+  let messagingContact = normalizeContact('messaging', rawMessaging);
+
+  if (!email && !messagingContact && Array.isArray(body.contacts)) {
+    for (const raw of body.contacts) {
+      const channel = String(raw && raw.channel || '').toLowerCase();
+      const contact = normalizeContact(channel, raw && raw.contact);
+      if (channel === 'email' && contact && !email) email = contact;
+      if ((channel === 'whatsapp' || channel === 'telegram' || channel === 'messaging') && contact && !messagingContact) {
+        messagingContact = contact;
+      }
+    }
+  }
+
+  if (!email && !messagingContact && body.channel && body.contact) {
+    const channel = String(body.channel || '').toLowerCase();
+    const contact = normalizeContact(channel, body.contact);
+    if (channel === 'email') email = contact;
+    if (channel === 'whatsapp' || channel === 'telegram' || channel === 'messaging') {
+      messagingContact = contact;
+    }
+  }
+
+  if (!email && !messagingContact) {
+    return { error: 'Choose at least one contact channel.' };
+  }
+
+  if (email) {
+    const validationError = validate('email', email);
+    if (validationError) return { error: validationError };
+  }
+
+  if (messagingContact) {
+    const validationError = validate('messaging', messagingContact);
+    if (validationError) return { error: validationError };
+  }
+
+  return {
+    email,
+    messagingContact,
+    channel: email && messagingContact ? 'messaging' : (email ? 'email' : 'messaging'),
+    contact: messagingContact || email
+  };
 }
