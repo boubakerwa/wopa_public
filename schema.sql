@@ -8,6 +8,8 @@ CREATE TABLE IF NOT EXISTS waitlist_submissions (
   mode TEXT NOT NULL DEFAULT 'unknown',
   page_path TEXT,
   incentive TEXT NOT NULL DEFAULT 'founder_pricing',
+  marketing_opt_in INTEGER NOT NULL DEFAULT 0,
+  consent_version TEXT,
   user_agent TEXT,
   country TEXT,
   created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP

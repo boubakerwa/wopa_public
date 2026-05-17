@@ -6,7 +6,7 @@
   <img alt="Built for Trades" src="https://img.shields.io/badge/Built%20for-UK%20Tradespeople-222?style=for-the-badge&labelColor=111&color=444">
 </p>
 
-WOPA is a chat-native invoicing assistant for UK tradespeople. It turns everyday Telegram or WhatsApp messages into professional invoices, payment reminders, and paid-status tracking.
+WOPA is a chat-native invoicing assistant for UK tradespeople. It turns everyday Telegram or WhatsApp messages into professional invoice drafts, PDF email delivery, payment reminders, and paid-status tracking.
 
 ## Live Demo
 
@@ -23,10 +23,11 @@ wrangler d1 create wopa-waitlist
 wrangler d1 execute wopa-waitlist --file=schema.sql
 ```
 
-For an existing database created before separate email and messaging columns were added, run this from your local terminal:
+For an existing database created before separate email, messaging, and consent columns were added, run this from your local terminal:
 
 ```sh
 wrangler d1 execute wopa-waitlist --file=migrations/0001_add_waitlist_contact_columns.sql
+wrangler d1 execute wopa-waitlist --file=migrations/0002_add_waitlist_consent_columns.sql
 ```
 
 Or run this SQL directly in the Cloudflare D1 console:
@@ -34,6 +35,8 @@ Or run this SQL directly in the Cloudflare D1 console:
 ```sql
 ALTER TABLE waitlist_submissions ADD COLUMN email TEXT;
 ALTER TABLE waitlist_submissions ADD COLUMN messaging_contact TEXT;
+ALTER TABLE waitlist_submissions ADD COLUMN marketing_opt_in INTEGER NOT NULL DEFAULT 0;
+ALTER TABLE waitlist_submissions ADD COLUMN consent_version TEXT;
 ```
 
 Bind the database to the `wopa` Worker project as `WOPA_WAITLIST_DB`. The function also supports a KV namespace bound as `WOPA_WAITLIST` if you want a simpler append-only MVP.

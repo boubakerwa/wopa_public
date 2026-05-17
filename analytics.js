@@ -1,8 +1,18 @@
 (function () {
+  const CONSENT_KEY = 'wopa_cookie_consent';
   const POSTHOG_API_KEY = 'phc_qH8QkgpsTkRxK4mwizSW3tBKsbrxhRTxwUyVoZynE8jk';
   const POSTHOG_HOST = 'https://eu.i.posthog.com';
 
   const mode = document.body.dataset.wopaMode || 'unknown';
+  let started = false;
+
+  function hasAnalyticsConsent() {
+    try {
+      return localStorage.getItem(CONSENT_KEY) === 'accepted';
+    } catch (error) {
+      return false;
+    }
+  }
 
   function loadPostHog(projectKey, options) {
     (function (t, e) {
@@ -172,18 +182,26 @@
     checkDepth();
   }
 
-  loadPostHog(POSTHOG_API_KEY, {
-    api_host: POSTHOG_HOST,
-    defaults: '2026-01-30',
-    capture_pageview: true
-  });
+  function startAnalytics() {
+    if (started || !hasAnalyticsConsent()) return;
+    started = true;
 
-  capture('wopa_page_viewed', {
-    viewport_width: window.innerWidth,
-    viewport_height: window.innerHeight
-  });
+    loadPostHog(POSTHOG_API_KEY, {
+      api_host: POSTHOG_HOST,
+      defaults: '2026-01-30',
+      capture_pageview: true
+    });
 
-  trackLinks();
-  trackSectionViews();
-  trackScrollDepth();
+    capture('wopa_page_viewed', {
+      viewport_width: window.innerWidth,
+      viewport_height: window.innerHeight
+    });
+
+    trackLinks();
+    trackSectionViews();
+    trackScrollDepth();
+  }
+
+  window.wopaStartAnalytics = startAnalytics;
+  startAnalytics();
 })();

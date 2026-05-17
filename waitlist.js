@@ -26,8 +26,8 @@
   }
 
   function getContactDetails(form) {
-    const email = (form.querySelector('[data-email-input]') || {}).value || '';
-    const messaging = (form.querySelector('[data-messaging-input]') || {}).value || '';
+    const email = (form.querySelector('[data-email-input]') || form.querySelector('[name="contact_email"]') || {}).value || '';
+    const messaging = (form.querySelector('[data-messaging-input]') || form.querySelector('[name="contact_messaging"]') || {}).value || '';
     const trimmedEmail = email.trim();
     const trimmedMessaging = messaging.trim();
 
@@ -64,6 +64,7 @@
       event.preventDefault();
 
       const trap = form.querySelector('input[name="company"]');
+      const marketingOptIn = form.querySelector('[name="marketing_opt_in"]')?.checked === true;
       const result = getContactDetails(form);
       if (result.error) {
         setStatus(form, result.error, 'error');
@@ -82,6 +83,8 @@
             email: result.email,
             messaging_contact: result.messaging,
             company: trap ? trap.value : '',
+            marketing_opt_in: marketingOptIn,
+            consent_version: 'landing-2026-05-17',
             mode: document.body.dataset.wopaMode || 'unknown',
             page_path: window.location.pathname,
             incentive: 'founder_pricing'
@@ -94,7 +97,7 @@
         }
 
         form.reset();
-        setStatus(form, 'You are on the list. Founder pricing reserved.', 'success');
+        setStatus(form, 'You are on the waitlist. Founder pricing reserved.', 'success');
         capture('wopa_waitlist_joined', {
           channels: getChannels(result),
           waitlist_id: data.id || ''

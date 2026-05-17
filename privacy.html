@@ -10,121 +10,225 @@
 <link rel="apple-touch-icon" href="/wopa-whatsapp-bot-profile.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-  :root {
-    --bg: #0c0c0c;
-    --surface: #161616;
-    --border: #2a2a2a;
-    --amber: #f0a500;
-    --text: #ede9e0;
-    --text-mid: #a09a90;
-    --text-dim: #5a5450;
-    --radius: 6px;
-  }
-  body {
-    min-height: 100vh;
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Barlow', sans-serif;
-    line-height: 1.65;
-    -webkit-font-smoothing: antialiased;
-  }
-  nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    height: 60px;
-    padding: 0 5vw;
-    border-bottom: 1px solid var(--border);
-  }
-  .logo {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-size: 22px;
-    font-weight: 800;
-    letter-spacing: 0.05em;
-    color: var(--text);
-    text-decoration: none;
-  }
-  .logo span { color: var(--amber); }
-  .back {
-    color: var(--text-mid);
-    font-size: 14px;
-    text-decoration: none;
-  }
-  .back:hover { color: var(--text); }
-  main {
-    width: min(760px, 90vw);
-    margin: 0 auto;
-    padding: 80px 0 96px;
-  }
-  .eyebrow {
-    color: var(--amber);
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.06em;
-    text-transform: uppercase;
-    margin-bottom: 18px;
-  }
-  h1, h2 {
-    font-family: 'Barlow Condensed', sans-serif;
-    font-weight: 800;
-    line-height: 1;
-    text-transform: uppercase;
-  }
-  h1 {
-    font-size: clamp(46px, 7vw, 72px);
-    margin-bottom: 24px;
-  }
-  h2 {
-    font-size: 28px;
-    margin: 40px 0 12px;
-  }
-  p, li { color: var(--text-mid); font-size: 17px; }
-  ul { padding-left: 22px; }
-  li + li { margin-top: 8px; }
-  a { color: var(--amber); }
-  .panel {
-    margin-top: 32px;
-    padding: 24px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-  }
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 28px 5vw;
-    color: var(--text-dim);
-    font-size: 13px;
-    text-align: center;
-  }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --green:       #0B6B4D;
+  --green-deep:  #074A36;
+  --green-tint:  #DFEEE7;
+  --green-paper: #F0F6F2;
+  --paper:       #FBF8F2;
+  --paper-2:     #F4EFE3;
+  --ink:         #14201B;
+  --ink-2:       #3E4C46;
+  --ink-3:       #6B7873;
+  --ink-4:       #9AA5A0;
+  --hair:        rgba(20,32,27,0.10);
+  --hair-strong: rgba(20,32,27,0.18);
+  --sans:        'Bricolage Grotesque', system-ui, sans-serif;
+  --serif:       'Instrument Serif', Georgia, serif;
+  --mono:        'JetBrains Mono', ui-monospace, monospace;
+}
+body {
+  min-height: 100vh;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01", "ss02";
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(20,32,27,0.055) 1px, transparent 0);
+  background-size: 20px 20px;
+  pointer-events: none;
+  z-index: 0;
+}
+body > * { position: relative; z-index: 1; }
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  height: 64px;
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(251,248,242,0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--hair);
+}
+.nav-logo {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0;
+  font: 800 28px/1 var(--sans);
+  letter-spacing: -0.06em;
+  color: var(--ink);
+  text-decoration: none;
+}
+.nav-logo .o {
+  display: inline-block;
+  position: relative;
+  width: 0.78em;
+  height: 0.78em;
+  border-radius: 50%;
+  background: var(--ink);
+  margin: 0 0.005em;
+  vertical-align: -0.04em;
+}
+.nav-logo .o::after {
+  content: "";
+  position: absolute;
+  width: 0.32em;
+  height: 0.32em;
+  background: var(--paper);
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.back {
+  color: var(--ink-3);
+  font: 500 14px/1 var(--sans);
+  text-decoration: none;
+}
+.back:hover { color: var(--ink); }
+main {
+  width: min(980px, calc(100vw - 48px));
+  margin: 0 auto;
+  padding: 84px 0 96px;
+}
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font: 600 11px/1 var(--sans);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green);
+  margin-bottom: 18px;
+}
+.eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 1.5px;
+  background: var(--green);
+}
+h1 {
+  max-width: 760px;
+  font: 800 clamp(48px, 7vw, 86px)/0.96 var(--sans);
+  letter-spacing: -0.045em;
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+h2 {
+  font: 800 24px/1.05 var(--sans);
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+p, li {
+  color: var(--ink-3);
+  font-size: 16px;
+}
+main > p {
+  max-width: 720px;
+  color: var(--ink-2);
+  font-size: 18px;
+}
+ul {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+li + li { margin-top: 0; }
+a { color: var(--green); text-decoration: none; }
+a:hover { color: var(--green-deep); }
+.panel {
+  margin-top: 18px;
+  padding: 26px;
+  background: #fff;
+  border: 1px solid var(--hair);
+  border-radius: 18px;
+  box-shadow: 0 3px 18px rgba(20,32,27,0.04);
+}
+.panel:nth-of-type(1) { margin-top: 44px; }
+.panel p + p { margin-top: 12px; }
+footer {
+  border-top: 1px solid var(--hair);
+  padding: 32px 40px;
+  color: var(--ink-4);
+  font: 400 13px/1.4 var(--sans);
+  text-align: center;
+}
+@media (max-width: 720px) {
+  nav { padding: 0 24px; }
+  main { width: min(100vw - 32px, 980px); padding-top: 56px; }
+  .panel { padding: 22px; border-radius: 14px; }
+}
 </style>
 </head>
 <body>
 <nav>
-  <a class="logo" href="/">WO<span>P</span>A</a>
+  <a class="nav-logo" href="/" aria-label="WOPA home">
+    <span class="glyph">W</span><span class="o"></span><span class="glyph">P</span><span class="glyph">A</span>
+  </a>
   <a class="back" href="/">Back to site</a>
 </nav>
 
 <main>
   <div class="eyebrow">Privacy and cookies</div>
   <h1>Privacy notice</h1>
-  <p>WOPA is currently a landing page and proof of concept. The public site collects waitlist contact details only when you choose to submit them.</p>
+  <p>WOPA is currently a landing page and early access project. This notice explains what the public site collects when you browse the page or join the waitlist.</p>
 
   <section class="panel">
-    <h2>Analytics</h2>
-    <p>We use PostHog analytics to understand how visitors use the landing page. This can include page views, clicks, scroll depth, browser metadata, referrer, and approximate location derived from network information.</p>
+    <h2>Who is responsible</h2>
+    <p>The WOPA project owner is responsible for the landing page data collected here. If WOPA starts operating through a UK limited company, the registered company details will be added to this site before public trading.</p>
+    <p>For privacy questions, correction requests, or deletion requests, contact the WOPA project owner through the project repository or the contact route published on the main site.</p>
   </section>
 
   <section class="panel">
-    <h2>Waitlist</h2>
-    <p>If you join the waitlist, we collect your chosen contact channel and contact detail, such as a WhatsApp number or email address. We use this to contact you about WOPA early access, launch updates, and founder pricing.</p>
+    <h2>Waitlist and early access</h2>
+    <p>If you join the waitlist, we collect the contact details you provide, such as your email address or WhatsApp number. We use these details to respond to your request, manage early access, and send service messages about WOPA.</p>
+    <p>If you tick the optional marketing box, we may also send product and launch updates. Marketing consent is optional and can be withdrawn at any time.</p>
   </section>
 
   <section class="panel">
-    <h2>Cookies and similar storage</h2>
-    <p>PostHog may use cookies or similar browser storage to distinguish visits and measure usage. These analytics help us improve the page and understand interest in WOPA.</p>
+    <h2>Analytics and cookies</h2>
+    <p>We use PostHog analytics only if you accept analytics cookies on the landing page. Analytics can include page views, clicks, scroll depth, browser metadata, referrer, and approximate location derived from network information.</p>
+    <p>Essential storage may be used to remember your cookie choice or keep the site working. Non-essential analytics storage is optional.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Why we use the data</h2>
+    <ul>
+      <li>To respond to waitlist requests.</li>
+      <li>To send service messages about early access if you ask to join.</li>
+      <li>To send marketing updates only where you have opted in.</li>
+      <li>To understand and improve the landing page when analytics consent is given.</li>
+      <li>To protect the site from spam and misuse.</li>
+    </ul>
+  </section>
+
+  <section class="panel">
+    <h2>Legal basis</h2>
+    <p>We use your waitlist details to take steps at your request before giving access to the beta. Optional marketing is based on your consent. Analytics cookies are based on your consent. Basic security and anti-spam processing may rely on legitimate interests.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Who data is shared with</h2>
+    <p>The public landing page may use Cloudflare to host the site and store waitlist submissions, Resend to send confirmation emails, and PostHog for analytics if you accept analytics cookies. Product processing is summarised on the <a href="data-processing.html">data processing page</a>.</p>
+  </section>
+
+  <section class="panel">
+    <h2>Retention</h2>
+    <p>Waitlist contact details are kept while WOPA is managing early access and then deleted or converted into a customer record only if you become a beta user. You can ask for removal at any time. Analytics retention follows the settings in the analytics provider.</p>
   </section>
 
   <section class="panel">
@@ -139,11 +243,11 @@
   </section>
 
   <section class="panel">
-    <h2>Contact</h2>
-    <p>For privacy questions or removal requests, contact the WOPA project owner through the linked GitHub profile or repository.</p>
+    <h2>Your rights</h2>
+    <p>You can ask for access, correction, deletion, restriction, objection, portability, or withdrawal of consent where applicable. You also have the right to complain to the UK Information Commissioner's Office if you are unhappy with how personal data is handled.</p>
   </section>
 </main>
 
-<footer>WOPA privacy notice. Last updated May 14, 2026.</footer>
+<footer>WOPA privacy notice. Last updated May 17, 2026.</footer>
 </body>
 </html>

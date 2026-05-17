@@ -3,9 +3,78 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>WOPA - Invoice from WhatsApp</title>
-<meta name="description" content="WOPA is the WhatsApp owl who sends your invoices and chases late payments. Built for UK tradespeople."/>
+<title>WOPA - WhatsApp invoicing and invoice reminders for UK tradespeople</title>
+<meta name="description" content="WOPA helps UK tradespeople create invoice PDFs, email customers, chase unpaid invoices, and send payment reminders from WhatsApp."/>
 <link rel="canonical" href="https://mywopa.com/"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="WOPA - WhatsApp invoicing for UK tradespeople"/>
+<meta property="og:description" content="Create invoice PDFs, email customers, and follow up on unpaid invoices from WhatsApp."/>
+<meta property="og:url" content="https://mywopa.com/"/>
+<meta property="og:image" content="https://mywopa.com/wopa-whatsapp-bot-profile.png"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="WOPA - WhatsApp invoicing for UK tradespeople"/>
+<meta name="twitter:description" content="Invoice PDFs, customer emails, and payment reminders from WhatsApp for UK tradespeople."/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "WOPA",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "WhatsApp, Telegram, Web",
+  "description": "WOPA helps UK tradespeople create invoice PDFs, email customers, track outstanding invoices, and send payment reminders from chat.",
+  "url": "https://mywopa.com/",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP",
+    "description": "Early access waitlist with founder pricing for the first 200 signups."
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "UK tradespeople, sole traders, and small limited companies"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I edit before sending?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. WOPA shows a draft and asks for confirmation before an invoice email or firm follow-up is sent."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I turn reminders off?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. You can pause or stop reminders for an invoice. Marking an invoice paid also stops future reminders."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do customers need WhatsApp?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. Customers receive the invoice by email as a PDF attachment. WhatsApp is for the seller to control WOPA."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Does WOPA support VAT?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not yet. WOPA should not be used to claim VAT invoice support until that workflow is available."
+      }
+    }
+  ]
+}
+</script>
 <link rel="icon" type="image/png" href="/wopa-whatsapp-bot-profile.png"/>
 <link rel="apple-touch-icon" href="/wopa-whatsapp-bot-profile.png"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
@@ -994,6 +1063,165 @@ h1.hero-h1 .line-serif {
 .form-status[data-state="success"] { color: var(--green); }
 .form-status[data-state="error"] { color: var(--coral); }
 .form-privacy { font: 400 12px/1.5 var(--sans); color: var(--ink-4); text-align: center; }
+.form-privacy a { color: var(--green); text-decoration: none; }
+.checkbox-field {
+  display: grid;
+  grid-template-columns: 18px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  text-align: left;
+  padding: 2px 4px;
+  font: 400 13px/1.45 var(--sans);
+  color: var(--ink-3);
+}
+.checkbox-field input {
+  width: 18px;
+  height: 18px;
+  margin-top: 1px;
+  accent-color: var(--green);
+}
+.checkbox-field strong { color: var(--ink-2); font-weight: 600; }
+
+/* =====================================================
+   BOUNDARIES / COMPLIANCE
+   ===================================================== */
+.boundary-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 44px;
+}
+.boundary-card {
+  background: #fff;
+  border: 1px solid var(--hair);
+  border-radius: 18px;
+  padding: 24px;
+}
+.boundary-card h3 {
+  font: 700 16px/1.15 var(--sans);
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+.boundary-card p {
+  font: 400 14px/1.6 var(--sans);
+  color: var(--ink-3);
+}
+.boundary-card.warning {
+  background: var(--green-paper);
+  border-color: rgba(11,107,77,0.18);
+}
+.legal-note {
+  margin-top: 28px;
+  padding: 18px 20px;
+  border: 1px solid var(--hair);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.52);
+  font: 400 13px/1.55 var(--sans);
+  color: var(--ink-3);
+}
+.legal-note strong { color: var(--ink-2); }
+
+/* =====================================================
+   TRUST / FAQ
+   ===================================================== */
+.detail-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  margin-top: 44px;
+}
+.detail-card {
+  background: #fff;
+  border: 1px solid var(--hair);
+  border-radius: 18px;
+  padding: 24px;
+}
+.detail-card h3 {
+  font: 700 17px/1.15 var(--sans);
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 10px;
+}
+.detail-card p,
+.detail-card li {
+  font: 400 14px/1.6 var(--sans);
+  color: var(--ink-3);
+}
+.detail-card ul {
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+.faq-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  margin-top: 44px;
+}
+.faq-item {
+  background: #fff;
+  border: 1px solid var(--hair);
+  border-radius: 16px;
+  padding: 22px;
+}
+.faq-item h3 {
+  font: 700 15px/1.25 var(--sans);
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 8px;
+}
+.faq-item p {
+  font: 400 14px/1.6 var(--sans);
+  color: var(--ink-3);
+}
+
+/* =====================================================
+   COOKIE CONSENT
+   ===================================================== */
+.cookie-banner {
+  position: fixed;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+  z-index: 200;
+  max-width: 760px;
+  margin: 0 auto;
+  display: none;
+  align-items: center;
+  gap: 18px;
+  padding: 18px;
+  background: #fff;
+  border: 1px solid var(--hair-strong);
+  border-radius: 18px;
+  box-shadow: 0 12px 40px rgba(20,32,27,0.14);
+}
+.cookie-banner.is-visible { display: flex; }
+.cookie-banner p {
+  flex: 1;
+  font: 400 13px/1.5 var(--sans);
+  color: var(--ink-3);
+}
+.cookie-banner p strong {
+  display: block;
+  color: var(--ink);
+  margin-bottom: 3px;
+}
+.cookie-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.cookie-actions button {
+  border: 1px solid var(--hair-strong);
+  border-radius: 999px;
+  padding: 10px 14px;
+  background: var(--paper);
+  color: var(--ink-2);
+  font: 600 13px/1 var(--sans);
+  cursor: pointer;
+}
+.cookie-actions button[data-cookie-choice="accepted"] {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
 
 /* =====================================================
    FOOTER
@@ -1059,6 +1287,9 @@ footer {
   .phone-badge { display: none; }
   .how-grid { grid-template-columns: 1fr; }
   .features-section-inner { grid-template-columns: 1fr; }
+  .boundary-grid { grid-template-columns: 1fr; }
+  .detail-grid { grid-template-columns: 1fr; }
+  .faq-grid { grid-template-columns: 1fr; }
   .feat-card.wide { grid-column: span 1; }
   .timeline-track { flex-direction: column; gap: 20px; }
   .timeline-track::before { display: none; }
@@ -1068,6 +1299,7 @@ footer {
   .mascot-section { grid-template-columns: 1fr; padding: 40px; }
   .mascot-visual { width: 160px; height: 180px; margin: 0 auto; }
   .cta-section { padding: 40px 24px; }
+  .cookie-banner { align-items: flex-start; flex-direction: column; }
   footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px; }
 }
 </style>
@@ -1197,16 +1429,16 @@ footer {
         </div>
         <div class="hero-meta-strip">
           <span class="pulse"></span>
-          WhatsApp-native <span aria-hidden="true">/</span> <code>invoice from chat</code>
+          Built for UK tradespeople <span aria-hidden="true">/</span> <code>founder pricing</code>
         </div>
         <h1 class="hero-h1">
-          Run your<br>
-          business<br>
-          <span class="line-green">from chat.</span><br>
-          <span class="line-serif">Get paid on time.</span>
+          Send invoices<br>
+          and chase<br>
+          <span class="line-green">payments</span><br>
+          <span class="line-serif">from WhatsApp.</span>
         </h1>
         <p class="hero-desc">
-          WOPA's the <strong>polite owl in your WhatsApp</strong> who sends invoices, chases late payers, and applies statutory late-payment law, so you can stay on the work.
+          WOPA helps <strong>UK tradespeople</strong> create invoice PDFs, email customers, schedule reminders, and mark jobs paid without opening accounting software.
         </p>
         <div class="hero-actions">
           <a href="#waitlist" class="btn-primary">Reserve founder pricing</a>
@@ -1215,8 +1447,8 @@ footer {
         <a class="qr-cta" href="https://youtu.be/dQw4w9WgXcQ?is=0gUquPAd9bMgyA4_" target="_blank" rel="noopener">
           <img src="/wopa-bot-qr.png" alt="QR code for the WOPA bot"/>
           <span>
-            <strong>Scan or click to open the bot</strong>
-            <span>This card and QR code both point to the temporary bot link.</span>
+            <strong>Scan or click to open the current bot link</strong>
+            <span>This temporary link stays in place until the WhatsApp number is ready.</span>
           </span>
         </a>
         <div class="hero-proof">
@@ -1231,8 +1463,8 @@ footer {
           </div>
           <div class="hero-proof-divider"></div>
           <div class="hero-proof-item">
-            <span class="hero-proof-num">£8.5k</span>
-            <span class="hero-proof-label">Avg unpaid per trader</span>
+            <span class="hero-proof-num">200</span>
+            <span class="hero-proof-label">Founder spots</span>
           </div>
         </div>
       </div>
@@ -1322,7 +1554,7 @@ footer {
       <span class="strip-divider">/</span>
       <span>Landscapers</span>
       <span class="strip-divider">/</span>
-      <span>Freelancers</span>
+      <span>Small limited companies</span>
     </div>
   </div>
 </div>
@@ -1336,10 +1568,10 @@ footer {
       <div class="eyebrow" style="margin-bottom:18px;">How it works</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;margin-bottom:0;">
         <h2 style="font:800 clamp(34px,4vw,52px)/1.05 var(--sans);letter-spacing:-0.035em;">
-          Three messages.<br><span class="serif-em" style="color:var(--green);">That's the whole product.</span>
+            From job done<br><span class="serif-em" style="color:var(--green);">to invoice sent.</span>
         </h2>
         <p style="font:400 17px/1.55 var(--sans);color:var(--ink-2);max-width:440px;">
-          No new app to learn. No dashboard to check. WOPA lives in the WhatsApp chat you already have open all day.
+            Message WOPA, approve the draft, and let the invoice go by email while reminders keep running in the background.
         </p>
       </div>
     </div>
@@ -1349,26 +1581,53 @@ footer {
         <div class="how-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         </div>
-        <h3>Onboard in chat</h3>
-        <p>Tell WOPA your name, trade, bank details. Under five messages. No forms. No dashboard login.</p>
-        <div class="chat-snippet">setup name, bank, email<br>done in &lt;2 minutes</div>
+        <h3>Add your details</h3>
+        <p>Share your business name, trade, email, and bank details once. WOPA uses them to prepare invoices from chat.</p>
+        <div class="chat-snippet">setup my business details<br>saved for invoices</div>
       </div>
       <div class="how-card">
         <span class="how-num">02</span>
         <div class="how-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
         </div>
-        <h3>Invoice naturally</h3>
-        <p>Type exactly how you'd speak: "Invoice Dave £1,200 for boiler install." WOPA does the rest: PDF, email, bank transfer details.</p>
-        <div class="chat-snippet">invoice dave £1200 boiler<br>confirmed + sent</div>
+        <h3>Save customers</h3>
+        <p>Add a customer once, then reuse their name, email, and job details whenever you invoice them again.</p>
+        <div class="chat-snippet">save dan as customer<br>dan@example.com</div>
       </div>
       <div class="how-card">
         <span class="how-num">03</span>
         <div class="how-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+        </div>
+        <h3>Draft from a message</h3>
+        <p>Type how you speak: "Invoice Dan £850 for the rewire." WOPA turns it into a draft invoice and asks for anything missing.</p>
+        <div class="chat-snippet">invoice dan £850 rewire<br>draft ready</div>
+      </div>
+      <div class="how-card">
+        <span class="how-num">04</span>
+        <div class="how-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+        </div>
+        <h3>Preview and confirm</h3>
+        <p>Review the customer, work, amount, due date, and bank details. Nothing is emailed until you approve it.</p>
+        <div class="chat-snippet">Reply YES to send<br>or edit amount</div>
+      </div>
+      <div class="how-card">
+        <span class="how-num">05</span>
+        <div class="how-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+        </div>
+        <h3>Email the PDF</h3>
+        <p>Your customer receives an email with a PDF invoice attached. They do not need WhatsApp to receive or pay the invoice.</p>
+        <div class="chat-snippet">sent to dan@example.com<br>PDF attached</div>
+      </div>
+      <div class="how-card">
+        <span class="how-num">06</span>
+        <div class="how-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
-        <h3>Get paid</h3>
-        <p>Reminders fire automatically at 7, 14, 28 days. At 30 days WOPA asks whether to apply the Late Payment Act. You say yes or no. Done.</p>
+        <h3>Track and follow up</h3>
+        <p>Ask what is outstanding, pause reminders, or mark an invoice paid. WOPA stops reminders when you say it is paid.</p>
         <div class="chat-snippet">dan paid<br>reminders stopped</div>
       </div>
     </div>
@@ -1384,29 +1643,33 @@ footer {
       <svg class="cta-bg-owl" viewBox="0 0 400 440" aria-hidden="true"><use href="#owl-full"/></svg>
 
       <div style="position:relative;">
-        <div class="eyebrow" style="justify-content:center;margin-bottom:20px;">
-          Early access
-        </div>
-        <h2>Join early.<br><span class="em">Pay less.</span></h2>
-        <p>Founder pricing for the first 200 signups. Leave an email, a WhatsApp number, or both. We'll reach out when we open up.</p>
-
-        <form class="waitlist-form" data-waitlist-form>
-          <div class="field-group">
-            <div class="form-note">Fill one field or both. No spam.</div>
-            <div class="field">
-              <label for="wl-email">Email address <span>optional</span></label>
-              <input id="wl-email" name="contact_email" type="email" placeholder="you@example.com" autocomplete="email"/>
-            </div>
-            <div class="field">
-              <label for="wl-phone">WhatsApp number <span>optional</span></label>
-              <input id="wl-phone" name="contact_messaging" type="text" placeholder="+44 7700 900123" autocomplete="tel"/>
-            </div>
+          <div class="eyebrow" style="justify-content:center;margin-bottom:20px;">
+            Early access
           </div>
-          <input class="form-hidden" type="text" name="company" tabindex="-1" autocomplete="off"/>
-          <button class="submit-btn" type="submit" data-waitlist-submit>Reserve founder pricing</button>
-          <div class="form-status" data-waitlist-status role="status" aria-live="polite"></div>
-          <div class="form-privacy">No spam. Only used to contact you about WOPA early access.</div>
-        </form>
+          <h2>Join early.<br><span class="em">Pay less.</span></h2>
+          <p>Founder pricing for the first 200 waitlist signups. Leave an email, a WhatsApp number, or both. We'll share the plan before you pay, and there is no card required today.</p>
+
+          <form class="waitlist-form" data-waitlist-form>
+            <div class="field-group">
+              <div class="form-note">Fill one field or both. Marketing updates are optional.</div>
+              <div class="field">
+                <label for="wl-email">Email address <span>optional</span></label>
+                <input id="wl-email" name="contact_email" type="email" placeholder="you@example.com" autocomplete="email"/>
+            </div>
+            <div class="field">
+                <label for="wl-phone">WhatsApp number <span>optional</span></label>
+                <input id="wl-phone" name="contact_messaging" type="text" placeholder="+44 7700 900123" autocomplete="tel"/>
+              </div>
+            </div>
+            <label class="checkbox-field" for="wl-marketing">
+              <input id="wl-marketing" name="marketing_opt_in" type="checkbox"/>
+              <span><strong>Send me optional product and launch updates.</strong> Waitlist access messages are separate. You can opt out of marketing at any time.</span>
+            </label>
+            <input class="form-hidden" type="text" name="company" tabindex="-1" autocomplete="off"/>
+            <button class="submit-btn" type="submit" data-waitlist-submit>Reserve founder pricing</button>
+            <div class="form-status" data-waitlist-status role="status" aria-live="polite"></div>
+            <div class="form-privacy">By submitting, you agree that WOPA can contact you about waitlist access using the details you provide. If we message you on WhatsApp, reply STOP to opt out. See the <a href="privacy.html">privacy notice</a>.</div>
+          </form>
       </div>
     </div>
   </div>
@@ -1428,12 +1691,12 @@ footer {
         <div class="feat-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         </div>
-        <h3>Natural language, Claude-powered</h3>
-        <p>Say "Invoice Dave at Acme £1,200 for boiler install." WOPA extracts the client, amount, description and due date. Asks for anything missing. Confirms before sending.</p>
-        <div class="feat-chips">
-          <span class="chip"><span class="dot"></span> LLM extraction</span>
-          <span class="chip"><span class="dot"></span> Multi-turn</span>
-          <span class="chip"><span class="dot"></span> Context-aware</span>
+          <h3>Natural language invoice drafts</h3>
+          <p>Say "Invoice Dave at Acme £1,200 for boiler install." WOPA extracts the client, amount, description and due date. Asks for anything missing. Confirms before sending.</p>
+          <div class="feat-chips">
+            <span class="chip"><span class="dot"></span> Draft preview</span>
+            <span class="chip"><span class="dot"></span> Missing details</span>
+            <span class="chip"><span class="dot"></span> YES to send</span>
         </div>
       </div>
       <div class="feat-card">
@@ -1459,25 +1722,35 @@ footer {
         <div class="feat-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
         </div>
-        <h3>Late Payment Act in one word</h3>
-        <p>At 30 days overdue, WOPA prompts you. Say yes and it sends a formal notice citing the Late Payment of Commercial Debts Act 1998, which entitles you to interest plus a fixed fee.</p>
-        <div class="feat-chips">
-          <span class="chip"><span class="dot"></span> England &amp; Wales</span>
-          <span class="chip"><span class="dot"></span> Your approval</span>
+          <h3>Late-payment prompts, your call</h3>
+          <p>When an invoice becomes late, WOPA can prompt you to review stronger follow-up wording. You approve anything firm before it goes out.</p>
+          <div class="feat-chips">
+            <span class="chip"><span class="dot"></span> B2B only</span>
+            <span class="chip"><span class="dot"></span> Your approval</span>
         </div>
       </div>
       <div class="feat-card wide">
         <div class="feat-icon">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
         </div>
-        <h3>Stateful conversations, no context ever lost</h3>
-        <p>Say "Invoice Dan £450" on Monday. Come back Tuesday and say "for the plumbing at 42 Albany Road." WOPA remembers. State is stored in Postgres with advisory locks preventing race conditions. Every invoice requires an explicit confirmation before it goes out. You are always in control.</p>
-        <div class="feat-chips">
-          <span class="chip"><span class="dot"></span> Postgres state</span>
-          <span class="chip"><span class="dot"></span> Advisory locks</span>
-          <span class="chip"><span class="dot"></span> Job queue</span>
+          <h3>Drafts stay editable until you approve</h3>
+          <p>Say "Invoice Dan £450" on Monday. Come back Tuesday and add the address, due date, or customer email. WOPA keeps the draft open and asks for explicit confirmation before sending.</p>
+          <div class="feat-chips">
+            <span class="chip"><span class="dot"></span> Editable draft</span>
+            <span class="chip"><span class="dot"></span> Customer records</span>
           <span class="chip"><span class="dot"></span> Confirm gates</span>
-          <span class="chip"><span class="dot"></span> TypeScript</span>
+        </div>
+      </div>
+      <div class="feat-card wide">
+        <div class="feat-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+        </div>
+        <h3>Reminder policies you can change</h3>
+        <p>Use the default 7, 14, and 28 day reminders, pause follow-ups for one customer, or turn reminders off before anything else is sent.</p>
+        <div class="feat-chips">
+          <span class="chip"><span class="dot"></span> Reminder policy</span>
+          <span class="chip"><span class="dot"></span> Pause any invoice</span>
+          <span class="chip"><span class="dot"></span> Stop from chat</span>
         </div>
       </div>
     </div>
@@ -1500,7 +1773,7 @@ footer {
           <span class="em">never forgets.</span>
         </h2>
         <p>
-          WOPA's the polite owl in your WhatsApp. He sends the invoice, sends the reminder, and applies the law when they're overdue, all without you having to make an awkward call.
+            WOPA's the polite invoicing assistant in your WhatsApp. He drafts the invoice, sends the PDF by email, and keeps reminders moving without another dashboard to check.
         </p>
         <div class="mascot-trades">
           <span class="trade-chip">Electricians</span>
@@ -1511,8 +1784,8 @@ footer {
           <span class="trade-chip">Roofers</span>
           <span class="trade-chip">HVAC</span>
           <span class="trade-chip">Landscapers</span>
-          <span class="trade-chip">Photographers</span>
-          <span class="trade-chip">Designers &amp; tutors</span>
+            <span class="trade-chip">Sole traders</span>
+            <span class="trade-chip">Small limited companies</span>
         </div>
       </div>
       <div style="position:relative; flex-shrink:0;">
@@ -1537,10 +1810,10 @@ footer {
       <div class="eyebrow" style="margin-bottom:18px;">Payment chasing</div>
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;">
         <h2 style="font:800 clamp(34px,4vw,52px)/1.05 var(--sans);letter-spacing:-0.035em;">
-          Automatic.<br><span class="serif-em" style="color:var(--green);">Relentless.</span>
+            Automatic.<br><span class="serif-em" style="color:var(--green);">Still under your control.</span>
         </h2>
         <p style="font:400 17px/1.55 var(--sans);color:var(--ink-2);max-width:440px;">
-          Once sent, WOPA watches the clock. You don't have to remember anything. Every reminder fires automatically until it's paid or you say stop.
+            Once sent, WOPA watches the clock. Friendly reminders can run automatically until the invoice is paid, paused, or switched off.
         </p>
       </div>
     </div>
@@ -1572,8 +1845,8 @@ footer {
       </div>
       <div class="tl-item">
         <div class="tl-node overdue">D30</div>
-        <div class="tl-label">Late Payment Act</div>
-        <div class="tl-sub">Statutory notice, your call</div>
+          <div class="tl-label">Firm follow-up</div>
+          <div class="tl-sub">Review before sending</div>
         <div class="tl-auto manual">you confirm</div>
       </div>
       <div class="tl-item">
@@ -1648,7 +1921,7 @@ footer {
             <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Outstanding summary on demand</li>
             <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Mass-chase with one message</li>
             <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Mark paid from WhatsApp</li>
-            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Late Payment Act notice (you confirm)</li>
+              <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Late-payment follow-up prompts (you confirm)</li>
           </ul>
         </div>
         <div class="info-block">
@@ -1677,19 +1950,192 @@ footer {
 </section>
 
 <!-- ====================================================
+     BOUNDARIES / COMPLIANCE
+     ==================================================== -->
+<section class="section" id="boundaries">
+  <div class="container">
+    <div class="fade-up">
+      <div class="eyebrow" style="margin-bottom:18px;">Product boundaries</div>
+      <h2 style="font:800 clamp(34px,4vw,52px)/1.05 var(--sans);letter-spacing:-0.035em;margin-bottom:8px;">
+        Built for invoicing admin.<br><span class="serif-em" style="color:var(--green);">Not accounting software.</span>
+      </h2>
+      <p style="font:400 17px/1.55 var(--sans);color:var(--ink-2);max-width:660px;margin-top:16px;">
+        WOPA helps you draft invoices, send PDFs by email, and follow up from WhatsApp. You stay responsible for checking invoice details, tax treatment, and customer communications before sending.
+      </p>
+    </div>
+    <div class="boundary-grid fade-up" style="transition-delay:0.1s;">
+      <div class="boundary-card">
+        <h3>What WOPA is</h3>
+        <p>A WhatsApp-first assistant for UK tradespeople who want to create invoice PDFs, email customers, track what is outstanding, and mark invoices paid from chat.</p>
+      </div>
+      <div class="boundary-card">
+        <h3>What WOPA is not</h3>
+        <p>WOPA is not bookkeeping software, accounting software, a bank, a payment processor, or a debt collection service.</p>
+      </div>
+      <div class="boundary-card">
+        <h3>Current beta limits</h3>
+        <p>No VAT invoice support, payment links, open banking, custom sending domains, or automated bank reconciliation yet.</p>
+      </div>
+      <div class="boundary-card warning">
+        <h3>VAT</h3>
+        <p>WOPA should not be used to claim VAT invoice support until that workflow exists. VAT-registered users need to check requirements with their accountant or tax adviser.</p>
+      </div>
+      <div class="boundary-card warning">
+        <h3>Late payment</h3>
+        <p>Late-payment rules depend on the customer, contract, invoice, jurisdiction, and debt size. WOPA can help prepare follow-up text, but you approve it and decide what to send.</p>
+      </div>
+      <div class="boundary-card warning">
+        <h3>General information</h3>
+        <p>Content on this site is general information only. It is not legal, tax, accounting, financial, or debt collection advice.</p>
+      </div>
+    </div>
+    <div class="legal-note fade-up" style="transition-delay:0.18s;">
+      <strong>Company disclosure:</strong> if WOPA operates through a UK limited company, the registered company name, company number, registered office, jurisdiction, and limited company status must be shown before public trading.
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     SEO USE CASES
+     ==================================================== -->
+<section class="section" id="use-cases">
+  <div class="container">
+    <div class="fade-up">
+      <div class="eyebrow" style="margin-bottom:18px;">For UK trades</div>
+      <h2 style="font:800 clamp(34px,4vw,52px)/1.05 var(--sans);letter-spacing:-0.035em;margin-bottom:8px;">
+        WhatsApp invoicing<br><span class="serif-em" style="color:var(--green);">for trade workflows.</span>
+      </h2>
+      <p style="font:400 17px/1.55 var(--sans);color:var(--ink-2);max-width:700px;margin-top:16px;">
+        WOPA is for self-employed tradespeople, sole traders, and small limited companies who want invoice admin to fit around site work instead of a desktop accounting session.
+      </p>
+    </div>
+    <div class="detail-grid fade-up" style="transition-delay:0.1s;">
+      <div class="detail-card">
+        <h3>WhatsApp invoicing for tradespeople</h3>
+        <p>Create a draft invoice from a normal chat message, approve the details, and email a PDF to the customer without opening a separate invoicing dashboard.</p>
+      </div>
+      <div class="detail-card">
+        <h3>Invoice reminders for UK small businesses</h3>
+        <p>Keep track of who has not paid and send polite payment reminders on a clear schedule, with the option to pause or stop reminders when needed.</p>
+      </div>
+      <div class="detail-card">
+        <h3>Invoice chaser for electricians and other trades</h3>
+        <p>Use WOPA after rewires, callouts, repairs, installs, and repeat jobs where the work is done but the invoice still needs sending and following up.</p>
+      </div>
+      <div class="detail-card">
+        <h3>PDF invoices by email</h3>
+        <p>Customers receive invoice emails with PDF attachments and payment references. They do not need WhatsApp to receive the invoice.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     TRUST / SECURITY / SUPPORT
+     ==================================================== -->
+<section class="section" id="trust">
+  <div class="container">
+    <div class="fade-up">
+      <div class="eyebrow" style="margin-bottom:18px;">Trust and support</div>
+      <h2 style="font:800 clamp(34px,4vw,52px)/1.05 var(--sans);letter-spacing:-0.035em;margin-bottom:8px;">
+        Your invoice details<br><span class="serif-em" style="color:var(--green);">need careful handling.</span>
+      </h2>
+      <p style="font:400 17px/1.55 var(--sans);color:var(--ink-2);max-width:660px;margin-top:16px;">
+        WOPA handles business contact details, customer emails, invoice information, and bank payment details. The product is being built around explicit approval, clear logs, and deletion on request.
+      </p>
+    </div>
+    <div class="detail-grid fade-up" style="transition-delay:0.1s;">
+      <div class="detail-card">
+        <h3>Security basics</h3>
+        <ul>
+          <li>Encrypted HTTPS connections for the public site and API.</li>
+          <li>Access to waitlist and product data limited to people operating WOPA.</li>
+          <li>Confirmation gates before customer-facing invoice emails and firm follow-ups.</li>
+          <li>Retention and deletion handled through the privacy and data processing notices.</li>
+        </ul>
+      </div>
+      <div class="detail-card">
+        <h3>Core providers</h3>
+        <p>The public landing page currently uses Cloudflare for hosting and waitlist storage, Resend for confirmation emails, and PostHog for analytics only if analytics cookies are accepted. Chat, database, and AI providers may vary as the product changes.</p>
+      </div>
+      <div class="detail-card">
+        <h3>Email delivery</h3>
+        <p>Invoices are emailed as PDF attachments. If an email fails, WOPA should surface the failure so you can correct the customer address or send the invoice another way.</p>
+      </div>
+      <div class="detail-card">
+        <h3>Getting help</h3>
+        <p>During early access, support is handled by the WOPA team through the same contact route used for onboarding. Urgent production support hours are not yet advertised, so the page avoids promising a fixed response time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     FAQ
+     ==================================================== -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="fade-up">
+      <div class="eyebrow" style="margin-bottom:18px;">FAQ</div>
+      <h2 style="font:800 clamp(34px,4vw,52px)/1.05 var(--sans);letter-spacing:-0.035em;margin-bottom:8px;">
+        Questions before<br><span class="serif-em" style="color:var(--green);">you join the waitlist.</span>
+      </h2>
+    </div>
+    <div class="faq-grid fade-up" style="transition-delay:0.1s;">
+      <div class="faq-item">
+        <h3>Can I edit before sending?</h3>
+        <p>Yes. WOPA shows a draft and asks for confirmation before an invoice email or firm follow-up is sent.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I turn reminders off?</h3>
+        <p>Yes. You can pause or stop reminders for an invoice. Marking an invoice paid also stops future reminders.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Do customers need WhatsApp?</h3>
+        <p>No. Customers receive the invoice by email as a PDF attachment. WhatsApp is for you to control WOPA.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Does WOPA support VAT?</h3>
+        <p>Not yet. Do not use WOPA to claim VAT invoice support until that workflow is available.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Can I use my own email or domain?</h3>
+        <p>Not yet. Custom sending domains are a later roadmap item, so early invoices are sent through WOPA's email setup.</p>
+      </div>
+      <div class="faq-item">
+        <h3>Will customers see WOPA?</h3>
+        <p>Customers receive an invoice email and PDF. The exact sender details may change during early access and will be made clear before you send live invoices.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
      FOOTER
      ==================================================== -->
 <footer>
   <a href="#" class="footer-logo" aria-label="WOPA">
     <span class="glyph">W</span><span class="o"></span><span class="glyph">P</span><span class="glyph">A</span>
   </a>
-  <span class="footer-copy">WhatsApp invoicing for UK tradespeople / 2026</span>
+  <span class="footer-copy">WhatsApp invoicing for UK tradespeople / Beta / 2026</span>
   <div class="footer-links">
     <a href="#">WhatsApp</a>
-    <a href="#">Docs</a>
+    <a href="terms.html">Terms</a>
+    <a href="data-processing.html">Data processing</a>
     <a href="privacy.html">Privacy</a>
   </div>
 </footer>
+
+<div class="cookie-banner" data-cookie-banner role="region" aria-label="Cookie choices">
+  <p>
+    <strong>Analytics cookies</strong>
+    We use PostHog analytics to understand visits and improve the landing page. These analytics are optional and only run if you accept.
+  </p>
+  <div class="cookie-actions">
+    <button type="button" data-cookie-choice="rejected">Reject analytics</button>
+    <button type="button" data-cookie-choice="accepted">Accept analytics</button>
+  </div>
+</div>
 
 <script>
 /* =====================================================
@@ -1725,6 +2171,7 @@ if (form) {
     if (honey && honey.value) return;
     const email = form.querySelector('[name="contact_email"]')?.value.trim();
     const messaging = form.querySelector('[name="contact_messaging"]')?.value.trim();
+    const marketingOptIn = form.querySelector('[name="marketing_opt_in"]')?.checked === true;
     if (!email && !messaging) {
       status.textContent = 'Please fill in at least one contact field.';
       status.dataset.state = 'error';
@@ -1738,25 +2185,53 @@ if (form) {
       const res = await fetch('/api/waitlist', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ contact_email: email, contact_messaging: messaging })
+        body: JSON.stringify({
+          contact_email: email,
+          contact_messaging: messaging,
+          marketing_opt_in: marketingOptIn,
+          consent_version: 'landing-2026-05-17'
+        })
       });
       if (res.ok) {
-        status.textContent = "You're on the list. We'll be in touch.";
+        status.textContent = "You're on the waitlist. Founder pricing reserved.";
         status.dataset.state = 'success';
-        btn.textContent = 'Reserved';
+        btn.textContent = 'Joined';
       } else {
         throw new Error('bad response');
       }
     } catch {
-      // Graceful fallback: store locally and show success anyway.
-      const key = 'wopa_waitlist';
-      try { localStorage.setItem(key, JSON.stringify({ email, messaging, ts: Date.now() })); } catch {}
-      status.textContent = "You're on the list. We'll be in touch.";
-      status.dataset.state = 'success';
-      btn.textContent = 'Reserved';
+      status.textContent = "We couldn't save that. Please try again in a moment.";
+      status.dataset.state = 'error';
+      btn.disabled = false;
+      btn.textContent = 'Reserve founder pricing';
     }
   });
 }
+
+/* =====================================================
+   COOKIE CONSENT
+   ===================================================== */
+const cookieBanner = document.querySelector('[data-cookie-banner]');
+const cookieConsentKey = 'wopa_cookie_consent';
+function getCookieConsent() {
+  try { return localStorage.getItem(cookieConsentKey); } catch { return null; }
+}
+function setCookieConsent(value) {
+  try { localStorage.setItem(cookieConsentKey, value); } catch {}
+}
+if (cookieBanner && !getCookieConsent()) {
+  cookieBanner.classList.add('is-visible');
+}
+document.querySelectorAll('[data-cookie-choice]').forEach(button => {
+  button.addEventListener('click', () => {
+    const choice = button.dataset.cookieChoice;
+    setCookieConsent(choice);
+    if (cookieBanner) cookieBanner.classList.remove('is-visible');
+    if (choice === 'accepted' && typeof window.wopaStartAnalytics === 'function') {
+      window.wopaStartAnalytics();
+    }
+  });
+});
 </script>
 <script src="analytics.js" defer></script>
 </body>

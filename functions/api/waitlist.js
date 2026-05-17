@@ -41,8 +41,8 @@ async function storeInD1(env, submission) {
   try {
     await db.prepare(`
       INSERT INTO waitlist_submissions (
-        id, group_id, channel, contact, email, messaging_contact, mode, page_path, incentive, user_agent, country, created_at
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+        id, group_id, channel, contact, email, messaging_contact, mode, page_path, incentive, marketing_opt_in, consent_version, user_agent, country, created_at
+      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
     `).bind(
       submission.id,
       null,
@@ -53,6 +53,8 @@ async function storeInD1(env, submission) {
       submission.mode,
       submission.pagePath,
       submission.incentive,
+      submission.marketingOptIn ? 1 : 0,
+      submission.consentVersion,
       submission.userAgent,
       submission.country,
       submission.createdAt
@@ -93,7 +95,9 @@ async function storeInKV(env, submission) {
     metadata: {
       channels: getSubmissionChannels(submission).join(','),
       mode: submission.mode,
-      incentive: submission.incentive
+      incentive: submission.incentive,
+      marketing_opt_in: submission.marketingOptIn ? 'true' : 'false',
+      consent_version: submission.consentVersion
     }
   });
 
@@ -211,6 +215,8 @@ export async function onRequestPost({ request, env, ctx }) {
     mode: String(body.mode || 'unknown').slice(0, 40),
     pagePath: String(body.page_path || '').slice(0, 160),
     incentive: String(body.incentive || 'founder_pricing').slice(0, 80),
+    marketingOptIn: body.marketing_opt_in === true,
+    consentVersion: String(body.consent_version || 'landing-2026-05-17').slice(0, 80),
     userAgent: request.headers.get('User-Agent') || '',
     country: request.cf && request.cf.country ? request.cf.country : '',
     createdAt: new Date().toISOString()
