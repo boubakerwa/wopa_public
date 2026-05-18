@@ -71,6 +71,14 @@
         "@type": "Answer",
         "text": "Not yet. WOPA should not be used to claim VAT invoice support until that workflow is available."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need to download an app?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "No. WOPA lives in your WhatsApp chat, where it can create invoices and chase payments for you."
+      }
     }
   ]
 }
@@ -276,24 +284,6 @@ nav {
   margin-bottom: 5px;
   letter-spacing: -0.015em;
 }
-.hero-meta-strip {
-  display: inline-flex; align-items: center; gap: 14px;
-  margin-bottom: 28px;
-  background: var(--green-tint);
-  border: 1px solid rgba(11,107,77,0.22);
-  border-radius: 999px;
-  padding: 7px 16px 7px 10px;
-  font: 500 13px/1 var(--sans);
-  color: var(--green-deep);
-}
-.hero-meta-strip .pulse {
-  width: 7px; height: 7px; border-radius: 50%;
-  background: var(--green);
-  animation: pulse 2.4s ease-in-out infinite;
-}
-@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.45;transform:scale(0.85)} }
-.hero-meta-strip code { font-family: var(--mono); font-size: 11.5px; }
-
 h1.hero-h1 {
   font: 800 clamp(54px, 7vw, 96px)/0.94 var(--sans);
   letter-spacing: -0.045em;
@@ -382,25 +372,6 @@ h1.hero-h1 .line-serif {
   letter-spacing: -0.005em;
 }
 .btn-ghost:hover { border-color: var(--ink-3); color: var(--ink); transform: translateY(-1px); }
-
-.hero-proof {
-  margin-top: 36px;
-  display: flex; gap: 28px; align-items: center;
-}
-.hero-proof-item { display: flex; flex-direction: column; }
-.hero-proof-num {
-  font: 800 26px/1 var(--sans);
-  letter-spacing: -0.03em;
-  color: var(--green);
-}
-.hero-proof-label {
-  font: 500 11px/1.3 var(--sans);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--ink-4);
-  margin-top: 3px;
-}
-.hero-proof-divider { width: 1px; height: 40px; background: var(--hair-strong); }
 
 /* PHONE / CHAT MOCKUP */
 .hero-visual {
@@ -558,26 +529,6 @@ h1.hero-h1 .line-serif {
 .section { padding: 88px 0; border-top: 1px solid var(--hair); }
 
 /* =====================================================
-   SOCIAL PROOF STRIP
-   ===================================================== */
-.strip {
-  border-top: 1px solid var(--hair);
-  border-bottom: 1px solid var(--hair);
-  background: var(--paper-2);
-  padding: 18px 0;
-  overflow: hidden;
-}
-.strip-inner {
-  display: flex; gap: 40px; align-items: center;
-  font: 500 13px/1 var(--sans);
-  color: var(--ink-3);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-}
-.strip-inner span { flex-shrink: 0; }
-.strip-divider { color: var(--hair-strong); }
-
-/* =====================================================
    HOW IT WORKS
    ===================================================== */
 .how-grid {
@@ -633,62 +584,6 @@ h1.hero-h1 .line-serif {
   font: 500 12px/1.5 var(--mono);
   color: var(--green-deep);
 }
-
-/* =====================================================
-   FEATURES
-   ===================================================== */
-.features-section-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  margin-top: 48px;
-}
-.feat-card {
-  background: #fff;
-  border: 1px solid var(--hair);
-  border-radius: 20px;
-  padding: 28px 28px 26px;
-  position: relative;
-  overflow: hidden;
-  transition: border-color 0.2s, box-shadow 0.2s;
-}
-.feat-card::after {
-  content: "";
-  position: absolute; top: 0; left: 0; right: 0; height: 2px;
-  background: linear-gradient(90deg, var(--green), transparent 60%);
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-.feat-card:hover { border-color: rgba(11,107,77,0.28); box-shadow: 0 4px 20px rgba(11,107,77,0.07); }
-.feat-card:hover::after { opacity: 1; }
-.feat-card.wide { grid-column: span 2; }
-.feat-icon {
-  width: 40px; height: 40px;
-  background: var(--green-tint);
-  border: 1px solid rgba(11,107,77,0.2);
-  border-radius: 12px;
-  display: flex; align-items: center; justify-content: center;
-  margin-bottom: 16px;
-  color: var(--green);
-}
-.feat-card h3 {
-  font: 700 17px/1.15 var(--sans);
-  letter-spacing: -0.015em;
-  color: var(--ink);
-  margin-bottom: 8px;
-}
-.feat-card p { font: 400 14px/1.65 var(--sans); color: var(--ink-3); }
-.feat-chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 14px; }
-.chip {
-  display: inline-flex; align-items: center; gap: 6px;
-  padding: 5px 11px;
-  border-radius: 999px;
-  font: 600 11px/1 var(--sans);
-  background: var(--green-tint);
-  color: var(--green-deep);
-  letter-spacing: -0.005em;
-}
-.chip .dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
 
 /* =====================================================
    TIMELINE
@@ -1286,11 +1181,9 @@ footer {
   .qr-cta img { width: 96px; height: 96px; }
   .phone-badge { display: none; }
   .how-grid { grid-template-columns: 1fr; }
-  .features-section-inner { grid-template-columns: 1fr; }
   .boundary-grid { grid-template-columns: 1fr; }
   .detail-grid { grid-template-columns: 1fr; }
   .faq-grid { grid-template-columns: 1fr; }
-  .feat-card.wide { grid-column: span 1; }
   .timeline-track { flex-direction: column; gap: 20px; }
   .timeline-track::before { display: none; }
   .tl-item { flex-direction: row; align-items: center; gap: 16px; }
@@ -1406,9 +1299,9 @@ footer {
   </a>
   <ul class="nav-links">
     <li><a href="#how">How it works</a></li>
-    <li><a href="#features">Features</a></li>
     <li><a href="#demo">Demo</a></li>
     <li><a href="#reminders">Reminders</a></li>
+    <li><a href="#faq">FAQ</a></li>
   </ul>
   <a href="#waitlist" class="nav-cta">Join waitlist</a>
 </nav>
@@ -1426,10 +1319,6 @@ footer {
             <svg viewBox="0 0 400 400"><use href="#owl-icon"/></svg>
           </div>
           <p><strong>WOPA</strong>WhatsApp invoicing for UK tradespeople.</p>
-        </div>
-        <div class="hero-meta-strip">
-          <span class="pulse"></span>
-          Built for UK tradespeople <span aria-hidden="true">/</span> <code>founder pricing</code>
         </div>
         <h1 class="hero-h1">
           Send invoices<br>
@@ -1451,22 +1340,6 @@ footer {
             <span>This temporary link stays in place until the WhatsApp number is ready.</span>
           </span>
         </a>
-        <div class="hero-proof">
-          <div class="hero-proof-item">
-            <span class="hero-proof-num">&lt;5</span>
-            <span class="hero-proof-label">Messages to onboard</span>
-          </div>
-          <div class="hero-proof-divider"></div>
-          <div class="hero-proof-item">
-            <span class="hero-proof-num">7 / 14 / 28</span>
-            <span class="hero-proof-label">Auto-reminder days</span>
-          </div>
-          <div class="hero-proof-divider"></div>
-          <div class="hero-proof-item">
-            <span class="hero-proof-num">200</span>
-            <span class="hero-proof-label">Founder spots</span>
-          </div>
-        </div>
       </div>
       <!-- RIGHT: phone -->
       <div class="hero-visual">
@@ -1531,35 +1404,6 @@ footer {
 </section>
 
 <!-- ====================================================
-     TRADE STRIP
-     ==================================================== -->
-<div class="strip">
-  <div class="container">
-    <div class="strip-inner">
-      <span>Built for</span>
-      <span class="strip-divider">/</span>
-      <span>Electricians</span>
-      <span class="strip-divider">/</span>
-      <span>Plumbers</span>
-      <span class="strip-divider">/</span>
-      <span>Carpenters</span>
-      <span class="strip-divider">/</span>
-      <span>Builders</span>
-      <span class="strip-divider">/</span>
-      <span>Painters</span>
-      <span class="strip-divider">/</span>
-      <span>Roofers</span>
-      <span class="strip-divider">/</span>
-      <span>HVAC</span>
-      <span class="strip-divider">/</span>
-      <span>Landscapers</span>
-      <span class="strip-divider">/</span>
-      <span>Small limited companies</span>
-    </div>
-  </div>
-</div>
-
-<!-- ====================================================
      HOW IT WORKS
      ==================================================== -->
 <section class="section" id="how">
@@ -1579,56 +1423,56 @@ footer {
       <div class="how-card">
         <span class="how-num">01</span>
         <div class="how-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
         </div>
-        <h3>Add your details</h3>
-        <p>Share your business name, trade, email, and bank details once. WOPA uses them to prepare invoices from chat.</p>
-        <div class="chat-snippet">setup my business details<br>saved for invoices</div>
+        <h3>Just ask WOPA</h3>
+        <p>Send WOPA a message like you would a colleague: "Hey WOPA, invoice Chris £850 for the rewire and email it to him." WOPA turns it into a draft invoice and asks for anything missing.</p>
+        <div class="chat-snippet">hey wopa, invoice chris £850 rewire<br>draft ready</div>
       </div>
       <div class="how-card">
         <span class="how-num">02</span>
         <div class="how-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
         </div>
-        <h3>Save customers</h3>
-        <p>Add a customer once, then reuse their name, email, and job details whenever you invoice them again.</p>
-        <div class="chat-snippet">save dan as customer<br>dan@example.com</div>
+        <h3>Preview and confirm</h3>
+        <p>Review the customer, work, amount, due date, and bank details. Nothing leaves WhatsApp until you approve it.</p>
+        <div class="chat-snippet">reply YES to send<br>or edit amount</div>
       </div>
       <div class="how-card">
         <span class="how-num">03</span>
         <div class="how-icon">
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
         </div>
-        <h3>Draft from a message</h3>
-        <p>Type how you speak: "Invoice Dan £850 for the rewire." WOPA turns it into a draft invoice and asks for anything missing.</p>
-        <div class="chat-snippet">invoice dan £850 rewire<br>draft ready</div>
+        <h3>WOPA emails the PDF from WhatsApp</h3>
+        <p>Your customer gets a proper PDF invoice by email. They do not need WhatsApp to receive or pay it.</p>
+        <div class="chat-snippet">sent to chris@example.com<br>PDF attached</div>
       </div>
       <div class="how-card">
         <span class="how-num">04</span>
         <div class="how-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
         </div>
-        <h3>Preview and confirm</h3>
-        <p>Review the customer, work, amount, due date, and bank details. Nothing is emailed until you approve it.</p>
-        <div class="chat-snippet">Reply YES to send<br>or edit amount</div>
+        <h3>Track and chase</h3>
+        <p>Ask what is outstanding, pause reminders, or mark an invoice paid. WOPA stops chasing the moment you say it is settled.</p>
+        <div class="chat-snippet">chris paid<br>reminders stopped</div>
       </div>
       <div class="how-card">
         <span class="how-num">05</span>
         <div class="how-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16v16H4z"/><path d="M22 6l-10 7L2 6"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
         </div>
-        <h3>Email the PDF</h3>
-        <p>Your customer receives an email with a PDF invoice attached. They do not need WhatsApp to receive or pay the invoice.</p>
-        <div class="chat-snippet">sent to dan@example.com<br>PDF attached</div>
+        <h3>Save customers once</h3>
+        <p>"Hey WOPA, save Chris as a customer, chris@example.com." Next time, just say the name.</p>
+        <div class="chat-snippet">save chris as customer<br>chris@example.com saved</div>
       </div>
       <div class="how-card">
         <span class="how-num">06</span>
         <div class="how-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
         </div>
-        <h3>Track and follow up</h3>
-        <p>Ask what is outstanding, pause reminders, or mark an invoice paid. WOPA stops reminders when you say it is paid.</p>
-        <div class="chat-snippet">dan paid<br>reminders stopped</div>
+        <h3>Set up once, WOPA remembers</h3>
+        <p>"Hey WOPA, here are my business details and all my customers." Trade name, email, and bank details get saved and reused on every invoice.</p>
+        <div class="chat-snippet">setup my business details<br>saved for invoices</div>
       </div>
     </div>
   </div>
@@ -1676,88 +1520,6 @@ footer {
 </section>
 
 <!-- ====================================================
-     FEATURES
-     ==================================================== -->
-<section class="section" id="features">
-  <div class="container">
-    <div class="fade-up">
-      <div class="eyebrow" style="margin-bottom:18px;">What's included</div>
-      <h2 style="font:800 clamp(34px,4vw,52px)/1.05 var(--sans);letter-spacing:-0.035em;margin-bottom:8px;">
-        Built for the job site.<br><span class="serif-em" style="color:var(--green);">Runs on the job site.</span>
-      </h2>
-    </div>
-    <div class="features-section-inner fade-up" style="transition-delay:0.1s;">
-      <div class="feat-card">
-        <div class="feat-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
-        </div>
-          <h3>Natural language invoice drafts</h3>
-          <p>Say "Invoice Dave at Acme £1,200 for boiler install." WOPA extracts the client, amount, description and due date. Asks for anything missing. Confirms before sending.</p>
-          <div class="feat-chips">
-            <span class="chip"><span class="dot"></span> Draft preview</span>
-            <span class="chip"><span class="dot"></span> Missing details</span>
-            <span class="chip"><span class="dot"></span> YES to send</span>
-        </div>
-      </div>
-      <div class="feat-card">
-        <div class="feat-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-        </div>
-        <h3>Professional PDF invoices</h3>
-        <p>An A4 PDF is generated automatically and emailed to your client with your bank details, sort code, account number, and payment reference. No logo required, but it looks the part.</p>
-        <div class="feat-chips">
-          <span class="chip"><span class="dot"></span> PDF email</span>
-          <span class="chip"><span class="dot"></span> Bank details</span>
-          <span class="chip"><span class="dot"></span> Numbered</span>
-        </div>
-      </div>
-      <div class="feat-card">
-        <div class="feat-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10"/><path d="M12 20V4"/><path d="M6 20v-6"/></svg>
-        </div>
-        <h3>Outstanding at a glance</h3>
-        <p>Ask "Who hasn't paid?" and get an instant list sorted by days overdue, with running totals. One message to chase everyone who's late.</p>
-      </div>
-      <div class="feat-card">
-        <div class="feat-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-        </div>
-          <h3>Late-payment prompts, your call</h3>
-          <p>When an invoice becomes late, WOPA can prompt you to review stronger follow-up wording. You approve anything firm before it goes out.</p>
-          <div class="feat-chips">
-            <span class="chip"><span class="dot"></span> B2B only</span>
-            <span class="chip"><span class="dot"></span> Your approval</span>
-        </div>
-      </div>
-      <div class="feat-card wide">
-        <div class="feat-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-        </div>
-          <h3>Drafts stay editable until you approve</h3>
-          <p>Say "Invoice Dan £450" on Monday. Come back Tuesday and add the address, due date, or customer email. WOPA keeps the draft open and asks for explicit confirmation before sending.</p>
-          <div class="feat-chips">
-            <span class="chip"><span class="dot"></span> Editable draft</span>
-            <span class="chip"><span class="dot"></span> Customer records</span>
-          <span class="chip"><span class="dot"></span> Confirm gates</span>
-        </div>
-      </div>
-      <div class="feat-card wide">
-        <div class="feat-icon">
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
-        </div>
-        <h3>Reminder policies you can change</h3>
-        <p>Use the default 7, 14, and 28 day reminders, pause follow-ups for one customer, or turn reminders off before anything else is sent.</p>
-        <div class="feat-chips">
-          <span class="chip"><span class="dot"></span> Reminder policy</span>
-          <span class="chip"><span class="dot"></span> Pause any invoice</span>
-          <span class="chip"><span class="dot"></span> Stop from chat</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ====================================================
      MASCOT SECTION
      ==================================================== -->
 <section class="section" style="border-top: 1px solid var(--hair); padding: 0 0 88px;">
@@ -1773,7 +1535,7 @@ footer {
           <span class="em">never forgets.</span>
         </h2>
         <p>
-            WOPA's the polite invoicing assistant in your WhatsApp. He drafts the invoice, sends the PDF by email, and keeps reminders moving without another dashboard to check.
+          WOPA's the polite invoicing assistant in your WhatsApp. He drafts the invoice, sends the PDF by email, and keeps reminders moving without another dashboard to check.
         </p>
         <div class="mascot-trades">
           <span class="trade-chip">Electricians</span>
@@ -1784,8 +1546,8 @@ footer {
           <span class="trade-chip">Roofers</span>
           <span class="trade-chip">HVAC</span>
           <span class="trade-chip">Landscapers</span>
-            <span class="trade-chip">Sole traders</span>
-            <span class="trade-chip">Small limited companies</span>
+          <span class="trade-chip">Sole traders</span>
+          <span class="trade-chip">Small limited companies</span>
         </div>
       </div>
       <div style="position:relative; flex-shrink:0;">
@@ -1914,24 +1676,19 @@ footer {
         <div class="info-block">
           <h4>What WOPA handles</h4>
           <ul class="info-list">
-            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Onboarding under 5 messages</li>
-            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Natural language invoice creation</li>
-            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> PDF generation &amp; email delivery</li>
-            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Auto reminder scheduling</li>
-            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Outstanding summary on demand</li>
-            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Mass-chase with one message</li>
-            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Mark paid from WhatsApp</li>
-              <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Late-payment follow-up prompts (you confirm)</li>
+            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Type invoices the way you talk</li>
+            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Chase every unpaid client with one message</li>
+            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Ask "who hasn't paid?" any time</li>
+            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Mark paid from WhatsApp, reminders stop</li>
+            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Polite 7, 14, 28 day follow-ups on autopilot</li>
           </ul>
         </div>
         <div class="info-block">
           <h4>What your clients receive</h4>
           <ul class="info-list">
-            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Professional HTML email</li>
-            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> A4 PDF invoice attached</li>
-            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Bank transfer details included</li>
-            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Polite reminders at 7 / 14 / 28 days</li>
-            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Clear payment reference</li>
+            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> A clean, professional email from your business</li>
+            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> A4 PDF invoice with bank details and payment reference</li>
+            <li><span class="check-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg></span> Polite reminders at 7, 14, and 28 days</li>
           </ul>
         </div>
         <div class="info-block" style="background:var(--green-paper);">
@@ -1996,41 +1753,6 @@ footer {
 </section>
 
 <!-- ====================================================
-     SEO USE CASES
-     ==================================================== -->
-<section class="section" id="use-cases">
-  <div class="container">
-    <div class="fade-up">
-      <div class="eyebrow" style="margin-bottom:18px;">For UK trades</div>
-      <h2 style="font:800 clamp(34px,4vw,52px)/1.05 var(--sans);letter-spacing:-0.035em;margin-bottom:8px;">
-        WhatsApp invoicing<br><span class="serif-em" style="color:var(--green);">for trade workflows.</span>
-      </h2>
-      <p style="font:400 17px/1.55 var(--sans);color:var(--ink-2);max-width:700px;margin-top:16px;">
-        WOPA is for self-employed tradespeople, sole traders, and small limited companies who want invoice admin to fit around site work instead of a desktop accounting session.
-      </p>
-    </div>
-    <div class="detail-grid fade-up" style="transition-delay:0.1s;">
-      <div class="detail-card">
-        <h3>WhatsApp invoicing for tradespeople</h3>
-        <p>Create a draft invoice from a normal chat message, approve the details, and email a PDF to the customer without opening a separate invoicing dashboard.</p>
-      </div>
-      <div class="detail-card">
-        <h3>Invoice reminders for UK small businesses</h3>
-        <p>Keep track of who has not paid and send polite payment reminders on a clear schedule, with the option to pause or stop reminders when needed.</p>
-      </div>
-      <div class="detail-card">
-        <h3>Invoice chaser for electricians and other trades</h3>
-        <p>Use WOPA after rewires, callouts, repairs, installs, and repeat jobs where the work is done but the invoice still needs sending and following up.</p>
-      </div>
-      <div class="detail-card">
-        <h3>PDF invoices by email</h3>
-        <p>Customers receive invoice emails with PDF attachments and payment references. They do not need WhatsApp to receive the invoice.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ====================================================
      TRUST / SECURITY / SUPPORT
      ==================================================== -->
 <section class="section" id="trust">
@@ -2082,6 +1804,10 @@ footer {
       </h2>
     </div>
     <div class="faq-grid fade-up" style="transition-delay:0.1s;">
+      <div class="faq-item">
+        <h3>Do I need to download an app?</h3>
+        <p>No. WOPA lives in your WhatsApp chat, it can create invoices and chase payments for you.</p>
+      </div>
       <div class="faq-item">
         <h3>Can I edit before sending?</h3>
         <p>Yes. WOPA shows a draft and asks for confirmation before an invoice email or firm follow-up is sent.</p>
