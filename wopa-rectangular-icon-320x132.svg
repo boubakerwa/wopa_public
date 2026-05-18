@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="132" viewBox="0 0 320 132" role="img" aria-label="WOPA owl icon on brand green rectangular background">
+  <rect width="320" height="132" fill="#0B6B4D"/>
+  <g transform="translate(106 13) scale(0.265)">
+    <circle cx="200" cy="200" r="180" fill="#F5EFE0"/>
+    <path d="M85 110 Q95 70 125 100 Q110 130 85 110Z" fill="#D8CCAD"/>
+    <path d="M315 110 Q305 70 275 100 Q290 130 315 110Z" fill="#D8CCAD"/>
+    <path d="M55 220 Q60 300 130 320 Q120 270 95 230 Q70 215 55 220Z" fill="#D8CCAD"/>
+    <path d="M345 220 Q340 300 270 320 Q280 270 305 230 Q330 215 345 220Z" fill="#D8CCAD"/>
+    <path d="M150 260 Q200 290 250 260 Q252 320 200 340 Q148 320 150 260Z" fill="#0B6B4D"/>
+    <path d="M158 304 Q200 318 242 304 L242 312 Q200 326 158 312 Z" fill="#E8A33A"/>
+    <ellipse cx="148" cy="180" rx="62" ry="68" fill="#FBF6E8" stroke="#E6DCC4" stroke-width="2"/>
+    <ellipse cx="252" cy="180" rx="62" ry="68" fill="#FBF6E8" stroke="#E6DCC4" stroke-width="2"/>
+    <circle cx="152" cy="186" r="28" fill="#14201B"/>
+    <circle cx="248" cy="186" r="28" fill="#14201B"/>
+    <circle cx="161" cy="178" r="9" fill="#FFFFFF"/>
+    <circle cx="257" cy="178" r="9" fill="#FFFFFF"/>
+    <path d="M200 222 Q188 222 188 234 Q188 246 200 252 Q212 246 212 234 Q212 222 200 222Z" fill="#E8A33A"/>
+  </g>
+</svg>
