@@ -52,6 +52,19 @@ export async function onRequestPost({ request, env }) {
   try {
     const payload = JSON.parse(new TextDecoder().decode(body));
     console.log('whatsapp_webhook_received', summarizeWhatsAppWebhook(payload));
+
+    if (env.WOPA_BACKEND_WEBHOOK_URL) {
+      const forwardResponse = await forwardToBackend(request, env, body);
+      if (!forwardResponse.ok) {
+        console.error('whatsapp_webhook_forward_failed', {
+          status: forwardResponse.status,
+          statusText: forwardResponse.statusText
+        });
+        return new Response('Backend forward failed', { status: 502 });
+      }
+      console.log('whatsapp_webhook_forwarded', { status: forwardResponse.status });
+    }
+
     return new Response('EVENT_RECEIVED', {
       status: 200,
       headers: { 'Content-Type': 'text/plain; charset=utf-8' }
@@ -60,6 +73,28 @@ export async function onRequestPost({ request, env }) {
     console.warn('whatsapp_webhook_invalid_json', error instanceof Error ? error.message : error);
     return new Response('Invalid JSON', { status: 400 });
   }
+}
+
+async function forwardToBackend(request, env, body) {
+  if (!env.WOPA_BACKEND_WEBHOOK_SECRET) {
+    console.error('whatsapp_backend_webhook_secret_missing');
+    return new Response('Backend webhook secret is not configured', { status: 503 });
+  }
+
+  const headers = new Headers({
+    'Content-Type': request.headers.get('Content-Type') || 'application/json',
+    'X-Wopa-Webhook-Secret': env.WOPA_BACKEND_WEBHOOK_SECRET
+  });
+  const metaSignature = request.headers.get('X-Hub-Signature-256');
+  if (metaSignature) {
+    headers.set('X-Hub-Signature-256', metaSignature);
+  }
+
+  return fetch(env.WOPA_BACKEND_WEBHOOK_URL, {
+    method: 'POST',
+    headers,
+    body
+  });
 }
 
 async function readRequestBody(request, maxBytes) {
