@@ -28,9 +28,9 @@
   "url": "https://mywopa.com/",
   "offers": {
     "@type": "Offer",
-    "price": "0",
+    "price": "9.99",
     "priceCurrency": "GBP",
-    "description": "Early access waitlist with founder pricing for the first 200 signups."
+    "description": "Founder pricing: £9.99/month for the first 200 signups (regular price £14.99/month). All features included."
   },
   "audience": {
     "@type": "Audience",
@@ -1377,6 +1377,7 @@ footer {
     <li><a href="#demo">Demo</a></li>
     <li><a href="#reminders">Reminders</a></li>
     <li><a href="#faq">FAQ</a></li>
+    <li><a href="blog/">Blog</a></li>
     <li class="mobile-menu-cta-wrap"><a href="#waitlist" class="mobile-menu-cta">Join waitlist</a></li>
   </ul>
   <a href="#waitlist" class="nav-cta">Join waitlist</a>
@@ -1567,7 +1568,14 @@ footer {
             Early access
           </div>
           <h2>Join early.<br><span class="em">Pay less.</span></h2>
-          <p>Founder pricing for the first 200 waitlist signups. Leave an email, a WhatsApp number, or both. We'll share the plan before you pay, and there is no card required today.</p>
+
+          <div style="display:inline-flex;align-items:baseline;gap:12px;margin-bottom:24px;">
+            <span style="font:800 48px/1 var(--sans);letter-spacing:-0.04em;color:var(--green);">&pound;9.99</span>
+            <span style="font:400 16px/1 var(--sans);color:var(--ink-3);">/month</span>
+            <span style="font:400 15px/1 var(--sans);color:var(--ink-4);text-decoration:line-through;">&pound;14.99</span>
+          </div>
+
+          <p><strong>Founder pricing</strong> for the first 200 signups. All features, one price, locked in. Leave an email, a WhatsApp number, or both. No card required today.</p>
 
           <form class="waitlist-form" data-waitlist-form>
             <div class="field-group">
@@ -1912,6 +1920,41 @@ footer {
 <!-- ====================================================
      FOOTER
      ==================================================== -->
+
+<!-- Related reading -->
+<section style="padding:48px 0;border-top:1px solid var(--hair);">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:18px;">Related reading</div>
+    <div class="related-links" style="display:flex;flex-wrap:wrap;gap:10px;">
+      <a href="blog/send-invoice-whatsapp.html">How to send an invoice on WhatsApp</a>
+      <a href="blog/how-to-invoice-sole-trader-uk.html">How to invoice as a sole trader in the UK</a>
+      <a href="blog/late-payment-rights-uk-tradespeople.html">Late payment rights for UK tradespeople</a>
+      <a href="electricians.html">WOPA for electricians</a>
+      <a href="plumbers.html">WOPA for plumbers</a>
+      <a href="builders.html">WOPA for builders</a>
+      <a href="vs/quickbooks.html">WOPA vs QuickBooks</a>
+      <a href="vs/xero.html">WOPA vs Xero</a>
+    </div>
+  </div>
+  <style>
+    .related-links a {
+      display: inline-block;
+      padding: 9px 16px;
+      background: #fff;
+      border: 1px solid rgba(20,32,27,0.10);
+      border-radius: 999px;
+      font: 500 13px/1 var(--sans);
+      color: var(--ink-2);
+      text-decoration: none;
+      transition: border-color 0.18s, color 0.18s;
+    }
+    .related-links a:hover {
+      border-color: var(--green);
+      color: var(--green);
+    }
+  </style>
+</section>
+
 <footer>
   <a href="#" class="footer-logo" aria-label="WOPA">
     <span class="glyph">W</span><span class="o"></span><span class="glyph">P</span><span class="glyph">A</span>
