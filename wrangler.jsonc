@@ -19,5 +19,11 @@
   ],
   "compatibility_flags": [
     "nodejs_compat"
-  ]
+  ],
+  // Secrets are set via `npx wrangler secret put <NAME>` and persist across deploys.
+  // Declaring them here documents what the Worker expects; values are never in this file.
+  // See DEPLOY.md for the full list.
+  "vars": {
+    "WHATSAPP_GRAPH_API_VERSION": "v23.0"
+  }
 }
