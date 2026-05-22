@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Reverse Charge VAT Calculator — Construction UK | WOPA</title>
+<meta name="description" content="Free reverse charge VAT calculator for UK construction. Check if the domestic reverse charge applies and calculate the correct invoice amounts for CIS subcontractors."/>
+<link rel="canonical" href="https://mywopa.com/tools/reverse-vat-calculator.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Reverse Charge VAT Calculator — Construction UK | WOPA"/>
+<meta property="og:description" content="Free reverse charge VAT calculator for UK construction. Check if the domestic reverse charge applies and calculate the correct invoice amounts for CIS subcontractors."/>
+<meta property="og:url" content="https://mywopa.com/tools/reverse-vat-calculator.html"/>
+<meta property="og:image" content="https://mywopa.com/wopa-whatsapp-bot-profile.png"/>
+<meta property="og:image:width" content="1024"/>
+<meta property="og:image:height" content="1024"/>
+<meta property="og:image:alt" content="WOPA | Reverse Charge VAT Calculator"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Reverse Charge VAT Calculator — Construction UK | WOPA"/>
+<meta name="twitter:description" content="Free reverse charge VAT calculator for UK construction. Check if the domestic reverse charge applies and calculate the correct invoice amounts."/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Reverse Charge VAT Calculator",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "Free reverse charge VAT calculator for UK construction businesses. Determine whether the domestic reverse charge applies and calculate the correct invoice amounts.",
+  "url": "https://mywopa.com/tools/reverse-vat-calculator.html",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "WOPA",
+    "url": "https://mywopa.com"
+  }
+}
+</script>
+<link rel="icon" type="image/png" href="/wopa-whatsapp-bot-profile.png"/>
+<link rel="apple-touch-icon" href="/wopa-whatsapp-bot-profile.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+<style>
+:root{--green:#0B6B4D;--green-deep:#074A36;--green-tint:#DFEEE7;--green-paper:#F0F6F2;--paper:#FBF8F2;--paper-2:#F4EFE3;--cream:#F5EFE0;--cream-shadow:#E8DFC8;--ink:#14201B;--ink-2:#3E4C46;--ink-3:#6B7873;--ink-4:#9AA5A0;--hair:rgba(20,32,27,0.10);--hair-strong:rgba(20,32,27,0.18);--amber:#E8A33A;--amber-soft:#FBE9C4;--coral:#E85D5D;--sans:'Bricolage Grotesque',system-ui,sans-serif;--serif:'Instrument Serif',Georgia,serif;--mono:'JetBrains Mono',ui-monospace,monospace}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;font-feature-settings:"ss01","ss02"}body::before{content:"";position:fixed;inset:0;background-image:radial-gradient(circle at 1px 1px,rgba(20,32,27,0.055) 1px,transparent 0);background-size:20px 20px;pointer-events:none;z-index:0}body>*{position:relative;z-index:1}.container{max-width:1160px;margin:0 auto;padding:0 40px}.eyebrow{display:inline-flex;align-items:center;gap:10px;font:600 11px/1 var(--sans);letter-spacing:0.16em;text-transform:uppercase;color:var(--green)}.eyebrow::before{content:"";display:inline-block;width:22px;height:1.5px;background:var(--green)}.serif-em{font-family:var(--serif);font-style:italic;font-weight:400;letter-spacing:-0.01em}
+
+/* Nav */
+nav{position:sticky;top:0;z-index:100;background:rgba(251,248,242,0.88);backdrop-filter:blur(14px);border-bottom:1px solid var(--hair);padding:0 40px;height:64px;display:flex;align-items:center;justify-content:space-between}.nav-logo{display:inline-flex;align-items:baseline;gap:0;font:800 0/1 var(--sans);line-height:1;letter-spacing:-0.06em;color:var(--ink);text-decoration:none;font-size:28px}.nav-logo .glyph{font-size:1em;line-height:1}.nav-logo .o{display:inline-block;position:relative;width:0.78em;height:0.78em;border-radius:50%;background:var(--ink);margin:0 0.005em;vertical-align:-0.04em}.nav-logo .o::after{content:"";position:absolute;width:0.32em;height:0.32em;background:var(--paper);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%)}.nav-links{display:flex;gap:32px;list-style:none}.nav-links a{text-decoration:none;color:var(--ink-3);font-size:14px;font-weight:500;transition:color 0.18s}.nav-links a:hover{color:var(--ink)}.nav-cta{background:var(--green);color:#fff;font:600 14px/1 var(--sans);padding:10px 22px;border-radius:999px;text-decoration:none;transition:background 0.18s,transform 0.12s;letter-spacing:-0.005em}.nav-cta:hover{background:var(--green-deep);transform:translateY(-1px)}.hamburger{display:none}.mobile-menu-cta-wrap{display:none}
+
+/* Buttons */
+.btn-primary{background:var(--green);color:#fff;font:600 15px/1 var(--sans);padding:15px 28px;border-radius:999px;text-decoration:none;border:none;cursor:pointer;transition:background 0.18s,transform 0.12s,box-shadow 0.18s;letter-spacing:-0.005em;display:inline-flex;align-items:center;gap:8px;box-shadow:0 1px 2px rgba(11,107,77,0.12),0 4px 12px rgba(11,107,77,0.18)}.btn-primary:hover{background:var(--green-deep);transform:translateY(-1px);box-shadow:0 2px 4px rgba(11,107,77,0.14),0 8px 24px rgba(11,107,77,0.22)}.btn-ghost{color:var(--ink-2);font:500 15px/1 var(--sans);text-decoration:none;border:1px solid var(--hair-strong);padding:15px 24px;border-radius:999px;transition:border-color 0.18s,color 0.18s,transform 0.12s;letter-spacing:-0.005em}.btn-ghost:hover{border-color:var(--ink-3);color:var(--ink);transform:translateY(-1px)}
+
+/* Section */
+.section{padding:88px 0;border-top:1px solid var(--hair)}
+
+/* Hero */
+.hero{padding:88px 0 64px;text-align:center;max-width:740px;margin:0 auto}
+.hero h1{font:800 clamp(40px,5.5vw,64px)/1.0 var(--sans);letter-spacing:-0.045em;margin-bottom:20px;color:var(--ink)}
+.hero .subtitle{font-size:19px;line-height:1.55;color:var(--ink-2);max-width:600px;margin:0 auto;letter-spacing:-0.005em}
+
+/* Decision tree */
+.decision-section{max-width:680px;margin:0 auto}
+.question-card{background:#fff;border:1px solid var(--hair);border-radius:18px;padding:24px 28px;margin-bottom:16px;transition:opacity 0.3s,transform 0.3s}
+.question-card.hidden{display:none}
+.question-card .q-number{font:700 12px/1 var(--mono);color:var(--ink-4);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px}
+.question-card .q-text{font:600 17px/1.35 var(--sans);color:var(--ink);letter-spacing:-0.01em;margin-bottom:16px}
+.question-card .q-help{font:400 14px/1.5 var(--sans);color:var(--ink-3);margin-bottom:16px}
+.q-buttons{display:flex;gap:10px}
+.q-btn{font:600 14px/1 var(--sans);padding:11px 28px;border-radius:999px;border:1.5px solid var(--hair-strong);background:var(--paper);color:var(--ink-2);cursor:pointer;transition:all 0.18s}
+.q-btn:hover{border-color:var(--green);color:var(--green);background:var(--green-paper)}
+.q-btn.selected{border-color:var(--green);background:var(--green);color:#fff}
+.q-btn.selected-no{border-color:var(--ink-3);background:var(--ink);color:#fff}
+
+/* Result badge */
+.result-badge{padding:24px 28px;border-radius:18px;text-align:center;margin-top:24px;margin-bottom:24px;display:none}
+.result-badge.applies{background:var(--green-paper);border:2px solid var(--green);display:block}
+.result-badge.standard{background:var(--amber-soft);border:2px solid var(--amber);display:block}
+.result-badge h3{font:800 22px/1.2 var(--sans);letter-spacing:-0.02em;margin-bottom:8px}
+.result-badge.applies h3{color:var(--green)}
+.result-badge.standard h3{color:#9A7520}
+.result-badge p{font:400 15px/1.5 var(--sans);color:var(--ink-2)}
+.result-badge .restart-link{display:inline-block;margin-top:12px;font:500 13px/1 var(--sans);color:var(--green);text-decoration:underline;cursor:pointer}
+
+/* Calculator */
+.calc-section{max-width:680px;margin:0 auto;display:none}
+.calc-card{background:#fff;border:1px solid var(--hair);border-radius:18px;padding:32px}
+.calc-card h3{font:700 20px/1.2 var(--sans);letter-spacing:-0.02em;color:var(--ink);margin-bottom:20px}
+.calc-field{margin-bottom:20px}
+.calc-field label{display:block;font:600 14px/1 var(--sans);color:var(--ink-2);margin-bottom:8px}
+.calc-field input[type="number"]{width:100%;font:500 18px/1 var(--sans);padding:14px 16px;border:1.5px solid var(--hair-strong);border-radius:12px;background:var(--paper);color:var(--ink);outline:none;transition:border-color 0.18s}
+.calc-field input[type="number"]:focus{border-color:var(--green)}
+.vat-radios{display:flex;gap:10px;flex-wrap:wrap}
+.vat-radio{display:flex;align-items:center;gap:6px;cursor:pointer;font:500 14px/1 var(--sans);color:var(--ink-2)}
+.vat-radio input{accent-color:var(--green);width:16px;height:16px}
+.calc-output{background:var(--green-paper);border:1px solid rgba(11,107,77,0.18);border-radius:14px;padding:24px;margin-top:20px}
+.calc-output.standard-output{background:var(--paper-2);border-color:var(--hair-strong)}
+.calc-row{display:flex;justify-content:space-between;align-items:center;padding:8px 0;font:500 15px/1.4 var(--sans);color:var(--ink-2)}
+.calc-row.total{font-weight:700;font-size:17px;color:var(--ink);border-top:1.5px solid var(--hair-strong);margin-top:8px;padding-top:14px}
+.calc-row .amount{font-family:var(--mono);font-weight:600;color:var(--ink);font-size:16px}
+.calc-row.total .amount{font-size:18px;color:var(--green)}
+.calc-note{margin-top:16px;padding:14px 16px;background:var(--amber-soft);border-radius:10px;font:500 13px/1.5 var(--sans);color:#7A5F14}
+.calc-note.green-note{background:var(--green-tint);color:var(--green-deep)}
+
+/* Educational */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:44px}
+.edu-card{background:#fff;border:1px solid var(--hair);border-radius:18px;padding:28px}
+.edu-card h3{font:700 17px/1.2 var(--sans);color:var(--ink);letter-spacing:-0.01em;margin-bottom:12px}
+.edu-card p,.edu-card li{font:400 14px/1.65 var(--sans);color:var(--ink-3)}
+.edu-card ul{padding-left:18px;margin-top:8px}
+.edu-card li{margin-bottom:6px}
+.edu-card .invoice-text{margin-top:10px;padding:10px 12px;background:var(--green-tint);border-radius:8px;font:500 12px/1.5 var(--mono);color:var(--green-deep)}
+
+/* CTA */
+.cta-section{background:#fff;border:1px solid var(--hair);border-radius:32px;padding:64px;text-align:center;position:relative;overflow:hidden}.cta-section::before{content:"";position:absolute;top:-1px;left:20%;right:20%;height:2px;background:linear-gradient(90deg,transparent,var(--green),transparent)}.cta-section h2{font:800 clamp(36px,4vw,58px)/1.0 var(--sans);letter-spacing:-0.04em;color:var(--ink);margin-bottom:16px;position:relative}.cta-section h2 .em{font-family:var(--serif);font-style:italic;font-weight:400;color:var(--green)}.cta-section>p{font:400 18px/1.55 var(--sans);color:var(--ink-2);max-width:500px;margin:0 auto 40px;position:relative}
+
+/* Disclaimer */
+.disclaimer{max-width:680px;margin:0 auto;padding:20px 0 0;text-align:center;font:400 13px/1.6 var(--sans);color:var(--ink-4)}
+
+/* Related links */
+.related-links{display:flex;flex-wrap:wrap;gap:10px}
+.related-links a{display:inline-block;padding:9px 16px;background:#fff;border:1px solid rgba(20,32,27,0.10);border-radius:999px;font:500 13px/1 var(--sans);color:var(--ink-2);text-decoration:none;transition:border-color 0.18s,color 0.18s}
+.related-links a:hover{border-color:var(--green);color:var(--green)}
+
+/* Footer */
+footer{border-top:1px solid var(--hair);padding:32px 40px;display:flex;justify-content:space-between;align-items:center}.footer-logo{display:inline-flex;align-items:baseline;gap:0;font:800 22px/1 var(--sans);letter-spacing:-0.06em;color:var(--ink-3);text-decoration:none}.footer-logo .o{display:inline-block;position:relative;width:0.78em;height:0.78em;border-radius:50%;background:var(--ink-3);margin:0 0.005em;vertical-align:-0.04em}.footer-logo .o::after{content:"";position:absolute;width:0.32em;height:0.32em;background:var(--paper);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%)}.footer-copy{font:400 13px/1 var(--sans);color:var(--ink-4)}.footer-links{display:flex;gap:24px}.footer-links a{font:400 13px/1 var(--sans);color:var(--ink-4);text-decoration:none}.footer-links a:hover{color:var(--ink-2)}
+
+/* Fade up */
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.6s ease,transform 0.6s ease}.fade-up.visible{opacity:1;transform:none}
+
+/* Responsive */
+@media(max-width:960px){
+.container{padding:0 24px}
+nav{padding:0 24px}
+.hamburger{display:flex;flex-direction:column;justify-content:center;gap:5px;width:32px;height:32px;background:none;border:none;cursor:pointer;padding:4px;z-index:201}
+.hamburger span{display:block;width:22px;height:2px;background:var(--ink);border-radius:2px;transition:transform 0.25s ease,opacity 0.2s ease}
+.hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.nav-links{display:none}
+.nav-links.open{display:flex;flex-direction:column;gap:0;position:absolute;top:64px;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--hair);box-shadow:0 8px 24px rgba(20,32,27,0.08);padding:8px 0;animation:menuSlideDown 0.22s ease-out;z-index:200}
+.nav-links.open li{list-style:none}
+.nav-links.open a{display:block;padding:14px 28px;font-size:15px;font-weight:500;color:var(--ink-2);text-decoration:none;transition:background 0.15s,color 0.15s}
+.nav-links.open a:hover{background:var(--green-paper);color:var(--ink)}
+.mobile-menu-cta{display:block;margin:8px 20px 12px;padding:13px 24px;background:var(--green);color:#fff;text-align:center;font:600 15px/1 var(--sans);border-radius:999px;text-decoration:none;transition:background 0.18s}
+.mobile-menu-cta:hover{background:var(--green-deep)}
+.mobile-menu-cta-wrap{display:none}
+.nav-links.open .mobile-menu-cta-wrap{display:block}
+.nav-cta{display:none}
+@keyframes menuSlideDown{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.hero{padding:64px 0 48px}
+.edu-grid{grid-template-columns:1fr}
+.cta-section{padding:40px 24px}
+footer{flex-direction:column;gap:16px;text-align:center;padding:24px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo" aria-label="WOPA home"><span class="glyph">W</span><span class="o"></span><span class="glyph">P</span><span class="glyph">A</span></a>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="/#how">How it works</a></li>
+    <li><a href="/#demo">Demo</a></li>
+    <li><a href="/#reminders">Reminders</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li class="mobile-menu-cta-wrap"><a href="/#waitlist" class="mobile-menu-cta">Join waitlist</a></li>
+  </ul>
+  <a href="/#waitlist" class="nav-cta">Join waitlist</a>
+</nav>
+
+<!-- Hero -->
+<section style="padding:0;border:none;">
+  <div class="container">
+    <div class="hero fade-up">
+      <div class="eyebrow" style="justify-content:center;margin-bottom:22px;">Free tool</div>
+      <h1>Reverse Charge VAT Calculator</h1>
+      <p class="subtitle">Check whether the domestic reverse charge applies to your construction invoice and calculate the correct amounts. Built for UK subcontractors and contractors registered under CIS.</p>
+    </div>
+  </div>
+</section>
+
+<!-- Step 1: Decision tree -->
+<section class="section" id="decision">
+  <div class="container">
+    <div class="decision-section fade-up">
+      <div class="eyebrow" style="margin-bottom:18px;">Step 1</div>
+      <h2 style="font:800 clamp(28px,3.5vw,42px)/1.05 var(--sans);letter-spacing:-0.035em;margin-bottom:32px;">Does the reverse charge <span class="serif-em" style="color:var(--green);">apply?</span></h2>
+
+      <div class="question-card" id="q1">
+        <div class="q-number">Question 1 of 5</div>
+        <div class="q-text">Is the supply a construction service covered by CIS?</div>
+        <div class="q-help">This includes most building, repair, maintenance, demolition, and installation work. It does not cover architecture, surveying, or materials-only supplies.</div>
+        <div class="q-buttons">
+          <button class="q-btn" data-q="1" data-a="yes">Yes</button>
+          <button class="q-btn" data-q="1" data-a="no">No</button>
+        </div>
+      </div>
+
+      <div class="question-card hidden" id="q2">
+        <div class="q-number">Question 2 of 5</div>
+        <div class="q-text">Are you (the supplier) VAT-registered?</div>
+        <div class="q-help">You must be registered for VAT in the UK. If you are below the VAT threshold and not voluntarily registered, standard rules apply.</div>
+        <div class="q-buttons">
+          <button class="q-btn" data-q="2" data-a="yes">Yes</button>
+          <button class="q-btn" data-q="2" data-a="no">No</button>
+        </div>
+      </div>
+
+      <div class="question-card hidden" id="q3">
+        <div class="q-number">Question 3 of 5</div>
+        <div class="q-text">Is your customer VAT-registered?</div>
+        <div class="q-help">Your customer (the contractor paying you) must also be VAT-registered for the reverse charge to apply.</div>
+        <div class="q-buttons">
+          <button class="q-btn" data-q="3" data-a="yes">Yes</button>
+          <button class="q-btn" data-q="3" data-a="no">No</button>
+        </div>
+      </div>
+
+      <div class="question-card hidden" id="q4">
+        <div class="q-number">Question 4 of 5</div>
+        <div class="q-text">Are both parties registered for CIS?</div>
+        <div class="q-help">Both you and your customer must be registered with HMRC under the Construction Industry Scheme.</div>
+        <div class="q-buttons">
+          <button class="q-btn" data-q="4" data-a="yes">Yes</button>
+          <button class="q-btn" data-q="4" data-a="no">No</button>
+        </div>
+      </div>
+
+      <div class="question-card hidden" id="q5">
+        <div class="q-number">Question 5 of 5</div>
+        <div class="q-text">Is your customer the end user of the building work?</div>
+        <div class="q-help">An end user is someone who uses the building or structure for their own purposes and does not make onward supplies of the construction service. If your customer is the end user, the reverse charge does NOT apply.</div>
+        <div class="q-buttons">
+          <button class="q-btn" data-q="5" data-a="yes">Yes</button>
+          <button class="q-btn" data-q="5" data-a="no">No</button>
+        </div>
+      </div>
+
+      <!-- Result -->
+      <div class="result-badge" id="result-applies">
+        <h3>Reverse charge APPLIES</h3>
+        <p>All five conditions are met. You must not charge VAT on your invoice. Your customer accounts for the VAT directly to HMRC.</p>
+        <span class="restart-link" id="restart-1">Start again</span>
+      </div>
+
+      <div class="result-badge" id="result-standard">
+        <h3>Standard VAT applies</h3>
+        <p id="standard-reason">The reverse charge does not apply in this case. You should charge VAT on your invoice as normal.</p>
+        <span class="restart-link" id="restart-2">Start again</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Step 2: Calculator -->
+<section class="section" id="calculator-section" style="display:none;">
+  <div class="container">
+    <div class="calc-section" id="calc-area" style="display:block;">
+      <div class="eyebrow" style="margin-bottom:18px;">Step 2</div>
+      <h2 style="font:800 clamp(28px,3.5vw,42px)/1.05 var(--sans);letter-spacing:-0.035em;margin-bottom:32px;">Calculate your <span class="serif-em" style="color:var(--green);">invoice amounts</span></h2>
+
+      <!-- Reverse charge calculator -->
+      <div class="calc-card" id="calc-reverse" style="display:none;">
+        <h3>Reverse charge invoice</h3>
+        <div class="calc-field">
+          <label for="rc-net">Net amount (excluding VAT)</label>
+          <input type="number" id="rc-net" placeholder="e.g. 5000" min="0" step="0.01"/>
+        </div>
+        <div class="calc-output" id="rc-output" style="display:none;">
+          <div class="calc-row">
+            <span>Net amount</span>
+            <span class="amount" id="rc-net-display">-</span>
+          </div>
+          <div class="calc-row">
+            <span>VAT (not charged)</span>
+            <span class="amount" style="color:var(--ink-4);">£0.00</span>
+          </div>
+          <div class="calc-row total">
+            <span>Invoice total</span>
+            <span class="amount" id="rc-total-display">-</span>
+          </div>
+        </div>
+        <div class="calc-note green-note" id="rc-note" style="display:none;">
+          Your invoice should state: <strong>"Reverse charge: customer to account for VAT to HMRC."</strong> Do not show a VAT amount on the invoice.
+        </div>
+        <div class="calc-output" id="rc-customer" style="display:none;margin-top:16px;">
+          <div style="font:600 14px/1 var(--sans);color:var(--ink);margin-bottom:12px;">What your customer reports to HMRC</div>
+          <div class="calc-row">
+            <span>Output VAT at 20%</span>
+            <span class="amount" id="rc-cust-vat">-</span>
+          </div>
+          <div class="calc-row">
+            <span>Input VAT claimed back</span>
+            <span class="amount" id="rc-cust-input">-</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Standard VAT calculator -->
+      <div class="calc-card" id="calc-standard" style="display:none;">
+        <h3>Standard VAT invoice</h3>
+        <div class="calc-field">
+          <label for="sv-net">Net amount (excluding VAT)</label>
+          <input type="number" id="sv-net" placeholder="e.g. 5000" min="0" step="0.01"/>
+        </div>
+        <div class="calc-field">
+          <label>VAT rate</label>
+          <div class="vat-radios">
+            <label class="vat-radio"><input type="radio" name="vat-rate" value="20" checked/> 20% standard</label>
+            <label class="vat-radio"><input type="radio" name="vat-rate" value="5"/> 5% reduced</label>
+            <label class="vat-radio"><input type="radio" name="vat-rate" value="0"/> 0% zero-rated</label>
+          </div>
+        </div>
+        <div class="calc-output standard-output" id="sv-output" style="display:none;">
+          <div class="calc-row">
+            <span>Net amount</span>
+            <span class="amount" id="sv-net-display">-</span>
+          </div>
+          <div class="calc-row">
+            <span>VAT (<span id="sv-rate-label">20%</span>)</span>
+            <span class="amount" id="sv-vat-display">-</span>
+          </div>
+          <div class="calc-row total">
+            <span>Gross total</span>
+            <span class="amount" id="sv-total-display">-</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Educational section -->
+<section class="section" id="guide">
+  <div class="container">
+    <div class="fade-up">
+      <div class="eyebrow" style="margin-bottom:18px;">Quick guide</div>
+      <h2 style="font:800 clamp(28px,3.5vw,42px)/1.05 var(--sans);letter-spacing:-0.035em;">Understanding the <span class="serif-em" style="color:var(--green);">domestic reverse charge</span></h2>
+    </div>
+    <div class="edu-grid fade-up" style="transition-delay:0.1s;">
+      <div class="edu-card">
+        <h3>What is the domestic reverse charge?</h3>
+        <p>The domestic reverse charge for construction (often called CIS reverse charge) shifts the responsibility for reporting VAT from the supplier to the customer. Instead of the subcontractor charging VAT on the invoice, the contractor receiving the service accounts for the VAT directly to HMRC on their VAT return. It was introduced to combat VAT fraud in the construction supply chain.</p>
+      </div>
+      <div class="edu-card">
+        <h3>When does it apply?</h3>
+        <p>All five of the following conditions must be met:</p>
+        <ul>
+          <li>The supply is a construction service within the scope of CIS</li>
+          <li>The supplier is VAT-registered</li>
+          <li>The customer is VAT-registered</li>
+          <li>Both supplier and customer are registered for CIS</li>
+          <li>The customer is not the end user of the construction work</li>
+        </ul>
+      </div>
+      <div class="edu-card">
+        <h3>What should the invoice say?</h3>
+        <p>A reverse charge invoice must include a specific statement. The most common wording is:</p>
+        <div class="invoice-text">"Reverse charge: customer to account for VAT to HMRC"</div>
+        <p style="margin-top:10px;">The invoice should show the net amount but not add a VAT amount. You should also show the applicable VAT rate (e.g. 20%) for reference.</p>
+      </div>
+      <div class="edu-card">
+        <h3>Common mistakes</h3>
+        <ul>
+          <li>Charging VAT when the reverse charge applies (customer should not pay VAT to you)</li>
+          <li>Forgetting the mandatory reverse charge wording on the invoice</li>
+          <li>Applying the reverse charge to an end user (e.g. a homeowner) who is not in the construction supply chain</li>
+          <li>Not verifying whether your customer is VAT-registered and CIS-registered before issuing the invoice</li>
+          <li>Including VAT in your invoice total, which overstates the amount owed</li>
+        </ul>
+      </div>
+    </div>
+    <p class="disclaimer">This tool is for information only. It does not constitute tax advice. Always verify with your accountant or HMRC before making decisions about VAT treatment.</p>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="border-top:none;">
+  <div class="container">
+    <div class="cta-section fade-up">
+      <div style="position:relative;">
+        <div class="eyebrow" style="justify-content:center;margin-bottom:20px;">Automate it</div>
+        <h2>Reverse charge invoicing,<br><span class="em">handled by WOPA.</span></h2>
+        <p>WOPA handles reverse charge VAT invoicing automatically from WhatsApp. Just tell WOPA it's a reverse charge job and the invoice goes out with the correct wording, no VAT charged, no fuss.</p>
+        <a href="/#waitlist" class="btn-primary" style="font-size:17px;padding:18px 36px;">Reserve founder pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Related reading -->
+<section style="padding:48px 0;border-top:1px solid var(--hair);">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:18px;">Related reading</div>
+    <div class="related-links">
+      <a href="/tools/cis-calculator.html">CIS Tax Deduction Calculator</a>
+      <a href="/blog/how-to-invoice-sole-trader-uk.html">How to invoice as a sole trader</a>
+      <a href="/tools/invoice-generator.html">Free Invoice Generator</a>
+      <a href="/builders.html">WOPA for builders</a>
+      <a href="/gas-engineers.html">WOPA for gas engineers</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="/" class="footer-logo" aria-label="WOPA"><span class="glyph">W</span><span class="o"></span><span class="glyph">P</span><span class="glyph">A</span></a>
+  <span class="footer-copy">WhatsApp invoicing for UK tradespeople / Beta / 2026</span>
+  <div class="footer-links"><a href="#">WhatsApp</a><a href="/blog/">Blog</a><a href="/terms.html">Terms</a><a href="/data-processing.html">Data processing</a><a href="/privacy.html">Privacy</a></div>
+</footer>
+
+<script>
+// Fade-up observer
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.10 });
+document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+
+// Hamburger menu
+(function() {
+  var hamburger = document.querySelector('.hamburger');
+  var navLinks = document.querySelector('.nav-links');
+  if (!hamburger || !navLinks) return;
+  function closeMenu() {
+    navLinks.classList.remove('open');
+    hamburger.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+  }
+  hamburger.addEventListener('click', function(e) {
+    e.stopPropagation();
+    var isOpen = navLinks.classList.toggle('open');
+    hamburger.classList.toggle('active');
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+  });
+  navLinks.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('click', function(e) {
+    if (!navLinks.classList.contains('open')) return;
+    if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) closeMenu();
+  });
+})();
+
+// Decision tree logic
+(function() {
+  var answers = {};
+  var questions = [1, 2, 3, 4, 5];
+  var reasons = {
+    1: 'The service is not a CIS construction service, so the reverse charge does not apply.',
+    2: 'You are not VAT-registered, so the reverse charge does not apply. You cannot charge VAT.',
+    3: 'Your customer is not VAT-registered, so the reverse charge does not apply. Charge VAT as normal.',
+    4: 'Both parties are not CIS-registered, so the reverse charge does not apply.',
+    5: 'Your customer is the end user of the building work. The reverse charge does not apply when the customer is an end user.'
+  };
+
+  document.querySelectorAll('.q-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var q = parseInt(this.dataset.q);
+      var a = this.dataset.a;
+      answers[q] = a;
+
+      // Highlight selected button
+      var card = document.getElementById('q' + q);
+      card.querySelectorAll('.q-btn').forEach(function(b) { b.classList.remove('selected', 'selected-no'); });
+      this.classList.add(a === 'yes' ? 'selected' : 'selected-no');
+
+      // Hide future questions and results
+      for (var i = q + 1; i <= 5; i++) {
+        document.getElementById('q' + i).classList.add('hidden');
+        delete answers[i];
+        document.getElementById('q' + i).querySelectorAll('.q-btn').forEach(function(b) { b.classList.remove('selected', 'selected-no'); });
+      }
+      document.getElementById('result-applies').classList.remove('applies');
+      document.getElementById('result-applies').style.display = 'none';
+      document.getElementById('result-standard').classList.remove('standard');
+      document.getElementById('result-standard').style.display = 'none';
+      document.getElementById('calculator-section').style.display = 'none';
+
+      // Check for early termination (standard VAT)
+      var isStandard = false;
+      if (q <= 4 && a === 'no') {
+        isStandard = true;
+      } else if (q === 5 && a === 'yes') {
+        isStandard = true;
+      }
+
+      if (isStandard) {
+        document.getElementById('standard-reason').textContent = reasons[q];
+        var rb = document.getElementById('result-standard');
+        rb.classList.add('standard');
+        rb.style.display = 'block';
+        showCalculator('standard');
+        rb.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      // Show next question or final result
+      if (q < 5) {
+        var next = document.getElementById('q' + (q + 1));
+        next.classList.remove('hidden');
+        next.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else {
+        // q5 answered "no" and all previous "yes" => reverse charge applies
+        var rb = document.getElementById('result-applies');
+        rb.classList.add('applies');
+        rb.style.display = 'block';
+        showCalculator('reverse');
+        rb.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  });
+
+  function showCalculator(type) {
+    var section = document.getElementById('calculator-section');
+    section.style.display = '';
+    var rcCalc = document.getElementById('calc-reverse');
+    var svCalc = document.getElementById('calc-standard');
+    if (type === 'reverse') {
+      rcCalc.style.display = 'block';
+      svCalc.style.display = 'none';
+    } else {
+      rcCalc.style.display = 'none';
+      svCalc.style.display = 'block';
+    }
+  }
+
+  // Restart buttons
+  document.getElementById('restart-1').addEventListener('click', resetAll);
+  document.getElementById('restart-2').addEventListener('click', resetAll);
+
+  function resetAll() {
+    answers = {};
+    for (var i = 1; i <= 5; i++) {
+      var card = document.getElementById('q' + i);
+      if (i === 1) card.classList.remove('hidden');
+      else card.classList.add('hidden');
+      card.querySelectorAll('.q-btn').forEach(function(b) { b.classList.remove('selected', 'selected-no'); });
+    }
+    document.getElementById('result-applies').classList.remove('applies');
+    document.getElementById('result-applies').style.display = 'none';
+    document.getElementById('result-standard').classList.remove('standard');
+    document.getElementById('result-standard').style.display = 'none';
+    document.getElementById('calculator-section').style.display = 'none';
+    document.getElementById('rc-net').value = '';
+    document.getElementById('sv-net').value = '';
+    document.getElementById('rc-output').style.display = 'none';
+    document.getElementById('rc-note').style.display = 'none';
+    document.getElementById('rc-customer').style.display = 'none';
+    document.getElementById('sv-output').style.display = 'none';
+    document.getElementById('q1').scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+})();
+
+// Reverse charge calculator
+(function() {
+  var input = document.getElementById('rc-net');
+  function calc() {
+    var net = parseFloat(input.value);
+    if (isNaN(net) || net <= 0) {
+      document.getElementById('rc-output').style.display = 'none';
+      document.getElementById('rc-note').style.display = 'none';
+      document.getElementById('rc-customer').style.display = 'none';
+      return;
+    }
+    var vat = net * 0.2;
+    document.getElementById('rc-net-display').textContent = '£' + net.toFixed(2);
+    document.getElementById('rc-total-display').textContent = '£' + net.toFixed(2);
+    document.getElementById('rc-cust-vat').textContent = '£' + vat.toFixed(2);
+    document.getElementById('rc-cust-input').textContent = '£' + vat.toFixed(2);
+    document.getElementById('rc-output').style.display = 'block';
+    document.getElementById('rc-note').style.display = 'block';
+    document.getElementById('rc-customer').style.display = 'block';
+  }
+  input.addEventListener('input', calc);
+})();
+
+// Standard VAT calculator
+(function() {
+  var input = document.getElementById('sv-net');
+  var radios = document.querySelectorAll('input[name="vat-rate"]');
+
+  function calc() {
+    var net = parseFloat(input.value);
+    if (isNaN(net) || net <= 0) {
+      document.getElementById('sv-output').style.display = 'none';
+      return;
+    }
+    var rate = 20;
+    radios.forEach(function(r) { if (r.checked) rate = parseInt(r.value); });
+    var vat = net * (rate / 100);
+    var gross = net + vat;
+    document.getElementById('sv-net-display').textContent = '£' + net.toFixed(2);
+    document.getElementById('sv-rate-label').textContent = rate + '%';
+    document.getElementById('sv-vat-display').textContent = '£' + vat.toFixed(2);
+    document.getElementById('sv-total-display').textContent = '£' + gross.toFixed(2);
+    document.getElementById('sv-output').style.display = 'block';
+  }
+  input.addEventListener('input', calc);
+  radios.forEach(function(r) { r.addEventListener('change', calc); });
+})();
+</script>
+</body>
+</html>

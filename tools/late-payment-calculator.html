@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Late Payment Interest Calculator UK | WOPA</title>
+<meta name="description" content="Free late payment interest calculator for UK tradespeople. Calculate statutory interest at 8% + Bank of England base rate and fixed compensation on overdue invoices."/>
+<link rel="canonical" href="https://mywopa.com/tools/late-payment-calculator.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Late Payment Interest Calculator UK | WOPA"/>
+<meta property="og:description" content="Free late payment interest calculator for UK tradespeople. Calculate statutory interest at 8% + Bank of England base rate and fixed compensation on overdue invoices."/>
+<meta property="og:url" content="https://mywopa.com/tools/late-payment-calculator.html"/>
+<meta property="og:image" content="https://mywopa.com/wopa-whatsapp-bot-profile.png"/>
+<meta property="og:image:width" content="1024"/>
+<meta property="og:image:height" content="1024"/>
+<meta property="og:image:alt" content="WOPA | Late Payment Interest Calculator"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Late Payment Interest Calculator UK | WOPA"/>
+<meta name="twitter:description" content="Free late payment interest calculator for UK tradespeople. Calculate statutory interest and fixed compensation on overdue invoices."/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Late Payment Interest Calculator",
+  "applicationCategory": "FinanceApplication",
+  "url": "https://mywopa.com/tools/late-payment-calculator.html",
+  "description": "Free late payment interest calculator for UK tradespeople. Calculate statutory interest at 8% + Bank of England base rate and fixed compensation on overdue invoices.",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP"
+  }
+}
+</script>
+<link rel="icon" type="image/png" href="/wopa-whatsapp-bot-profile.png"/>
+<link rel="apple-touch-icon" href="/wopa-whatsapp-bot-profile.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+<style>
+:root {
+  --green:       #0B6B4D;
+  --green-deep:  #074A36;
+  --green-tint:  #DFEEE7;
+  --green-paper: #F0F6F2;
+  --paper:       #FBF8F2;
+  --paper-2:     #F4EFE3;
+  --cream:       #F5EFE0;
+  --cream-shadow:#E8DFC8;
+  --ink:         #14201B;
+  --ink-2:       #3E4C46;
+  --ink-3:       #6B7873;
+  --ink-4:       #9AA5A0;
+  --hair:        rgba(20,32,27,0.10);
+  --hair-strong: rgba(20,32,27,0.18);
+  --amber:       #E8A33A;
+  --amber-soft:  #FBE9C4;
+  --coral:       #E85D5D;
+  --sans:        'Bricolage Grotesque', system-ui, sans-serif;
+  --serif:       'Instrument Serif', Georgia, serif;
+  --mono:        'JetBrains Mono', ui-monospace, monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01", "ss02";
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(20,32,27,0.055) 1px, transparent 0);
+  background-size: 20px 20px;
+  pointer-events: none;
+  z-index: 0;
+}
+body > * { position: relative; z-index: 1; }
+.container { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font: 600 11px/1 var(--sans);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 22px; height: 1.5px;
+  background: var(--green);
+}
+.serif-em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(251,248,242,0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--hair);
+  padding: 0 40px;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  display: inline-flex; align-items: baseline; gap: 0;
+  font: 800 0/1 var(--sans);
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 28px;
+}
+.nav-logo .glyph { font-size: 1em; line-height: 1; }
+.nav-logo .o {
+  display: inline-block;
+  position: relative;
+  width: 0.78em; height: 0.78em;
+  border-radius: 50%;
+  background: var(--ink);
+  margin: 0 0.005em;
+  vertical-align: -0.04em;
+}
+.nav-logo .o::after {
+  content: "";
+  position: absolute;
+  width: 0.32em; height: 0.32em;
+  background: var(--paper);
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  text-decoration: none;
+  color: var(--ink-3);
+  font-size: 14px; font-weight: 500;
+  transition: color 0.18s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  background: var(--green);
+  color: #fff;
+  font: 600 14px/1 var(--sans);
+  padding: 10px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.18s, transform 0.12s;
+  letter-spacing: -0.005em;
+}
+.nav-cta:hover { background: var(--green-deep); transform: translateY(-1px); }
+.hamburger { display: none; }
+.mobile-menu-cta-wrap { display: none; }
+
+/* HERO */
+.hero {
+  padding: 88px 0 64px;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+.hero h1 {
+  font: 800 clamp(36px, 5vw, 56px)/1.05 var(--sans);
+  letter-spacing: -0.04em;
+  margin: 20px 0 20px;
+  color: var(--ink);
+}
+.hero-subtitle {
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  max-width: 580px;
+  margin: 0 auto;
+  letter-spacing: -0.005em;
+}
+
+/* CALCULATOR */
+.calc-section { padding: 0 0 80px; }
+.calc-card {
+  max-width: 560px;
+  margin: 0 auto;
+  background: #fff;
+  border: 1px solid var(--hair);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 2px 12px rgba(20,32,27,0.06);
+}
+.form-group { margin-bottom: 24px; }
+.form-group label {
+  display: block;
+  font: 600 14px/1 var(--sans);
+  color: var(--ink);
+  margin-bottom: 8px;
+  letter-spacing: -0.005em;
+}
+.form-group input {
+  width: 100%;
+  padding: 13px 16px;
+  font: 400 16px/1.4 var(--sans);
+  color: var(--ink);
+  background: var(--paper);
+  border: 1px solid var(--hair-strong);
+  border-radius: 12px;
+  outline: none;
+  transition: border-color 0.18s, box-shadow 0.18s;
+}
+.form-group input:focus {
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(11,107,77,0.10);
+}
+.form-group .input-hint {
+  font: 400 13px/1.4 var(--sans);
+  color: var(--ink-4);
+  margin-top: 6px;
+}
+.btn-primary {
+  background: var(--green);
+  color: #fff;
+  font: 600 15px/1 var(--sans);
+  padding: 15px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: none; cursor: pointer;
+  transition: background 0.18s, transform 0.12s, box-shadow 0.18s;
+  letter-spacing: -0.005em;
+  display: inline-flex; align-items: center; gap: 8px;
+  box-shadow: 0 1px 2px rgba(11,107,77,0.12), 0 4px 12px rgba(11,107,77,0.18);
+  width: 100%;
+  justify-content: center;
+}
+.btn-primary:hover { background: var(--green-deep); transform: translateY(-1px); box-shadow: 0 2px 4px rgba(11,107,77,0.14), 0 8px 24px rgba(11,107,77,0.22); }
+
+/* RESULTS */
+.results-card {
+  max-width: 560px;
+  margin: 32px auto 0;
+  background: #fff;
+  border: 1px solid var(--hair);
+  border-radius: 20px;
+  padding: 40px;
+  box-shadow: 0 2px 12px rgba(20,32,27,0.06);
+  display: none;
+}
+.results-card.visible { display: block; }
+.results-title {
+  font: 700 20px/1.2 var(--sans);
+  color: var(--ink);
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+.result-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--hair);
+}
+.result-row:last-child { border-bottom: none; }
+.result-label {
+  font: 400 14px/1.4 var(--sans);
+  color: var(--ink-2);
+}
+.result-value {
+  font: 600 15px/1 var(--mono);
+  color: var(--ink);
+  text-align: right;
+}
+.result-formula {
+  font: 400 12px/1.4 var(--mono);
+  color: var(--ink-4);
+  margin-top: 4px;
+}
+.result-row.total {
+  border-top: 2px solid var(--green);
+  border-bottom: none;
+  margin-top: 8px;
+  padding-top: 16px;
+}
+.result-row.total .result-label {
+  font-weight: 700;
+  color: var(--ink);
+  font-size: 16px;
+}
+.result-row.total .result-value {
+  font-size: 22px;
+  color: var(--green);
+  font-weight: 700;
+}
+.base-rate-note {
+  font: 400 12px/1.5 var(--sans);
+  color: var(--ink-4);
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: var(--green-paper);
+  border-radius: 10px;
+}
+
+/* EDUCATION */
+.education-section {
+  padding: 0 0 80px;
+}
+.education-card {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.education-card h2 {
+  font: 700 clamp(24px, 3vw, 32px)/1.15 var(--sans);
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+.education-card h3 {
+  font: 600 18px/1.3 var(--sans);
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin: 32px 0 12px;
+}
+.education-card p {
+  font-size: 16px;
+  line-height: 1.65;
+  color: var(--ink-2);
+  margin-bottom: 12px;
+}
+.compensation-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0 24px;
+  font-size: 14px;
+}
+.compensation-table th {
+  text-align: left;
+  font-weight: 600;
+  color: var(--ink);
+  padding: 10px 16px;
+  background: var(--green-paper);
+  border-bottom: 1px solid var(--hair-strong);
+}
+.compensation-table th:first-child { border-radius: 10px 0 0 0; }
+.compensation-table th:last-child { border-radius: 0 10px 0 0; }
+.compensation-table td {
+  padding: 10px 16px;
+  color: var(--ink-2);
+  border-bottom: 1px solid var(--hair);
+}
+.disclaimer {
+  font: 400 13px/1.5 var(--sans);
+  color: var(--ink-4);
+  padding: 16px 20px;
+  background: var(--paper-2);
+  border-radius: 12px;
+  margin-top: 24px;
+}
+
+/* CTA */
+.cta-section {
+  padding: 80px 0;
+  text-align: center;
+}
+.cta-inner {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 48px;
+  background: var(--green-paper);
+  border-radius: 24px;
+  border: 1px solid var(--hair);
+}
+.cta-inner h2 {
+  font: 700 clamp(22px, 3vw, 28px)/1.2 var(--sans);
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.cta-inner p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--ink-2);
+  margin-bottom: 28px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.cta-inner .btn-primary {
+  width: auto;
+  padding: 15px 32px;
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--hair);
+  padding: 32px 40px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-logo {
+  display: inline-flex; align-items: baseline; gap: 0;
+  font: 800 22px/1 var(--sans);
+  letter-spacing: -0.06em;
+  color: var(--ink-3);
+  text-decoration: none;
+}
+.footer-logo .o {
+  display: inline-block;
+  position: relative;
+  width: 0.78em; height: 0.78em;
+  border-radius: 50%;
+  background: var(--ink-3);
+  margin: 0 0.005em;
+  vertical-align: -0.04em;
+}
+.footer-logo .o::after {
+  content: "";
+  position: absolute;
+  width: 0.32em; height: 0.32em;
+  background: var(--paper);
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.footer-copy { font: 400 13px/1 var(--sans); color: var(--ink-4); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font: 400 13px/1 var(--sans); color: var(--ink-4); text-decoration: none; }
+.footer-links a:hover { color: var(--ink-2); }
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  .container { padding: 0 24px; }
+  nav { padding: 0 24px; }
+  .hamburger {
+    display: flex; flex-direction: column; justify-content: center;
+    gap: 5px; width: 32px; height: 32px; background: none; border: none;
+    cursor: pointer; padding: 4px; z-index: 201;
+  }
+  .hamburger span {
+    display: block; width: 22px; height: 2px; background: var(--ink);
+    border-radius: 2px; transition: transform 0.25s ease, opacity 0.2s ease;
+  }
+  .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-links {
+    display: none;
+  }
+  .nav-links.open {
+    display: flex; flex-direction: column; gap: 0;
+    position: absolute; top: 64px; left: 0; right: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--hair);
+    box-shadow: 0 8px 24px rgba(20,32,27,0.08);
+    padding: 8px 0;
+    animation: menuSlideDown 0.22s ease-out;
+    z-index: 200;
+  }
+  .nav-links.open li { list-style: none; }
+  .nav-links.open a {
+    display: block; padding: 14px 28px;
+    font-size: 15px; font-weight: 500;
+    color: var(--ink-2); text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+  .nav-links.open a:hover { background: var(--green-paper); color: var(--ink); }
+  .mobile-menu-cta {
+    display: block; margin: 8px 20px 12px; padding: 13px 24px;
+    background: var(--green); color: #fff; text-align: center;
+    font: 600 15px/1 var(--sans); border-radius: 999px;
+    text-decoration: none; transition: background 0.18s;
+  }
+  .mobile-menu-cta:hover { background: var(--green-deep); }
+  .mobile-menu-cta-wrap { display: none; }
+  .nav-links.open .mobile-menu-cta-wrap { display: block; }
+  .nav-cta { display: none; }
+  @keyframes menuSlideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero { padding: 64px 0 48px; }
+  .calc-card, .results-card { padding: 28px 24px; }
+  .cta-inner { padding: 36px 24px; }
+  footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px; }
+  .footer-links { flex-wrap: wrap; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo" aria-label="WOPA home">
+    <span class="glyph">W</span><span class="o"></span><span class="glyph">P</span><span class="glyph">A</span>
+  </a>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="/#how">How it works</a></li>
+    <li><a href="/#demo">Demo</a></li>
+    <li><a href="/#reminders">Reminders</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li class="mobile-menu-cta-wrap"><a href="/#waitlist" class="mobile-menu-cta">Join waitlist</a></li>
+  </ul>
+  <a href="/#waitlist" class="nav-cta">Join waitlist</a>
+</nav>
+
+<div class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="eyebrow">Free tool</div>
+    <h1>Late Payment Interest Calculator</h1>
+    <p class="hero-subtitle">Work out how much statutory interest and fixed compensation you can claim on overdue invoices under the Late Payment of Commercial Debts (Interest) Act 1998.</p>
+  </section>
+
+  <!-- CALCULATOR -->
+  <section class="calc-section">
+    <div class="calc-card">
+      <form id="calc-form" onsubmit="return false;">
+        <div class="form-group">
+          <label for="invoice-amount">Invoice amount (&pound;)</label>
+          <input type="number" id="invoice-amount" min="0.01" step="0.01" placeholder="e.g. 2500.00" required/>
+        </div>
+        <div class="form-group">
+          <label for="due-date">Invoice due date</label>
+          <input type="date" id="due-date" required/>
+        </div>
+        <div class="form-group">
+          <label for="paid-date">Date paid (or leave as today if unpaid)</label>
+          <input type="date" id="paid-date"/>
+          <div class="input-hint">Defaults to today if left blank.</div>
+        </div>
+        <button type="button" class="btn-primary" id="calc-btn">Calculate</button>
+      </form>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="results-card" id="results">
+      <div class="results-title">Amount you can claim</div>
+
+      <div class="result-row">
+        <div>
+          <div class="result-label">Daily interest rate</div>
+          <div class="result-formula" id="rate-formula"></div>
+        </div>
+        <div class="result-value" id="daily-rate"></div>
+      </div>
+
+      <div class="result-row">
+        <div class="result-label">Days overdue</div>
+        <div class="result-value" id="days-overdue"></div>
+      </div>
+
+      <div class="result-row">
+        <div class="result-label">Interest owed</div>
+        <div class="result-value" id="interest-amount"></div>
+      </div>
+
+      <div class="result-row">
+        <div>
+          <div class="result-label">Fixed compensation</div>
+          <div class="result-formula" id="comp-tier"></div>
+        </div>
+        <div class="result-value" id="compensation"></div>
+      </div>
+
+      <div class="result-row total">
+        <div class="result-label">Total claimable</div>
+        <div class="result-value" id="total-amount"></div>
+      </div>
+
+      <div class="base-rate-note">
+        Bank of England base rate used: <strong>4.50%</strong> (as of May 2026). If the base rate has changed, adjust your calculation accordingly.
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section class="education-section">
+    <div class="education-card">
+      <h2>How late payment interest works in the UK</h2>
+      <p>The Late Payment of Commercial Debts (Interest) Act 1998 gives businesses and sole traders the statutory right to charge interest and claim fixed compensation when another business pays an invoice late. This applies to business-to-business (B2B) transactions, which covers most work carried out by tradespeople for landlords, property managers, contractors, and commercial clients.</p>
+
+      <h3>Statutory interest rate</h3>
+      <p>The statutory interest rate is 8% per year above the Bank of England base rate. The rate is calculated on a daily basis from the day after the agreed payment deadline until the debt is settled.</p>
+
+      <h3>Fixed compensation tiers</h3>
+      <p>On top of interest, you can claim a fixed sum as compensation for the cost of recovering the debt:</p>
+
+      <table class="compensation-table">
+        <thead>
+          <tr>
+            <th>Debt amount</th>
+            <th>Compensation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Up to &pound;999.99</td>
+            <td>&pound;40</td>
+          </tr>
+          <tr>
+            <td>&pound;1,000 &ndash; &pound;9,999.99</td>
+            <td>&pound;70</td>
+          </tr>
+          <tr>
+            <td>&pound;10,000 or more</td>
+            <td>&pound;100</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="disclaimer">This calculator is for information only. It is not legal or financial advice. If you are unsure about your rights, speak to a qualified solicitor or your local Citizens Advice.</div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2>Stop chasing. Let WOPA do it.</h2>
+      <p>WOPA chases late payments automatically. Set reminders at 7, 14, and 28 days &mdash; and let WOPA handle the follow-up emails while you're on the job.</p>
+      <a href="/#waitlist" class="btn-primary">Reserve founder pricing</a>
+    </div>
+  </section>
+
+</div>
+
+<!-- RELATED READING -->
+<section style="padding:48px 0;border-top:1px solid var(--hair);">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:18px;">Related reading</div>
+    <div class="related-links" style="display:flex;flex-wrap:wrap;gap:10px;">
+      <a href="/blog/late-payment-rights-uk-tradespeople.html">Late payment rights for UK tradespeople</a>
+      <a href="/blog/send-invoice-whatsapp.html">How to send an invoice on WhatsApp</a>
+      <a href="/tools/cis-calculator.html">CIS deduction calculator</a>
+      <a href="/tools/invoice-generator.html">Free invoice template generator</a>
+      <a href="/electricians.html">WOPA for electricians</a>
+    </div>
+  </div>
+  <style>
+    .related-links a {
+      display: inline-block; padding: 9px 16px; background: #fff;
+      border: 1px solid rgba(20,32,27,0.10); border-radius: 999px;
+      font: 500 13px/1 var(--sans); color: var(--ink-2); text-decoration: none;
+      transition: border-color 0.18s, color 0.18s;
+    }
+    .related-links a:hover { border-color: var(--green); color: var(--green); }
+  </style>
+</section>
+
+<footer>
+  <a href="/" class="footer-logo" aria-label="WOPA">
+    <span class="glyph">W</span><span class="o"></span><span class="glyph">P</span><span class="glyph">A</span>
+  </a>
+  <span class="footer-copy">WhatsApp invoicing for UK tradespeople / Beta / 2026</span>
+  <div class="footer-links">
+    <a href="#">WhatsApp</a>
+    <a href="/blog/">Blog</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/data-processing.html">Data processing</a>
+    <a href="/privacy.html">Privacy</a>
+  </div>
+</footer>
+
+<script>
+(function() {
+  var BOE_BASE_RATE = 4.50;
+  var STATUTORY_RATE = 8;
+
+  // Default paid-date to today
+  var paidInput = document.getElementById('paid-date');
+  var today = new Date();
+  paidInput.value = today.getFullYear() + '-' +
+    String(today.getMonth() + 1).padStart(2, '0') + '-' +
+    String(today.getDate()).padStart(2, '0');
+
+  document.getElementById('calc-btn').addEventListener('click', function() {
+    var amount = parseFloat(document.getElementById('invoice-amount').value);
+    var dueDateVal = document.getElementById('due-date').value;
+    var paidDateVal = document.getElementById('paid-date').value || paidInput.value;
+
+    if (!amount || amount <= 0 || !dueDateVal) {
+      alert('Please enter a valid invoice amount and due date.');
+      return;
+    }
+
+    var dueDate = new Date(dueDateVal + 'T00:00:00');
+    var paidDate = new Date(paidDateVal + 'T00:00:00');
+
+    if (paidDate <= dueDate) {
+      alert('The paid date (or today) must be after the due date for interest to apply.');
+      return;
+    }
+
+    var diffMs = paidDate.getTime() - dueDate.getTime();
+    var daysOverdue = Math.floor(diffMs / (1000 * 60 * 60 * 24));
+
+    var annualRate = BOE_BASE_RATE + STATUTORY_RATE;
+    var dailyRate = annualRate / 365;
+    var interest = amount * (dailyRate / 100) * daysOverdue;
+
+    var compensation;
+    var tierLabel;
+    if (amount < 1000) {
+      compensation = 40;
+      tierLabel = 'Debt under £1,000';
+    } else if (amount < 10000) {
+      compensation = 70;
+      tierLabel = '£1,000 – £9,999.99';
+    } else {
+      compensation = 100;
+      tierLabel = '£10,000 or more';
+    }
+
+    var total = interest + compensation;
+
+    document.getElementById('rate-formula').textContent =
+      BOE_BASE_RATE.toFixed(2) + '% + ' + STATUTORY_RATE + '% = ' + annualRate.toFixed(2) + '% ÷ 365';
+    document.getElementById('daily-rate').textContent = dailyRate.toFixed(4) + '%';
+    document.getElementById('days-overdue').textContent = daysOverdue + ' days';
+    document.getElementById('interest-amount').textContent = '£' + interest.toFixed(2);
+    document.getElementById('comp-tier').textContent = tierLabel;
+    document.getElementById('compensation').textContent = '£' + compensation.toFixed(2);
+    document.getElementById('total-amount').textContent = '£' + total.toFixed(2);
+
+    var resultsCard = document.getElementById('results');
+    resultsCard.classList.add('visible');
+    resultsCard.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+})();
+</script>
+<script>
+(function() {
+  var hamburger = document.querySelector('.hamburger');
+  var navLinks = document.querySelector('.nav-links');
+  if (!hamburger || !navLinks) return;
+  function closeMenu() {
+    navLinks.classList.remove('open');
+    hamburger.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+  }
+  hamburger.addEventListener('click', function(e) {
+    e.stopPropagation();
+    var isOpen = navLinks.classList.toggle('open');
+    hamburger.classList.toggle('active');
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+  });
+  navLinks.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('click', function(e) {
+    if (!navLinks.classList.contains('open')) return;
+    if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+      closeMenu();
+    }
+  });
+})();
+</script>
+</body>
+</html>

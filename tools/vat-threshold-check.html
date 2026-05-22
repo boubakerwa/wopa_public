@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Should I Register for VAT? UK Sole Trader Check | WOPA</title>
+<meta name="description" content="Free VAT threshold checker for UK sole traders and tradespeople. Enter your turnover to see if you need to register for VAT. Current threshold: £90,000 (2026/27)."/>
+<link rel="canonical" href="https://mywopa.com/tools/vat-threshold-check.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Should I Register for VAT? UK Sole Trader Check | WOPA"/>
+<meta property="og:description" content="Free VAT threshold checker for UK sole traders and tradespeople. Enter your turnover to see if you need to register for VAT."/>
+<meta property="og:url" content="https://mywopa.com/tools/vat-threshold-check.html"/>
+<meta property="og:image" content="https://mywopa.com/wopa-whatsapp-bot-profile.png"/>
+<meta property="og:image:width" content="1024"/>
+<meta property="og:image:height" content="1024"/>
+<meta property="og:image:alt" content="WOPA | VAT threshold checker for UK sole traders"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Should I Register for VAT? UK Sole Trader Check | WOPA"/>
+<meta name="twitter:description" content="Free VAT threshold checker for UK sole traders. Current threshold: £90,000 (2026/27)."/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "VAT Threshold Checker",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "Free VAT registration threshold checker for UK sole traders and tradespeople. Enter your taxable turnover to find out if you need to register for VAT.",
+  "url": "https://mywopa.com/tools/vat-threshold-check.html",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP"
+  },
+  "provider": {
+    "@type": "Organization",
+    "name": "WOPA",
+    "url": "https://mywopa.com"
+  }
+}
+</script>
+<link rel="icon" type="image/png" href="/wopa-whatsapp-bot-profile.png"/>
+<link rel="apple-touch-icon" href="/wopa-whatsapp-bot-profile.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+<style>
+:root {
+  --green:       #0B6B4D;
+  --green-deep:  #074A36;
+  --green-tint:  #DFEEE7;
+  --green-paper: #F0F6F2;
+  --paper:       #FBF8F2;
+  --paper-2:     #F4EFE3;
+  --cream:       #F5EFE0;
+  --cream-shadow:#E8DFC8;
+  --ink:         #14201B;
+  --ink-2:       #3E4C46;
+  --ink-3:       #6B7873;
+  --ink-4:       #9AA5A0;
+  --hair:        rgba(20,32,27,0.10);
+  --hair-strong: rgba(20,32,27,0.18);
+  --amber:       #E8A33A;
+  --amber-soft:  #FBE9C4;
+  --coral:       #E85D5D;
+  --sans:        'Bricolage Grotesque', system-ui, sans-serif;
+  --serif:       'Instrument Serif', Georgia, serif;
+  --mono:        'JetBrains Mono', ui-monospace, monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01", "ss02";
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(20,32,27,0.055) 1px, transparent 0);
+  background-size: 20px 20px;
+  pointer-events: none;
+  z-index: 0;
+}
+body > * { position: relative; z-index: 1; }
+.container { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font: 600 11px/1 var(--sans);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 22px; height: 1.5px;
+  background: var(--green);
+}
+.serif-em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(251,248,242,0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--hair);
+  padding: 0 40px;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  display: inline-flex; align-items: baseline; gap: 0;
+  font: 800 0/1 var(--sans);
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 28px;
+}
+.nav-logo .glyph { font-size: 1em; line-height: 1; }
+.nav-logo .o {
+  display: inline-block;
+  position: relative;
+  width: 0.78em; height: 0.78em;
+  border-radius: 50%;
+  background: var(--ink);
+  margin: 0 0.005em;
+  vertical-align: -0.04em;
+}
+.nav-logo .o::after {
+  content: "";
+  position: absolute;
+  width: 0.32em; height: 0.32em;
+  background: var(--paper);
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  text-decoration: none;
+  color: var(--ink-3);
+  font-size: 14px; font-weight: 500;
+  transition: color 0.18s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  background: var(--green);
+  color: #fff;
+  font: 600 14px/1 var(--sans);
+  padding: 10px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.18s, transform 0.12s;
+  letter-spacing: -0.005em;
+}
+.nav-cta:hover { background: var(--green-deep); transform: translateY(-1px); }
+.hamburger { display: none; }
+.mobile-menu-cta-wrap { display: none; }
+
+/* Hero */
+.hero {
+  padding: 88px 0 48px;
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto;
+}
+h1.hero-h1 {
+  font: 800 clamp(36px, 5vw, 56px)/1.05 var(--sans);
+  letter-spacing: -0.04em;
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+.hero-desc {
+  font-size: 18px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 580px;
+  margin: 0 auto 0;
+  letter-spacing: -0.005em;
+}
+
+/* Checker */
+.checker-section { padding: 0 0 80px; }
+.checker-card {
+  max-width: 560px;
+  margin: 40px auto 0;
+  background: #fff;
+  border: 1px solid var(--hair);
+  border-radius: 20px;
+  padding: 40px 36px;
+  box-shadow: 0 3px 18px rgba(20,32,27,0.06);
+}
+.form-group { margin-bottom: 28px; }
+.form-group:last-of-type { margin-bottom: 32px; }
+.form-label {
+  display: block;
+  font: 600 15px/1.3 var(--sans);
+  color: var(--ink);
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+.input-wrap {
+  display: flex;
+  align-items: center;
+  border: 1.5px solid var(--hair-strong);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.18s;
+  background: var(--paper);
+}
+.input-wrap:focus-within { border-color: var(--green); }
+.input-prefix {
+  padding: 0 0 0 16px;
+  font: 600 18px/1 var(--sans);
+  color: var(--ink-3);
+  pointer-events: none;
+  user-select: none;
+}
+.input-wrap input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 14px 16px 14px 8px;
+  font: 500 18px/1 var(--sans);
+  color: var(--ink);
+  outline: none;
+}
+.input-wrap input::placeholder { color: var(--ink-4); }
+
+.toggle-group {
+  display: flex;
+  gap: 8px;
+}
+.toggle-btn {
+  flex: 1;
+  padding: 12px 20px;
+  border: 1.5px solid var(--hair-strong);
+  border-radius: 12px;
+  background: var(--paper);
+  font: 600 15px/1 var(--sans);
+  color: var(--ink-3);
+  cursor: pointer;
+  transition: all 0.18s;
+  text-align: center;
+}
+.toggle-btn:hover { border-color: var(--ink-3); color: var(--ink-2); }
+.toggle-btn.active {
+  border-color: var(--green);
+  background: var(--green-tint);
+  color: var(--green-deep);
+}
+.btn-check {
+  width: 100%;
+  background: var(--green);
+  color: #fff;
+  font: 700 16px/1 var(--sans);
+  padding: 16px 28px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.12s, box-shadow 0.18s;
+  box-shadow: 0 1px 2px rgba(11,107,77,0.12), 0 4px 12px rgba(11,107,77,0.18);
+}
+.btn-check:hover { background: var(--green-deep); transform: translateY(-1px); box-shadow: 0 2px 4px rgba(11,107,77,0.14), 0 8px 24px rgba(11,107,77,0.22); }
+
+/* Result cards */
+.result-card {
+  max-width: 560px;
+  margin: 24px auto 0;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--hair);
+  display: none;
+  animation: fadeIn 0.3s ease;
+}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.result-header {
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.result-header svg { flex-shrink: 0; }
+.result-header h3 {
+  font: 700 20px/1.2 var(--sans);
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+.result-header--coral { background: var(--coral); }
+.result-header--amber { background: var(--amber); }
+.result-header--green { background: var(--green); }
+.result-body {
+  background: #fff;
+  padding: 24px 28px;
+}
+.result-body p {
+  font: 400 15px/1.65 var(--sans);
+  color: var(--ink-2);
+  margin-bottom: 12px;
+}
+.result-body p:last-child { margin-bottom: 0; }
+.result-body a {
+  color: var(--green);
+  text-decoration: underline;
+  text-decoration-color: rgba(11,107,77,0.3);
+  text-underline-offset: 2px;
+  transition: text-decoration-color 0.18s;
+}
+.result-body a:hover { text-decoration-color: var(--green); }
+.result-body strong { color: var(--ink); font-weight: 600; }
+
+/* Sections */
+.section { padding: 80px 0; border-top: 1px solid var(--hair); }
+.section-title {
+  font: 800 clamp(28px, 3.5vw, 40px)/1.1 var(--sans);
+  letter-spacing: -0.035em;
+  margin-bottom: 40px;
+  color: var(--ink);
+}
+.edu-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: var(--hair);
+  border: 1px solid var(--hair);
+  border-radius: 24px;
+  overflow: hidden;
+}
+.edu-card {
+  background: var(--paper);
+  padding: 32px 28px;
+}
+.edu-card h3 {
+  font: 700 18px/1.2 var(--sans);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+.edu-card p, .edu-card ul {
+  font: 400 15px/1.6 var(--sans);
+  color: var(--ink-3);
+}
+.edu-card ul {
+  padding-left: 20px;
+  margin-top: 8px;
+}
+.edu-card li { margin-bottom: 6px; }
+.edu-card .pros { color: var(--green); font-weight: 600; }
+.edu-card .cons { color: var(--coral); font-weight: 600; }
+.edu-full {
+  grid-column: 1 / -1;
+}
+.disclaimer {
+  margin-top: 32px;
+  padding: 20px 24px;
+  background: var(--amber-soft);
+  border: 1px solid var(--amber);
+  border-radius: 12px;
+  font: 400 14px/1.6 var(--sans);
+  color: var(--ink-2);
+}
+.disclaimer strong { color: var(--ink); }
+
+/* CTA section */
+.cta-section {
+  padding: 80px 0;
+  border-top: 1px solid var(--hair);
+  text-align: center;
+}
+.cta-card {
+  max-width: 640px;
+  margin: 0 auto;
+  background: var(--green-paper);
+  border: 1px solid var(--green-tint);
+  border-radius: 24px;
+  padding: 48px 40px;
+}
+.cta-card p {
+  font: 400 17px/1.6 var(--sans);
+  color: var(--ink-2);
+  margin-bottom: 28px;
+}
+.btn-primary {
+  background: var(--green);
+  color: #fff;
+  font: 600 15px/1 var(--sans);
+  padding: 15px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: none; cursor: pointer;
+  transition: background 0.18s, transform 0.12s, box-shadow 0.18s;
+  letter-spacing: -0.005em;
+  display: inline-flex; align-items: center; gap: 8px;
+  box-shadow: 0 1px 2px rgba(11,107,77,0.12), 0 4px 12px rgba(11,107,77,0.18);
+}
+.btn-primary:hover { background: var(--green-deep); transform: translateY(-1px); box-shadow: 0 2px 4px rgba(11,107,77,0.14), 0 8px 24px rgba(11,107,77,0.22); }
+
+/* Related links */
+.related-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.related-links a {
+  display: inline-block;
+  padding: 9px 16px;
+  background: #fff;
+  border: 1px solid rgba(20,32,27,0.10);
+  border-radius: 999px;
+  font: 500 13px/1 var(--sans);
+  color: var(--ink-2);
+  text-decoration: none;
+  transition: border-color 0.18s, color 0.18s;
+}
+.related-links a:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--hair);
+  padding: 32px 40px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.footer-logo {
+  display: inline-flex; align-items: baseline; gap: 0;
+  font: 800 22px/1 var(--sans);
+  letter-spacing: -0.06em;
+  color: var(--ink-3);
+  text-decoration: none;
+}
+.footer-logo .o {
+  display: inline-block;
+  position: relative;
+  width: 0.78em; height: 0.78em;
+  border-radius: 50%;
+  background: var(--ink-3);
+  margin: 0 0.005em;
+  vertical-align: -0.04em;
+}
+.footer-logo .o::after {
+  content: "";
+  position: absolute;
+  width: 0.32em; height: 0.32em;
+  background: var(--paper);
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.footer-copy { font: 400 13px/1 var(--sans); color: var(--ink-4); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font: 400 13px/1 var(--sans); color: var(--ink-4); text-decoration: none; }
+.footer-links a:hover { color: var(--ink-2); }
+
+/* Fade-up */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible { opacity: 1; transform: none; }
+
+/* Responsive */
+@media (max-width: 960px) {
+  .container { padding: 0 24px; }
+  nav { padding: 0 24px; }
+  .hamburger {
+    display: flex; flex-direction: column; justify-content: center;
+    gap: 5px; width: 32px; height: 32px; background: none; border: none;
+    cursor: pointer; padding: 4px; z-index: 201;
+  }
+  .hamburger span {
+    display: block; width: 22px; height: 2px; background: var(--ink);
+    border-radius: 2px; transition: transform 0.25s ease, opacity 0.2s ease;
+  }
+  .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-links {
+    display: none;
+  }
+  .nav-links.open {
+    display: flex; flex-direction: column; gap: 0;
+    position: absolute; top: 64px; left: 0; right: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--hair);
+    box-shadow: 0 8px 24px rgba(20,32,27,0.08);
+    padding: 8px 0;
+    animation: menuSlideDown 0.22s ease-out;
+    z-index: 200;
+  }
+  .nav-links.open li { list-style: none; }
+  .nav-links.open a {
+    display: block; padding: 14px 28px;
+    font-size: 15px; font-weight: 500;
+    color: var(--ink-2); text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+  .nav-links.open a:hover { background: var(--green-paper); color: var(--ink); }
+  .mobile-menu-cta {
+    display: block; margin: 8px 20px 12px; padding: 13px 24px;
+    background: var(--green); color: #fff; text-align: center;
+    font: 600 15px/1 var(--sans); border-radius: 999px;
+    text-decoration: none; transition: background 0.18s;
+  }
+  .mobile-menu-cta:hover { background: var(--green-deep); }
+  .mobile-menu-cta-wrap { display: none; }
+  .nav-links.open .mobile-menu-cta-wrap { display: block; }
+  .nav-cta { display: none; }
+  @keyframes menuSlideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero { padding: 64px 24px 32px; }
+  .checker-card { padding: 28px 24px; margin-left: 24px; margin-right: 24px; }
+  .edu-grid { grid-template-columns: 1fr; }
+  .cta-card { padding: 36px 24px; }
+  .cta-section { padding: 48px 0; }
+  footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo" aria-label="WOPA home">
+    <span class="glyph">W</span><span class="o"></span><span class="glyph">P</span><span class="glyph">A</span>
+  </a>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="/#how">How it works</a></li>
+    <li><a href="/#demo">Demo</a></li>
+    <li><a href="/#reminders">Reminders</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li class="mobile-menu-cta-wrap"><a href="/#waitlist" class="mobile-menu-cta">Join waitlist</a></li>
+  </ul>
+  <a href="/#waitlist" class="nav-cta">Join waitlist</a>
+</nav>
+
+<section class="checker-section">
+  <div class="container">
+    <div class="hero">
+      <div class="eyebrow">Free tool</div>
+      <h1 class="hero-h1">Should I Register for VAT?</h1>
+      <p class="hero-desc">Check if your turnover means you need to register for VAT. The current UK VAT registration threshold is <strong>&pound;90,000</strong> (2026/27 tax year).</p>
+    </div>
+
+    <div class="checker-card fade-up">
+      <div class="form-group">
+        <label class="form-label" for="turnover">What is your taxable turnover for the last 12 months?</label>
+        <div class="input-wrap">
+          <span class="input-prefix">&pound;</span>
+          <input type="number" id="turnover" placeholder="e.g. 72000" min="0" step="1" inputmode="numeric"/>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Do you expect to exceed &pound;90,000 in the next 30 days alone?</label>
+        <div class="toggle-group">
+          <button type="button" class="toggle-btn" data-value="yes">Yes</button>
+          <button type="button" class="toggle-btn active" data-value="no">No</button>
+        </div>
+      </div>
+
+      <button type="button" class="btn-check" id="btn-check">Check</button>
+    </div>
+
+    <!-- Result: Must register (above threshold) -->
+    <div class="result-card" id="result-above">
+      <div class="result-header result-header--coral">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="14" fill="rgba(255,255,255,0.2)"/><path d="M14 8v7" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><circle cx="14" cy="19.5" r="1.3" fill="#fff"/></svg>
+        <h3>You must register for VAT</h3>
+      </div>
+      <div class="result-body">
+        <p>You've exceeded the <strong>&pound;90,000</strong> threshold. You must register with HMRC within 30 days of the end of the month you went over.</p>
+        <p>Start charging VAT from the date HMRC tells you to (your "effective date of registration"). Late registration can result in penalties.</p>
+        <p><a href="https://www.gov.uk/vat-registration" target="_blank" rel="noopener">Register for VAT on GOV.UK &rarr;</a></p>
+      </div>
+    </div>
+
+    <!-- Result: Must register (expected to exceed) -->
+    <div class="result-card" id="result-expected">
+      <div class="result-header result-header--coral">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="14" fill="rgba(255,255,255,0.2)"/><path d="M14 8v7" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><circle cx="14" cy="19.5" r="1.3" fill="#fff"/></svg>
+        <h3>You must register for VAT</h3>
+      </div>
+      <div class="result-body">
+        <p>Even though your current turnover is below the threshold, you expect to exceed <strong>&pound;90,000 in the next 30 days</strong>. This means you must register before the end of that 30-day period.</p>
+        <p>You must start charging VAT from the date you expect to go over the threshold, not from the date you actually go over.</p>
+        <p><a href="https://www.gov.uk/vat-registration" target="_blank" rel="noopener">Register for VAT on GOV.UK &rarr;</a></p>
+      </div>
+    </div>
+
+    <!-- Result: Approaching threshold -->
+    <div class="result-card" id="result-close">
+      <div class="result-header result-header--amber">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="14" fill="rgba(255,255,255,0.2)"/><path d="M14 8v7" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/><circle cx="14" cy="19.5" r="1.3" fill="#fff"/></svg>
+        <h3>You're approaching the threshold</h3>
+      </div>
+      <div class="result-body" id="result-close-body">
+        <!-- Filled dynamically -->
+      </div>
+    </div>
+
+    <!-- Result: Well below -->
+    <div class="result-card" id="result-below">
+      <div class="result-header result-header--green">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="14" fill="rgba(255,255,255,0.2)"/><path d="M9 14.5l4 4 6.5-8" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <h3>No VAT registration required</h3>
+      </div>
+      <div class="result-body" id="result-below-body">
+        <!-- Filled dynamically -->
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Educational section -->
+<section class="section">
+  <div class="container">
+    <h2 class="section-title fade-up">Understanding VAT registration</h2>
+    <div class="edu-grid fade-up">
+      <div class="edu-card">
+        <h3>What counts as taxable turnover?</h3>
+        <p>Taxable turnover is the total value of everything you sell that is not VAT-exempt. This includes goods and services in the UK and certain goods and services to EU countries. It does not include VAT-exempt sales (such as insurance, education, or health services) or sales made outside the UK.</p>
+      </div>
+      <div class="edu-card">
+        <h3>What is the VAT threshold for 2026/27?</h3>
+        <p>The current VAT registration threshold is <strong>&pound;90,000</strong>. If your taxable turnover exceeds this amount over any rolling 12-month period, you must register. The deregistration threshold is &pound;88,000.</p>
+      </div>
+      <div class="edu-card">
+        <h3>Voluntary registration: pros and cons</h3>
+        <p>You can register for VAT even if your turnover is below the threshold.</p>
+        <ul>
+          <li><span class="pros">Pro:</span> Reclaim VAT on business purchases (tools, materials, vehicles)</li>
+          <li><span class="pros">Pro:</span> Appear more established to larger clients and contractors</li>
+          <li><span class="cons">Con:</span> You must charge VAT to customers, which can increase your prices</li>
+          <li><span class="cons">Con:</span> Extra admin: quarterly VAT returns to HMRC</li>
+        </ul>
+      </div>
+      <div class="edu-card">
+        <h3>What happens when you go over?</h3>
+        <p>You must notify HMRC within <strong>30 days</strong> of the end of the month your taxable turnover exceeded &pound;90,000. HMRC will then register you and give you an effective date. From that date, you must charge VAT on your sales and submit quarterly returns.</p>
+      </div>
+    </div>
+    <div class="disclaimer fade-up">
+      <strong>Disclaimer:</strong> This tool provides general information only and does not constitute tax advice. VAT rules can be complex and depend on your specific circumstances. Always consult HMRC or a qualified accountant for guidance on your situation.
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <div class="cta-card fade-up">
+      <div class="eyebrow" style="margin-bottom:18px;">WOPA handles it</div>
+      <p>Whether you're VAT-registered or not, WOPA creates the right invoice. Standard VAT, reverse charge, or no VAT &mdash; just tell WOPA and it handles the rest.</p>
+      <a href="/#waitlist" class="btn-primary" style="font-size:17px;padding:18px 36px;">Reserve founder pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- Related reading -->
+<section style="padding:48px 0;border-top:1px solid var(--hair);">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:18px;">Related reading</div>
+    <div class="related-links">
+      <a href="/tools/reverse-vat-calculator.html">Reverse VAT calculator</a>
+      <a href="/tools/cis-calculator.html">CIS deduction calculator</a>
+      <a href="/blog/how-to-invoice-sole-trader-uk.html">How to invoice as a sole trader</a>
+      <a href="/electricians.html">WOPA for electricians</a>
+      <a href="/plumbers.html">WOPA for plumbers</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="/" class="footer-logo" aria-label="WOPA">
+    <span class="glyph">W</span><span class="o"></span><span class="glyph">P</span><span class="glyph">A</span>
+  </a>
+  <span class="footer-copy">WhatsApp invoicing for UK tradespeople / Beta / 2026</span>
+  <div class="footer-links">
+    <a href="#">WhatsApp</a>
+    <a href="/blog/">Blog</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/data-processing.html">Data processing</a>
+    <a href="/privacy.html">Privacy</a>
+  </div>
+</footer>
+
+<!-- Fade-up observer -->
+<script>
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.10 });
+document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+</script>
+
+<!-- Checker logic -->
+<script>
+(function() {
+  var THRESHOLD = 90000;
+  var CLOSE_LOWER = 80000;
+  var toggleBtns = document.querySelectorAll('.toggle-btn');
+  var expectExceed = 'no';
+
+  toggleBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      toggleBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      expectExceed = btn.getAttribute('data-value');
+    });
+  });
+
+  function fmt(n) {
+    return n.toLocaleString('en-GB');
+  }
+
+  function hideAll() {
+    ['result-above','result-expected','result-close','result-below'].forEach(function(id) {
+      document.getElementById(id).style.display = 'none';
+    });
+  }
+
+  document.getElementById('btn-check').addEventListener('click', function() {
+    var raw = document.getElementById('turnover').value.replace(/[^0-9.]/g, '');
+    var turnover = parseFloat(raw);
+    if (isNaN(turnover) || turnover < 0) {
+      document.getElementById('turnover').focus();
+      return;
+    }
+
+    hideAll();
+
+    if (expectExceed === 'yes' && turnover <= THRESHOLD) {
+      document.getElementById('result-expected').style.display = 'block';
+      document.getElementById('result-expected').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    if (turnover > THRESHOLD) {
+      document.getElementById('result-above').style.display = 'block';
+      document.getElementById('result-above').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else if (turnover >= CLOSE_LOWER) {
+      var gap = THRESHOLD - turnover;
+      document.getElementById('result-close-body').innerHTML =
+        '<p>At <strong>&pound;' + fmt(turnover) + '</strong> you\'re within <strong>&pound;' + fmt(gap) + '</strong> of the &pound;90,000 threshold. Keep tracking your turnover monthly so you don\'t miss the point you need to register.</p>' +
+        '<p>You might also consider <strong>voluntary registration</strong>. This lets you reclaim VAT on business purchases (tools, materials, vehicle costs), but means you must charge VAT to your customers and file quarterly returns.</p>';
+      document.getElementById('result-close').style.display = 'block';
+      document.getElementById('result-close').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } else {
+      var below = THRESHOLD - turnover;
+      document.getElementById('result-below-body').innerHTML =
+        '<p>At <strong>&pound;' + fmt(turnover) + '</strong> you\'re <strong>&pound;' + fmt(below) + '</strong> below the threshold. You don\'t need to register for VAT unless you choose to voluntarily.</p>' +
+        '<p><strong>Voluntary registration</strong> can still be worthwhile if you spend a lot on VAT-able supplies. You\'d be able to reclaim VAT on purchases, but you\'d also need to charge VAT and submit quarterly returns to HMRC.</p>';
+      document.getElementById('result-below').style.display = 'block';
+      document.getElementById('result-below').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  });
+
+  document.getElementById('turnover').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+      document.getElementById('btn-check').click();
+    }
+  });
+})();
+</script>
+
+<!-- Hamburger menu -->
+<script>
+(function() {
+  var hamburger = document.querySelector('.hamburger');
+  var navLinks = document.querySelector('.nav-links');
+  if (!hamburger || !navLinks) return;
+  function closeMenu() {
+    navLinks.classList.remove('open');
+    hamburger.classList.remove('active');
+    hamburger.setAttribute('aria-expanded', 'false');
+  }
+  hamburger.addEventListener('click', function(e) {
+    e.stopPropagation();
+    var isOpen = navLinks.classList.toggle('open');
+    hamburger.classList.toggle('active');
+    hamburger.setAttribute('aria-expanded', String(isOpen));
+  });
+  navLinks.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('click', function(e) {
+    if (!navLinks.classList.contains('open')) return;
+    if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+      closeMenu();
+    }
+  });
+})();
+</script>
+</body>
+</html>

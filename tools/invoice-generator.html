@@ -1,0 +1,1186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Free Invoice Generator UK — No Signup | WOPA</title>
+<meta name="description" content="Create professional UK invoices for free. No signup, no account. Fill in your details, preview the invoice, and download as PDF. Built for sole traders and tradespeople."/>
+<link rel="canonical" href="https://mywopa.com/tools/invoice-generator.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Free Invoice Generator UK — No Signup | WOPA"/>
+<meta property="og:description" content="Create professional UK invoices for free. No signup, no account. Fill in your details, preview the invoice, and download as PDF. Built for sole traders and tradespeople."/>
+<meta property="og:url" content="https://mywopa.com/tools/invoice-generator.html"/>
+<meta property="og:image" content="https://mywopa.com/wopa-whatsapp-bot-profile.png"/>
+<meta property="og:image:width" content="1024"/>
+<meta property="og:image:height" content="1024"/>
+<meta property="og:image:alt" content="WOPA | Free Invoice Generator for UK Sole Traders"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Free Invoice Generator UK — No Signup | WOPA"/>
+<meta name="twitter:description" content="Create professional UK invoices for free. No signup, no account. Fill in your details, preview the invoice, and download as PDF."/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "WOPA Free Invoice Generator",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": "Create professional UK invoices for free. No signup, no account. Fill in your details, preview the invoice, and download as PDF. Built for sole traders and tradespeople.",
+  "url": "https://mywopa.com/tools/invoice-generator.html",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP",
+    "description": "Completely free invoice generator. No signup required."
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "UK sole traders, tradespeople, freelancers, and small businesses"
+  }
+}
+</script>
+<link rel="icon" type="image/png" href="/wopa-whatsapp-bot-profile.png"/>
+<link rel="apple-touch-icon" href="/wopa-whatsapp-bot-profile.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+
+<style>
+:root {
+  --green:       #0B6B4D;
+  --green-deep:  #074A36;
+  --green-tint:  #DFEEE7;
+  --green-paper: #F0F6F2;
+  --paper:       #FBF8F2;
+  --paper-2:     #F4EFE3;
+  --cream:       #F5EFE0;
+  --cream-shadow:#E8DFC8;
+  --ink:         #14201B;
+  --ink-2:       #3E4C46;
+  --ink-3:       #6B7873;
+  --ink-4:       #9AA5A0;
+  --hair:        rgba(20,32,27,0.10);
+  --hair-strong: rgba(20,32,27,0.18);
+  --amber:       #E8A33A;
+  --amber-soft:  #FBE9C4;
+  --coral:       #E85D5D;
+  --sans:        'Bricolage Grotesque', system-ui, sans-serif;
+  --serif:       'Instrument Serif', Georgia, serif;
+  --mono:        'JetBrains Mono', ui-monospace, monospace;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01", "ss02";
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(20,32,27,0.055) 1px, transparent 0);
+  background-size: 20px 20px;
+  pointer-events: none;
+  z-index: 0;
+}
+body > * { position: relative; z-index: 1; }
+.container { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font: 600 11px/1 var(--sans);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 22px; height: 1.5px;
+  background: var(--green);
+}
+.serif-em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+
+/* ── Nav ── */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(251,248,242,0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--hair);
+  padding: 0 40px;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  display: inline-flex; align-items: baseline; gap: 0;
+  font: 800 0/1 var(--sans);
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 28px;
+}
+.nav-logo .glyph { font-size: 1em; line-height: 1; }
+.nav-logo .o {
+  display: inline-block;
+  position: relative;
+  width: 0.78em; height: 0.78em;
+  border-radius: 50%;
+  background: var(--ink);
+  margin: 0 0.005em;
+  vertical-align: -0.04em;
+}
+.nav-logo .o::after {
+  content: "";
+  position: absolute;
+  width: 0.32em; height: 0.32em;
+  background: var(--paper);
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  text-decoration: none;
+  color: var(--ink-3);
+  font-size: 14px; font-weight: 500;
+  transition: color 0.18s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  background: var(--green);
+  color: #fff;
+  font: 600 14px/1 var(--sans);
+  padding: 10px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.18s, transform 0.12s;
+  letter-spacing: -0.005em;
+}
+.nav-cta:hover { background: var(--green-deep); transform: translateY(-1px); }
+.hamburger { display: none; }
+.mobile-menu-cta-wrap { display: none; }
+
+/* ── Buttons ── */
+.btn-primary {
+  background: var(--green);
+  color: #fff;
+  font: 600 15px/1 var(--sans);
+  padding: 15px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: none; cursor: pointer;
+  transition: background 0.18s, transform 0.12s, box-shadow 0.18s;
+  letter-spacing: -0.005em;
+  display: inline-flex; align-items: center; gap: 8px;
+  box-shadow: 0 1px 2px rgba(11,107,77,0.12), 0 4px 12px rgba(11,107,77,0.18);
+}
+.btn-primary:hover { background: var(--green-deep); transform: translateY(-1px); box-shadow: 0 2px 4px rgba(11,107,77,0.14), 0 8px 24px rgba(11,107,77,0.22); }
+.btn-ghost {
+  color: var(--ink-2);
+  font: 500 15px/1 var(--sans);
+  text-decoration: none;
+  border: 1px solid var(--hair-strong);
+  padding: 15px 24px;
+  border-radius: 999px;
+  transition: border-color 0.18s, color 0.18s, transform 0.12s;
+  letter-spacing: -0.005em;
+  background: none;
+  cursor: pointer;
+  display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-ghost:hover { border-color: var(--ink-3); color: var(--ink); transform: translateY(-1px); }
+
+/* ── Hero ── */
+.hero {
+  padding: 88px 0 64px;
+  text-align: center;
+}
+h1.hero-h1 {
+  font: 800 clamp(40px, 5vw, 64px)/1.0 var(--sans);
+  letter-spacing: -0.045em;
+  margin-bottom: 20px;
+  color: var(--ink);
+}
+.hero-desc {
+  font-size: 19px;
+  line-height: 1.55;
+  color: var(--ink-2);
+  max-width: 640px;
+  margin: 0 auto;
+  letter-spacing: -0.005em;
+}
+
+/* ── Section ── */
+.section { padding: 64px 0; border-top: 1px solid var(--hair); }
+
+/* ── Form ── */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 48px;
+}
+.form-section h3 {
+  font: 700 18px/1.2 var(--sans);
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--hair);
+}
+.form-group { margin-bottom: 16px; }
+.form-group label {
+  display: block;
+  font: 500 13px/1 var(--sans);
+  color: var(--ink-2);
+  margin-bottom: 6px;
+  letter-spacing: 0.01em;
+}
+.form-group label .optional {
+  font-weight: 400;
+  color: var(--ink-4);
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  font: 400 15px/1.5 var(--sans);
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--hair-strong);
+  border-radius: 10px;
+  padding: 10px 14px;
+  transition: border-color 0.18s, box-shadow 0.18s;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(11,107,77,0.10);
+}
+.form-group textarea { resize: vertical; }
+.form-group input[readonly] {
+  background: var(--green-paper);
+  color: var(--ink-2);
+  cursor: default;
+}
+
+/* ── Invoice details row ── */
+.invoice-details-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* ── Line items ── */
+.line-items-section h3 {
+  font: 700 18px/1.2 var(--sans);
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--hair);
+}
+.line-item-row {
+  display: grid;
+  grid-template-columns: 1fr 100px 120px 120px 40px;
+  gap: 12px;
+  align-items: end;
+  margin-bottom: 12px;
+}
+.line-item-header {
+  display: grid;
+  grid-template-columns: 1fr 100px 120px 120px 40px;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.line-item-header span {
+  font: 500 12px/1 var(--sans);
+  color: var(--ink-3);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+.line-item-row input {
+  width: 100%;
+  font: 400 15px/1.5 var(--sans);
+  color: var(--ink);
+  background: #fff;
+  border: 1px solid var(--hair-strong);
+  border-radius: 10px;
+  padding: 10px 14px;
+  transition: border-color 0.18s, box-shadow 0.18s;
+}
+.line-item-row input:focus {
+  outline: none;
+  border-color: var(--green);
+  box-shadow: 0 0 0 3px rgba(11,107,77,0.10);
+}
+.line-item-row input[readonly] {
+  background: var(--green-paper);
+  color: var(--ink-2);
+  cursor: default;
+}
+.btn-remove-line {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: none; border: 1px solid var(--hair);
+  border-radius: 8px; cursor: pointer;
+  color: var(--ink-4);
+  font-size: 18px;
+  transition: color 0.18s, border-color 0.18s, background 0.18s;
+  margin-bottom: 4px;
+}
+.btn-remove-line:hover { color: var(--coral); border-color: var(--coral); background: rgba(232,93,93,0.06); }
+
+.add-line-btn {
+  margin-top: 8px;
+}
+
+/* ── Totals ── */
+.totals-section {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 32px;
+  margin-bottom: 40px;
+}
+.totals-box {
+  width: 320px;
+  background: #fff;
+  border: 1px solid var(--hair);
+  border-radius: 16px;
+  padding: 24px;
+}
+.total-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font: 400 15px/1 var(--sans);
+  color: var(--ink-2);
+}
+.total-row.grand-total {
+  border-top: 2px solid var(--ink);
+  margin-top: 8px;
+  padding-top: 16px;
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--ink);
+}
+.vat-toggle {
+  display: flex; align-items: center; gap: 10px;
+  padding: 12px 0 4px;
+}
+.vat-toggle input[type="checkbox"] {
+  width: 18px; height: 18px;
+  accent-color: var(--green);
+  cursor: pointer;
+}
+.vat-toggle label {
+  font: 500 14px/1 var(--sans);
+  color: var(--ink-2);
+  cursor: pointer;
+}
+
+/* ── Action buttons ── */
+.form-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 64px;
+}
+
+/* ── Invoice preview ── */
+.invoice-preview-wrapper {
+  display: none;
+  margin-bottom: 64px;
+}
+.invoice-preview-wrapper.visible { display: block; }
+.invoice-preview {
+  background: #fff;
+  border: 1px solid var(--hair);
+  border-radius: 16px;
+  padding: 56px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 4px 24px rgba(20,32,27,0.06);
+}
+.inv-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+}
+.inv-business-name {
+  font: 700 24px/1.1 var(--sans);
+  color: var(--ink);
+  letter-spacing: -0.02em;
+}
+.inv-business-address {
+  font: 400 14px/1.5 var(--sans);
+  color: var(--ink-3);
+  white-space: pre-line;
+  margin-top: 6px;
+}
+.inv-title {
+  font: 700 32px/1 var(--sans);
+  color: var(--green);
+  letter-spacing: -0.03em;
+  text-align: right;
+}
+.inv-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 1px solid var(--hair);
+}
+.inv-meta-block h4 {
+  font: 600 11px/1 var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--ink-4);
+  margin-bottom: 8px;
+}
+.inv-meta-block p {
+  font: 400 14px/1.5 var(--sans);
+  color: var(--ink);
+  white-space: pre-line;
+}
+.inv-details-row {
+  display: flex; gap: 32px;
+  margin-bottom: 8px;
+}
+.inv-detail-item {
+  font: 400 13px/1 var(--sans);
+  color: var(--ink-3);
+}
+.inv-detail-item strong {
+  font-weight: 600;
+  color: var(--ink-2);
+}
+.inv-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 32px;
+}
+.inv-table thead th {
+  font: 600 11px/1 var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-4);
+  padding: 12px 0;
+  border-bottom: 2px solid var(--ink);
+  text-align: left;
+}
+.inv-table thead th:nth-child(2),
+.inv-table thead th:nth-child(3),
+.inv-table thead th:nth-child(4) { text-align: right; }
+.inv-table tbody td {
+  font: 400 14px/1.4 var(--sans);
+  color: var(--ink);
+  padding: 12px 0;
+  border-bottom: 1px solid var(--hair);
+}
+.inv-table tbody td:nth-child(2),
+.inv-table tbody td:nth-child(3),
+.inv-table tbody td:nth-child(4) { text-align: right; font-family: var(--mono); font-size: 13px; }
+.inv-totals {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 40px;
+}
+.inv-totals-inner { width: 240px; }
+.inv-totals-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 6px 0;
+  font: 400 14px/1 var(--sans);
+  color: var(--ink-2);
+}
+.inv-totals-row span:last-child { font-family: var(--mono); font-size: 13px; }
+.inv-totals-row.inv-grand-total {
+  border-top: 2px solid var(--ink);
+  margin-top: 8px;
+  padding-top: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--ink);
+}
+.inv-totals-row.inv-grand-total span:last-child { font-size: 15px; }
+.inv-bank-details {
+  background: var(--green-paper);
+  border-radius: 12px;
+  padding: 20px 24px;
+  margin-bottom: 32px;
+}
+.inv-bank-details h4 {
+  font: 600 12px/1 var(--sans);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--green);
+  margin-bottom: 12px;
+}
+.inv-bank-details p {
+  font: 400 13px/1.6 var(--sans);
+  color: var(--ink-2);
+}
+.inv-footer-text {
+  text-align: center;
+  font: 400 14px/1 var(--serif);
+  font-style: italic;
+  color: var(--ink-4);
+  padding-top: 24px;
+  border-top: 1px solid var(--hair);
+}
+
+/* ── CTA Section ── */
+.cta-section {
+  background: #fff;
+  border: 1px solid var(--hair);
+  border-radius: 32px;
+  padding: 64px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.cta-section::before {
+  content: "";
+  position: absolute;
+  top: -1px; left: 20%; right: 20%; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--green), transparent);
+}
+.cta-section h2 {
+  font: 800 clamp(28px, 3.5vw, 44px)/1.1 var(--sans);
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  margin-bottom: 16px;
+  position: relative;
+}
+.cta-section h2 .em { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--green); }
+.cta-section > p {
+  font: 400 18px/1.55 var(--sans);
+  color: var(--ink-2);
+  max-width: 560px;
+  margin: 0 auto 40px;
+  position: relative;
+}
+
+/* ── Related links ── */
+.related-links { display: flex; flex-wrap: wrap; gap: 10px; }
+.related-links a {
+  display: inline-block;
+  padding: 9px 16px;
+  background: #fff;
+  border: 1px solid rgba(20,32,27,0.10);
+  border-radius: 999px;
+  font: 500 13px/1 var(--sans);
+  color: var(--ink-2);
+  text-decoration: none;
+  transition: border-color 0.18s, color 0.18s;
+}
+.related-links a:hover { border-color: var(--green); color: var(--green); }
+
+/* ── Footer ── */
+footer {
+  border-top: 1px solid var(--hair);
+  padding: 32px 40px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.footer-logo {
+  display: inline-flex; align-items: baseline; gap: 0;
+  font: 800 0/1 var(--sans);
+  font-size: 20px;
+  letter-spacing: -0.06em;
+  color: var(--ink);
+  text-decoration: none;
+}
+.footer-logo .o {
+  display: inline-block; position: relative;
+  width: 0.78em; height: 0.78em;
+  border-radius: 50%; background: var(--ink);
+  margin: 0 0.005em; vertical-align: -0.04em;
+}
+.footer-logo .o::after {
+  content: "";
+  position: absolute;
+  width: 0.32em; height: 0.32em;
+  background: var(--paper);
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.footer-copy { font: 400 13px/1 var(--sans); color: var(--ink-4); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a { font: 400 13px/1 var(--sans); color: var(--ink-4); text-decoration: none; }
+.footer-links a:hover { color: var(--ink-2); }
+
+/* ── Fade-up ── */
+.fade-up {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible { opacity: 1; transform: none; }
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .container { padding: 0 24px; }
+  nav { padding: 0 24px; }
+  .hamburger {
+    display: flex; flex-direction: column; justify-content: center;
+    gap: 5px; width: 32px; height: 32px; background: none; border: none;
+    cursor: pointer; padding: 4px; z-index: 201;
+  }
+  .hamburger span {
+    display: block; width: 22px; height: 2px; background: var(--ink);
+    border-radius: 2px; transition: transform 0.25s ease, opacity 0.2s ease;
+  }
+  .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex; flex-direction: column; gap: 0;
+    position: absolute; top: 64px; left: 0; right: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--hair);
+    box-shadow: 0 8px 24px rgba(20,32,27,0.08);
+    padding: 8px 0;
+    animation: menuSlideDown 0.22s ease-out;
+    z-index: 200;
+  }
+  .nav-links.open li { list-style: none; }
+  .nav-links.open a {
+    display: block; padding: 14px 28px;
+    font-size: 15px; font-weight: 500;
+    color: var(--ink-2); text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+  .nav-links.open a:hover { background: var(--green-paper); color: var(--ink); }
+  .mobile-menu-cta {
+    display: block; margin: 8px 20px 12px; padding: 13px 24px;
+    background: var(--green); color: #fff; text-align: center;
+    font: 600 15px/1 var(--sans); border-radius: 999px;
+    text-decoration: none; transition: background 0.18s;
+  }
+  .mobile-menu-cta:hover { background: var(--green-deep); }
+  .mobile-menu-cta-wrap { display: none; }
+  .nav-links.open .mobile-menu-cta-wrap { display: block; }
+  .nav-cta { display: none; }
+  @keyframes menuSlideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .form-grid { grid-template-columns: 1fr; gap: 32px; }
+  .invoice-details-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .line-item-header { display: none; }
+  .line-item-row {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    background: #fff;
+    border: 1px solid var(--hair);
+    border-radius: 12px;
+    padding: 16px;
+    margin-bottom: 16px;
+  }
+  .line-item-row input::placeholder { opacity: 1; }
+  .btn-remove-line { justify-self: end; margin-bottom: 0; }
+  .hero { padding: 64px 0 48px; }
+  .cta-section { padding: 40px 24px; }
+  .invoice-preview { padding: 32px 24px; }
+  .inv-header { flex-direction: column; gap: 16px; }
+  .inv-title { text-align: left; }
+  .inv-meta { grid-template-columns: 1fr; gap: 20px; }
+  .inv-table { font-size: 13px; }
+  .form-actions { flex-direction: column; align-items: stretch; }
+  .form-actions button { width: 100%; justify-content: center; }
+  footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px; }
+}
+
+@media (max-width: 580px) {
+  .invoice-details-grid { grid-template-columns: 1fr; }
+}
+
+/* ── Print styles ── */
+@media print {
+  body { background: #fff; }
+  body::before { display: none; }
+  nav, .hero, .form-section-wrapper, .form-actions, .cta-section,
+  .related-reading, footer, .section:not(.invoice-preview-section),
+  .line-items-section, .totals-section, .invoice-details-section,
+  .form-grid-wrapper, .eyebrow, .hero-desc, h1.hero-h1,
+  .section-header, .btn-primary, .btn-ghost { display: none !important; }
+  .invoice-preview-wrapper { display: block !important; margin: 0; }
+  .invoice-preview {
+    border: none; border-radius: 0; box-shadow: none;
+    padding: 0; max-width: none;
+  }
+  .container { max-width: none; padding: 0; }
+  @page { margin: 20mm; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo" aria-label="WOPA home">
+    <span class="glyph">W</span><span class="o"></span><span class="glyph">P</span><span class="glyph">A</span>
+  </a>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="/#how">How it works</a></li>
+    <li><a href="/#demo">Demo</a></li>
+    <li><a href="/#reminders">Reminders</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li class="mobile-menu-cta-wrap"><a href="/#waitlist" class="mobile-menu-cta">Join waitlist</a></li>
+  </ul>
+  <a href="/#waitlist" class="nav-cta">Join waitlist</a>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow" style="justify-content:center;margin-bottom:20px;">Free tool</div>
+    <h1 class="hero-h1">Free Invoice Generator</h1>
+    <p class="hero-desc">Create a professional UK invoice in 60 seconds. No signup, no account, no hidden fees. Fill in the details below, preview your invoice, and download the PDF.</p>
+  </div>
+</section>
+
+<section class="section" style="border-top:none;padding-top:0;">
+  <div class="container">
+
+    <!-- Your details / Customer details -->
+    <div class="form-grid" id="formGrid">
+      <div class="form-section">
+        <h3>Your details</h3>
+        <div class="form-group">
+          <label for="bizName">Your business name</label>
+          <input type="text" id="bizName" placeholder="e.g. Smith Electrics Ltd">
+        </div>
+        <div class="form-group">
+          <label for="yourName">Your name</label>
+          <input type="text" id="yourName" placeholder="e.g. John Smith">
+        </div>
+        <div class="form-group">
+          <label for="yourAddress">Your address</label>
+          <textarea id="yourAddress" rows="3" placeholder="e.g. 12 High Street&#10;London&#10;SW1A 1AA"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="yourEmail">Your email</label>
+          <input type="email" id="yourEmail" placeholder="e.g. john@smithelectrics.co.uk">
+        </div>
+        <div class="form-group">
+          <label for="yourPhone">Your phone <span class="optional">(optional)</span></label>
+          <input type="tel" id="yourPhone" placeholder="e.g. 07700 900000">
+        </div>
+        <div class="form-group">
+          <label for="sortCode">Sort code <span class="optional">(optional)</span></label>
+          <input type="text" id="sortCode" placeholder="e.g. 12-34-56">
+        </div>
+        <div class="form-group">
+          <label for="accountNumber">Account number <span class="optional">(optional)</span></label>
+          <input type="text" id="accountNumber" placeholder="e.g. 12345678">
+        </div>
+        <div class="form-group">
+          <label for="paymentRef">Payment reference <span class="optional">(optional)</span></label>
+          <input type="text" id="paymentRef" placeholder="e.g. INV-2026-001">
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3>Customer details</h3>
+        <div class="form-group">
+          <label for="custName">Customer name</label>
+          <input type="text" id="custName" placeholder="e.g. Jane Doe">
+        </div>
+        <div class="form-group">
+          <label for="custEmail">Customer email</label>
+          <input type="email" id="custEmail" placeholder="e.g. jane@example.com">
+        </div>
+        <div class="form-group">
+          <label for="custAddress">Customer address</label>
+          <textarea id="custAddress" rows="3" placeholder="e.g. 42 Oak Avenue&#10;Manchester&#10;M1 1AA"></textarea>
+        </div>
+      </div>
+    </div>
+
+    <!-- Invoice details -->
+    <div class="invoice-details-section">
+      <h3 style="font:700 18px/1.2 var(--sans);color:var(--ink);letter-spacing:-0.02em;margin-bottom:20px;padding-bottom:12px;border-bottom:1px solid var(--hair);">Invoice details</h3>
+      <div class="invoice-details-grid">
+        <div class="form-group">
+          <label for="invNumber">Invoice number</label>
+          <input type="text" id="invNumber" value="INV-2026-001">
+        </div>
+        <div class="form-group">
+          <label for="invDate">Invoice date</label>
+          <input type="date" id="invDate">
+        </div>
+        <div class="form-group">
+          <label for="dueDate">Due date</label>
+          <input type="date" id="dueDate">
+        </div>
+        <div class="form-group">
+          <label for="payTerms">Payment terms</label>
+          <select id="payTerms">
+            <option value="7">7 days</option>
+            <option value="14">14 days</option>
+            <option value="30" selected>30 days</option>
+            <option value="custom">Custom</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Line items -->
+    <div class="line-items-section">
+      <h3>Line items</h3>
+      <div class="line-item-header">
+        <span>Description</span>
+        <span>Qty</span>
+        <span>Unit price (&pound;)</span>
+        <span>Total (&pound;)</span>
+        <span></span>
+      </div>
+      <div id="lineItems">
+        <!-- line items injected by JS -->
+      </div>
+      <button type="button" class="btn-ghost add-line-btn" onclick="addLineItem()">+ Add line item</button>
+    </div>
+
+    <!-- Totals -->
+    <div class="totals-section">
+      <div class="totals-box">
+        <div class="total-row">
+          <span>Subtotal</span>
+          <span id="subtotalDisplay">&pound;0.00</span>
+        </div>
+        <div class="vat-toggle">
+          <input type="checkbox" id="vatToggle">
+          <label for="vatToggle">Add VAT at 20%</label>
+        </div>
+        <div class="total-row" id="vatRow" style="display:none;">
+          <span>VAT (20%)</span>
+          <span id="vatDisplay">&pound;0.00</span>
+        </div>
+        <div class="total-row grand-total">
+          <span>Total</span>
+          <span id="totalDisplay">&pound;0.00</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Action buttons -->
+    <div class="form-actions">
+      <button type="button" class="btn-primary" onclick="previewInvoice()">Preview Invoice</button>
+      <button type="button" class="btn-ghost" onclick="downloadPDF()">Download PDF</button>
+    </div>
+
+    <!-- Invoice preview -->
+    <div class="invoice-preview-wrapper" id="invoicePreview">
+      <div class="invoice-preview" id="invoicePreviewInner">
+        <!-- populated by JS -->
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section" style="border-top:none;">
+  <div class="container">
+    <div class="cta-section fade-up">
+      <div style="position:relative;">
+        <div class="eyebrow" style="justify-content:center;margin-bottom:20px;">Skip the template</div>
+        <h2>Just message WOPA.<br><span class="em">Invoices go out automatically.</span></h2>
+        <p>Skip the template. Just message WOPA on WhatsApp and the invoice goes out automatically &mdash; with payment reminders built in.</p>
+        <a href="/#waitlist" class="btn-primary" style="font-size:17px;padding:18px 36px;">Reserve founder pricing</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Related reading -->
+<section class="related-reading" style="padding:48px 0;border-top:1px solid var(--hair);">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:18px;">Related reading</div>
+    <div class="related-links">
+      <a href="/blog/how-to-invoice-sole-trader-uk.html">How to invoice as a sole trader in the UK</a>
+      <a href="/blog/send-invoice-whatsapp.html">How to send an invoice on WhatsApp</a>
+      <a href="/tools/cis-calculator.html">CIS deduction calculator</a>
+      <a href="/tools/late-payment-calculator.html">Late payment interest calculator</a>
+      <a href="/electricians.html">WOPA for electricians</a>
+      <a href="/plumbers.html">WOPA for plumbers</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="/" class="footer-logo" aria-label="WOPA">
+    <span class="glyph">W</span><span class="o"></span><span class="glyph">P</span><span class="glyph">A</span>
+  </a>
+  <span class="footer-copy">WhatsApp invoicing for UK tradespeople / Beta / 2026</span>
+  <div class="footer-links">
+    <a href="/blog/">Blog</a>
+    <a href="#">WhatsApp</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/data-processing.html">Data processing</a>
+    <a href="/privacy.html">Privacy</a>
+  </div>
+</footer>
+
+<script>
+// ── Date defaults ──
+(function() {
+  const today = new Date();
+  const due = new Date(today);
+  due.setDate(due.getDate() + 30);
+
+  function fmt(d) {
+    return d.getFullYear() + '-' +
+      String(d.getMonth() + 1).padStart(2, '0') + '-' +
+      String(d.getDate()).padStart(2, '0');
+  }
+
+  document.getElementById('invDate').value = fmt(today);
+  document.getElementById('dueDate').value = fmt(due);
+})();
+
+// ── Payment terms ──
+document.getElementById('payTerms').addEventListener('change', function() {
+  if (this.value === 'custom') return;
+  const days = parseInt(this.value);
+  const invDate = new Date(document.getElementById('invDate').value);
+  if (isNaN(invDate.getTime())) return;
+  const due = new Date(invDate);
+  due.setDate(due.getDate() + days);
+  const y = due.getFullYear();
+  const m = String(due.getMonth() + 1).padStart(2, '0');
+  const d = String(due.getDate()).padStart(2, '0');
+  document.getElementById('dueDate').value = y + '-' + m + '-' + d;
+});
+
+document.getElementById('invDate').addEventListener('change', function() {
+  const sel = document.getElementById('payTerms');
+  if (sel.value === 'custom') return;
+  sel.dispatchEvent(new Event('change'));
+});
+
+// ── Line items ──
+let lineItemCount = 0;
+
+function addLineItem() {
+  lineItemCount++;
+  const id = lineItemCount;
+  const row = document.createElement('div');
+  row.className = 'line-item-row';
+  row.id = 'lineRow-' + id;
+  row.innerHTML =
+    '<input type="text" placeholder="Description" data-field="desc">' +
+    '<input type="number" placeholder="Qty" value="1" min="0" step="1" data-field="qty">' +
+    '<input type="number" placeholder="0.00" min="0" step="0.01" data-field="price">' +
+    '<input type="text" readonly value="0.00" data-field="total">' +
+    '<button type="button" class="btn-remove-line" onclick="removeLineItem(' + id + ')" title="Remove">&times;</button>';
+
+  row.querySelectorAll('input[data-field="qty"], input[data-field="price"]').forEach(function(inp) {
+    inp.addEventListener('input', function() { calcLineTotal(id); });
+  });
+
+  document.getElementById('lineItems').appendChild(row);
+  calcTotals();
+}
+
+function removeLineItem(id) {
+  var row = document.getElementById('lineRow-' + id);
+  if (row) row.remove();
+  // ensure at least one row
+  if (document.getElementById('lineItems').children.length === 0) addLineItem();
+  calcTotals();
+}
+
+function calcLineTotal(id) {
+  var row = document.getElementById('lineRow-' + id);
+  if (!row) return;
+  var qty = parseFloat(row.querySelector('[data-field="qty"]').value) || 0;
+  var price = parseFloat(row.querySelector('[data-field="price"]').value) || 0;
+  var total = qty * price;
+  row.querySelector('[data-field="total"]').value = total.toFixed(2);
+  calcTotals();
+}
+
+function calcTotals() {
+  var subtotal = 0;
+  document.querySelectorAll('#lineItems .line-item-row').forEach(function(row) {
+    subtotal += parseFloat(row.querySelector('[data-field="total"]').value) || 0;
+  });
+
+  var hasVat = document.getElementById('vatToggle').checked;
+  var vat = hasVat ? subtotal * 0.2 : 0;
+  var total = subtotal + vat;
+
+  document.getElementById('subtotalDisplay').textContent = '£' + subtotal.toFixed(2);
+  document.getElementById('vatDisplay').textContent = '£' + vat.toFixed(2);
+  document.getElementById('vatRow').style.display = hasVat ? 'flex' : 'none';
+  document.getElementById('totalDisplay').textContent = '£' + total.toFixed(2);
+}
+
+document.getElementById('vatToggle').addEventListener('change', calcTotals);
+
+// init with one line item
+addLineItem();
+
+// ── Format date for display ──
+function fmtDate(dateStr) {
+  if (!dateStr) return '';
+  var d = new Date(dateStr);
+  if (isNaN(d.getTime())) return dateStr;
+  return d.toLocaleDateString('en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+}
+
+// ── Escape HTML ──
+function esc(str) {
+  var div = document.createElement('div');
+  div.textContent = str || '';
+  return div.innerHTML;
+}
+
+// ── Preview ──
+function previewInvoice() {
+  var bizName = document.getElementById('bizName').value;
+  var yourName = document.getElementById('yourName').value;
+  var yourAddress = document.getElementById('yourAddress').value;
+  var yourEmail = document.getElementById('yourEmail').value;
+  var yourPhone = document.getElementById('yourPhone').value;
+  var sortCode = document.getElementById('sortCode').value;
+  var accountNumber = document.getElementById('accountNumber').value;
+  var paymentRef = document.getElementById('paymentRef').value;
+
+  var custName = document.getElementById('custName').value;
+  var custAddress = document.getElementById('custAddress').value;
+
+  var invNumber = document.getElementById('invNumber').value;
+  var invDate = document.getElementById('invDate').value;
+  var dueDate = document.getElementById('dueDate').value;
+
+  // line items
+  var rows = document.querySelectorAll('#lineItems .line-item-row');
+  var items = [];
+  rows.forEach(function(row) {
+    var desc = row.querySelector('[data-field="desc"]').value;
+    var qty = row.querySelector('[data-field="qty"]').value;
+    var price = row.querySelector('[data-field="price"]').value;
+    var total = row.querySelector('[data-field="total"]').value;
+    if (desc || parseFloat(price) > 0) {
+      items.push({ desc: desc, qty: qty, price: parseFloat(price || 0).toFixed(2), total: parseFloat(total || 0).toFixed(2) });
+    }
+  });
+
+  var subtotal = 0;
+  items.forEach(function(it) { subtotal += parseFloat(it.total); });
+
+  var hasVat = document.getElementById('vatToggle').checked;
+  var vat = hasVat ? subtotal * 0.2 : 0;
+  var total = subtotal + vat;
+
+  // bank details
+  var bankHTML = '';
+  if (sortCode || accountNumber || paymentRef) {
+    var bankLines = [];
+    if (sortCode) bankLines.push('Sort code: ' + esc(sortCode));
+    if (accountNumber) bankLines.push('Account number: ' + esc(accountNumber));
+    if (paymentRef) bankLines.push('Payment reference: ' + esc(paymentRef));
+    if (bizName) bankLines.push('Account name: ' + esc(bizName));
+    bankHTML = '<div class="inv-bank-details"><h4>Bank details</h4><p>' + bankLines.join('<br>') + '</p></div>';
+  }
+
+  // contact line
+  var contactParts = [];
+  if (yourEmail) contactParts.push(esc(yourEmail));
+  if (yourPhone) contactParts.push(esc(yourPhone));
+  var contactLine = contactParts.length ? '<p style="margin-top:4px;font:400 13px/1.5 var(--sans);color:var(--ink-4);">' + contactParts.join(' &middot; ') + '</p>' : '';
+
+  // items table
+  var tableRows = '';
+  items.forEach(function(it) {
+    tableRows += '<tr><td>' + esc(it.desc) + '</td><td>' + esc(it.qty) + '</td><td>&pound;' + it.price + '</td><td>&pound;' + it.total + '</td></tr>';
+  });
+
+  var vatRowHTML = hasVat ? '<div class="inv-totals-row"><span>VAT (20%)</span><span>&pound;' + vat.toFixed(2) + '</span></div>' : '';
+
+  var html = '' +
+    '<div class="inv-header">' +
+      '<div>' +
+        '<div class="inv-business-name">' + esc(bizName || yourName) + '</div>' +
+        '<div class="inv-business-address">' + esc(yourAddress) + '</div>' +
+        contactLine +
+      '</div>' +
+      '<div class="inv-title">INVOICE</div>' +
+    '</div>' +
+
+    '<div class="inv-details-row" style="margin-bottom:24px;">' +
+      '<div class="inv-detail-item"><strong>Invoice:</strong> ' + esc(invNumber) + '</div>' +
+      '<div class="inv-detail-item"><strong>Date:</strong> ' + fmtDate(invDate) + '</div>' +
+      '<div class="inv-detail-item"><strong>Due:</strong> ' + fmtDate(dueDate) + '</div>' +
+    '</div>' +
+
+    '<div class="inv-meta">' +
+      '<div class="inv-meta-block"><h4>Bill to</h4><p>' + esc(custName) + '</p><p>' + esc(custAddress) + '</p></div>' +
+      '<div class="inv-meta-block"><h4>From</h4><p>' + esc(bizName || yourName) + '</p><p>' + esc(yourAddress) + '</p></div>' +
+    '</div>' +
+
+    '<table class="inv-table"><thead><tr>' +
+      '<th>Description</th><th>Qty</th><th>Price</th><th>Total</th>' +
+    '</tr></thead><tbody>' + tableRows + '</tbody></table>' +
+
+    '<div class="inv-totals"><div class="inv-totals-inner">' +
+      '<div class="inv-totals-row"><span>Subtotal</span><span>&pound;' + subtotal.toFixed(2) + '</span></div>' +
+      vatRowHTML +
+      '<div class="inv-totals-row inv-grand-total"><span>Total</span><span>&pound;' + total.toFixed(2) + '</span></div>' +
+    '</div></div>' +
+
+    bankHTML +
+
+    '<div class="inv-footer-text">Thank you for your business</div>';
+
+  document.getElementById('invoicePreviewInner').innerHTML = html;
+  document.getElementById('invoicePreview').classList.add('visible');
+  document.getElementById('invoicePreview').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+// ── Download PDF ──
+function downloadPDF() {
+  previewInvoice();
+  setTimeout(function() { window.print(); }, 300);
+}
+
+// ── Hamburger ──
+document.querySelector('.hamburger').addEventListener('click', function() {
+  this.classList.toggle('active');
+  this.setAttribute('aria-expanded', this.classList.contains('active'));
+  document.querySelector('.nav-links').classList.toggle('open');
+});
+
+// ── Fade-up observer ──
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+document.querySelectorAll('.fade-up').forEach(function(el) { observer.observe(el); });
+</script>
+</body>
+</html>

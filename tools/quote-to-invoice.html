@@ -1,0 +1,1346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Quote to Invoice Converter — Free UK Tool | WOPA</title>
+<meta name="description" content="Convert your accepted quote into a professional invoice in seconds. Free tool for UK tradespeople — no signup required. Add invoice number, due date, and bank details."/>
+<link rel="canonical" href="https://mywopa.com/tools/quote-to-invoice.html"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Quote to Invoice Converter — Free UK Tool | WOPA"/>
+<meta property="og:description" content="Convert your accepted quote into a professional invoice in seconds. Free tool for UK tradespeople — no signup required."/>
+<meta property="og:url" content="https://mywopa.com/tools/quote-to-invoice.html"/>
+<meta property="og:image" content="https://mywopa.com/wopa-whatsapp-bot-profile.png"/>
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Quote to Invoice Converter — Free UK Tool | WOPA"/>
+<meta name="twitter:description" content="Convert your accepted quote into a professional invoice in seconds. Free tool for UK tradespeople."/>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Quote to Invoice Converter",
+  "description": "Convert an accepted quote into a professional invoice in seconds. Free tool for UK tradespeople — no signup required.",
+  "url": "https://mywopa.com/tools/quote-to-invoice.html",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP"
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "UK tradespeople, sole traders, and small limited companies"
+  },
+  "creator": {
+    "@type": "Organization",
+    "name": "WOPA",
+    "url": "https://mywopa.com"
+  }
+}
+</script>
+<link rel="icon" type="image/png" href="/wopa-whatsapp-bot-profile.png"/>
+<link rel="apple-touch-icon" href="/wopa-whatsapp-bot-profile.png"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+/* TOKENS */
+:root {
+  --green: #0B6B4D;
+  --green-deep: #074A36;
+  --green-tint: #DFEEE7;
+  --green-paper: #F0F6F2;
+  --paper: #FBF8F2;
+  --paper-2: #F4EFE3;
+  --cream: #F5EFE0;
+  --cream-shadow: #E8DFC8;
+  --ink: #14201B;
+  --ink-2: #3E4C46;
+  --ink-3: #6B7873;
+  --ink-4: #9AA5A0;
+  --hair: rgba(20,32,27,0.10);
+  --hair-strong: rgba(20,32,27,0.18);
+  --amber: #E8A33A;
+  --amber-soft: #FBE9C4;
+  --coral: #E85D5D;
+  --sans: 'Bricolage Grotesque', system-ui, sans-serif;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --mono: 'JetBrains Mono', ui-monospace, monospace;
+}
+
+/* RESET & BASE */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "ss01", "ss02";
+}
+
+/* PAPER DOT TEXTURE */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle at 1px 1px, rgba(20,32,27,0.055) 1px, transparent 0);
+  background-size: 20px 20px;
+  pointer-events: none;
+  z-index: 0;
+}
+body > * { position: relative; z-index: 1; }
+
+/* UTILITY */
+.container { max-width: 1160px; margin: 0 auto; padding: 0 40px; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 10px;
+  font: 600 11px/1 var(--sans);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--green);
+}
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 22px; height: 1.5px;
+  background: var(--green);
+}
+.serif-em { font-family: var(--serif); font-style: italic; font-weight: 400; letter-spacing: -0.01em; }
+
+/* NAV */
+nav {
+  position: sticky; top: 0; z-index: 100;
+  background: rgba(251,248,242,0.88);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--hair);
+  padding: 0 40px;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  display: inline-flex; align-items: baseline; gap: 0;
+  font: 800 0/1 var(--sans);
+  line-height: 1;
+  letter-spacing: -0.06em;
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 28px;
+}
+.nav-logo .glyph { font-size: 1em; line-height: 1; }
+.nav-logo .o {
+  display: inline-block;
+  position: relative;
+  width: 0.78em; height: 0.78em;
+  border-radius: 50%;
+  background: var(--ink);
+  margin: 0 0.005em;
+  vertical-align: -0.04em;
+}
+.nav-logo .o::after {
+  content: "";
+  position: absolute;
+  width: 0.32em; height: 0.32em;
+  background: var(--paper);
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  text-decoration: none;
+  color: var(--ink-3);
+  font-size: 14px; font-weight: 500;
+  transition: color 0.18s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-cta {
+  background: var(--green);
+  color: #fff;
+  font: 600 14px/1 var(--sans);
+  padding: 10px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  transition: background 0.18s, transform 0.12s;
+  letter-spacing: -0.005em;
+}
+.nav-cta:hover { background: var(--green-deep); transform: translateY(-1px); }
+.hamburger { display: none; }
+.mobile-menu-cta-wrap { display: none; }
+
+/* HERO */
+.hero {
+  padding: 88px 0 64px;
+  text-align: center;
+}
+.hero .eyebrow { justify-content: center; margin-bottom: 20px; }
+.hero h1 {
+  font: 800 clamp(36px, 5vw, 58px)/1.0 var(--sans);
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  margin-bottom: 20px;
+}
+.hero p.subtitle {
+  font: 400 18px/1.55 var(--sans);
+  color: var(--ink-2);
+  max-width: 620px;
+  margin: 0 auto;
+}
+
+/* FORM STYLES */
+.form-section {
+  padding: 0 0 64px;
+}
+.form-card {
+  background: #fff;
+  border: 1px solid var(--hair);
+  border-radius: 24px;
+  padding: 40px;
+  margin-bottom: 32px;
+}
+.form-card h2 {
+  font: 700 24px/1.15 var(--sans);
+  letter-spacing: -0.025em;
+  color: var(--ink);
+  margin-bottom: 28px;
+}
+.form-card.convert-card {
+  background: var(--green-tint);
+  border-color: rgba(11,107,77,0.18);
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+.form-row.full {
+  grid-template-columns: 1fr;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.form-group label {
+  font: 600 13px/1 var(--sans);
+  color: var(--ink-2);
+  letter-spacing: 0.02em;
+}
+.form-group input,
+.form-group textarea,
+.form-group select {
+  font: 400 15px/1.5 var(--sans);
+  padding: 11px 14px;
+  border: 1px solid var(--hair-strong);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+  transition: border-color 0.18s;
+  outline: none;
+}
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--green);
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+.convert-card .form-group input,
+.convert-card .form-group textarea,
+.convert-card .form-group select {
+  background: #fff;
+}
+
+/* LINE ITEMS */
+.line-items-header {
+  display: grid;
+  grid-template-columns: 1fr 80px 120px 100px 40px;
+  gap: 12px;
+  margin-bottom: 8px;
+  padding: 0 2px;
+}
+.line-items-header span {
+  font: 600 12px/1 var(--sans);
+  color: var(--ink-3);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.line-item {
+  display: grid;
+  grid-template-columns: 1fr 80px 120px 100px 40px;
+  gap: 12px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+.line-item input {
+  font: 400 14px/1.5 var(--sans);
+  padding: 10px 12px;
+  border: 1px solid var(--hair-strong);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.18s;
+}
+.line-item input:focus {
+  border-color: var(--green);
+}
+.line-item .line-total {
+  font: 600 14px/1 var(--sans);
+  color: var(--ink);
+  text-align: right;
+  padding-right: 4px;
+}
+.line-item .remove-line {
+  width: 32px; height: 32px;
+  border: none; background: none;
+  color: var(--ink-4);
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background 0.15s, color 0.15s;
+  display: flex; align-items: center; justify-content: center;
+}
+.line-item .remove-line:hover {
+  background: rgba(232,93,93,0.1);
+  color: var(--coral);
+}
+
+.btn-add-line {
+  background: none;
+  border: 1px dashed var(--hair-strong);
+  border-radius: 10px;
+  padding: 10px 20px;
+  font: 500 14px/1 var(--sans);
+  color: var(--green);
+  cursor: pointer;
+  transition: border-color 0.18s, background 0.18s;
+  margin-top: 4px;
+}
+.btn-add-line:hover {
+  border-color: var(--green);
+  background: var(--green-paper);
+}
+
+/* TOTALS */
+.totals-bar {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid var(--hair);
+}
+.totals-row {
+  display: flex;
+  gap: 24px;
+  align-items: baseline;
+  font: 500 15px/1 var(--sans);
+  color: var(--ink-2);
+}
+.totals-row span:last-child {
+  min-width: 100px;
+  text-align: right;
+  font-weight: 600;
+  color: var(--ink);
+}
+.totals-row.total-final {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--ink);
+  padding-top: 8px;
+  border-top: 2px solid var(--ink);
+}
+.totals-row.total-final span:last-child {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.vat-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  font: 500 14px/1 var(--sans);
+  color: var(--ink-2);
+}
+.vat-toggle input[type="checkbox"] {
+  width: 18px; height: 18px;
+  accent-color: var(--green);
+  cursor: pointer;
+}
+
+/* BUTTONS */
+.btn-primary {
+  background: var(--green);
+  color: #fff;
+  font: 600 15px/1 var(--sans);
+  padding: 15px 28px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.18s, transform 0.12s, box-shadow 0.18s;
+  letter-spacing: -0.005em;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 1px 2px rgba(11,107,77,0.12), 0 4px 12px rgba(11,107,77,0.18);
+}
+.btn-primary:hover {
+  background: var(--green-deep);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(11,107,77,0.14), 0 8px 24px rgba(11,107,77,0.22);
+}
+.btn-ghost {
+  color: var(--ink-2);
+  font: 500 15px/1 var(--sans);
+  text-decoration: none;
+  border: 1px solid var(--hair-strong);
+  padding: 15px 24px;
+  border-radius: 999px;
+  transition: border-color 0.18s, color 0.18s, transform 0.12s;
+  letter-spacing: -0.005em;
+  background: #fff;
+  cursor: pointer;
+}
+.btn-ghost:hover {
+  border-color: var(--ink-3);
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+.form-actions {
+  display: flex;
+  gap: 14px;
+  margin-top: 32px;
+  flex-wrap: wrap;
+}
+
+/* INVOICE PREVIEW */
+.preview-section {
+  padding: 0 0 64px;
+  display: none;
+}
+.preview-section.visible {
+  display: block;
+}
+.invoice-preview {
+  background: #fff;
+  border: 1px solid var(--hair);
+  border-radius: 24px;
+  padding: 56px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 4px 24px rgba(20,32,27,0.06);
+}
+.invoice-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  padding-bottom: 24px;
+  border-bottom: 2px solid var(--ink);
+}
+.invoice-biz-name {
+  font: 800 24px/1.1 var(--sans);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.invoice-biz-address {
+  font: 400 14px/1.5 var(--sans);
+  color: var(--ink-3);
+  white-space: pre-line;
+}
+.invoice-biz-email {
+  font: 400 14px/1.5 var(--sans);
+  color: var(--ink-3);
+  margin-top: 4px;
+}
+.invoice-heading {
+  font: 800 36px/1 var(--sans);
+  letter-spacing: -0.04em;
+  color: var(--green);
+  text-align: right;
+}
+.invoice-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 32px;
+}
+.invoice-meta-block h3 {
+  font: 600 11px/1 var(--sans);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  margin-bottom: 8px;
+}
+.invoice-meta-block p {
+  font: 400 14px/1.5 var(--sans);
+  color: var(--ink);
+  white-space: pre-line;
+}
+.invoice-meta-block .invoice-detail-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0;
+  font: 400 14px/1.5 var(--sans);
+  color: var(--ink);
+}
+.invoice-meta-block .invoice-detail-row span:first-child {
+  color: var(--ink-3);
+}
+.invoice-quote-ref {
+  font: 400 14px/1.5 var(--sans);
+  color: var(--ink-3);
+  font-style: italic;
+  margin-bottom: 24px;
+  padding: 12px 16px;
+  background: var(--green-paper);
+  border-radius: 10px;
+}
+
+/* Invoice table */
+.invoice-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 24px;
+}
+.invoice-table thead th {
+  font: 600 11px/1 var(--sans);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  text-align: left;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--hair-strong);
+}
+.invoice-table thead th:nth-child(2),
+.invoice-table thead th:nth-child(3),
+.invoice-table thead th:nth-child(4) {
+  text-align: right;
+}
+.invoice-table tbody td {
+  font: 400 14px/1.5 var(--sans);
+  color: var(--ink);
+  padding: 12px 0;
+  border-bottom: 1px solid var(--hair);
+}
+.invoice-table tbody td:nth-child(2),
+.invoice-table tbody td:nth-child(3),
+.invoice-table tbody td:nth-child(4) {
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 13px;
+}
+
+.invoice-totals {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  margin-bottom: 40px;
+}
+.invoice-totals .inv-row {
+  display: flex;
+  gap: 32px;
+  font: 400 14px/1 var(--sans);
+  color: var(--ink-2);
+}
+.invoice-totals .inv-row span:last-child {
+  min-width: 100px;
+  text-align: right;
+  font-family: var(--mono);
+  font-size: 13px;
+  color: var(--ink);
+}
+.invoice-totals .inv-row.inv-total {
+  font-weight: 700;
+  font-size: 18px;
+  color: var(--ink);
+  padding-top: 10px;
+  border-top: 2px solid var(--ink);
+  margin-top: 4px;
+}
+.invoice-totals .inv-row.inv-total span:last-child {
+  font-size: 16px;
+  font-weight: 700;
+}
+.invoice-bank {
+  margin-top: 32px;
+  padding-top: 24px;
+  border-top: 1px solid var(--hair);
+}
+.invoice-bank h4 {
+  font: 600 12px/1 var(--sans);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-4);
+  margin-bottom: 10px;
+}
+.invoice-bank p {
+  font: 400 14px/1.6 var(--sans);
+  color: var(--ink-2);
+}
+.invoice-footer {
+  margin-top: 40px;
+  text-align: center;
+  font: 400 14px/1 var(--serif);
+  font-style: italic;
+  color: var(--ink-4);
+}
+
+/* EDUCATIONAL SECTION */
+.edu-section {
+  padding: 64px 0;
+  border-top: 1px solid var(--hair);
+}
+.edu-section h2 {
+  font: 700 clamp(28px, 3.5vw, 40px)/1.1 var(--sans);
+  letter-spacing: -0.03em;
+  color: var(--ink);
+  margin-bottom: 40px;
+}
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+.edu-card {
+  background: #fff;
+  border: 1px solid var(--hair);
+  border-radius: 18px;
+  padding: 28px;
+}
+.edu-card h3 {
+  font: 700 17px/1.2 var(--sans);
+  color: var(--ink);
+  letter-spacing: -0.01em;
+  margin-bottom: 12px;
+}
+.edu-card p {
+  font: 400 14px/1.65 var(--sans);
+  color: var(--ink-3);
+}
+.edu-disclaimer {
+  margin-top: 24px;
+  padding: 16px 20px;
+  background: var(--amber-soft);
+  border-radius: 12px;
+  font: 400 13px/1.55 var(--sans);
+  color: var(--ink-2);
+}
+
+/* CTA SECTION */
+.cta-section {
+  background: #fff;
+  border: 1px solid var(--hair);
+  border-radius: 32px;
+  padding: 64px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 64px;
+}
+.cta-section::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 20%; right: 20%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--green), transparent);
+}
+.cta-section h2 {
+  font: 800 clamp(28px, 3.5vw, 42px)/1.05 var(--sans);
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+.cta-section h2 .em {
+  font-family: var(--serif);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--green);
+}
+.cta-section > p {
+  font: 400 17px/1.55 var(--sans);
+  color: var(--ink-2);
+  max-width: 540px;
+  margin: 0 auto 32px;
+}
+
+/* RELATED READING */
+.related-section {
+  padding: 48px 0;
+  border-top: 1px solid var(--hair);
+}
+.related-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.related-links a {
+  display: inline-block;
+  padding: 9px 16px;
+  background: #fff;
+  border: 1px solid var(--hair);
+  border-radius: 999px;
+  font: 500 13px/1 var(--sans);
+  color: var(--ink-2);
+  text-decoration: none;
+  transition: border-color 0.18s, color 0.18s;
+}
+.related-links a:hover {
+  border-color: var(--green);
+  color: var(--green);
+}
+
+/* FOOTER */
+footer {
+  border-top: 1px solid var(--hair);
+  padding: 32px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.footer-logo {
+  display: inline-flex; align-items: baseline; gap: 0;
+  font: 800 22px/1 var(--sans);
+  letter-spacing: -0.06em;
+  color: var(--ink-3);
+  text-decoration: none;
+}
+.footer-logo .o {
+  display: inline-block; position: relative;
+  width: 0.78em; height: 0.78em;
+  border-radius: 50%;
+  background: var(--ink-3);
+  margin: 0 0.005em;
+  vertical-align: -0.04em;
+}
+.footer-logo .o::after {
+  content: "";
+  position: absolute;
+  width: 0.32em; height: 0.32em;
+  background: var(--paper);
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+}
+.footer-copy {
+  font: 400 13px/1 var(--sans);
+  color: var(--ink-4);
+}
+.footer-links {
+  display: flex; gap: 24px;
+}
+.footer-links a {
+  font: 400 13px/1 var(--sans);
+  color: var(--ink-4);
+  text-decoration: none;
+}
+.footer-links a:hover { color: var(--ink-2); }
+
+/* PRINT STYLES */
+@media print {
+  body::before { display: none; }
+  nav, .hero, .form-section, .edu-section, .cta-section,
+  .related-section, footer, .form-actions,
+  .preview-section > .container > .eyebrow,
+  .preview-section > .container > h2 { display: none !important; }
+  .preview-section { display: block !important; padding: 0 !important; }
+  .invoice-preview {
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    max-width: 100% !important;
+  }
+  body { background: #fff; }
+}
+
+/* RESPONSIVE */
+@media (max-width: 960px) {
+  .container { padding: 0 24px; }
+  nav { padding: 0 24px; }
+  .hamburger {
+    display: flex; flex-direction: column; justify-content: center;
+    gap: 5px; width: 32px; height: 32px; background: none; border: none;
+    cursor: pointer; padding: 4px; z-index: 201;
+  }
+  .hamburger span {
+    display: block; width: 22px; height: 2px; background: var(--ink);
+    border-radius: 2px; transition: transform 0.25s ease, opacity 0.2s ease;
+  }
+  .hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.active span:nth-child(2) { opacity: 0; }
+  .hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .nav-links { display: none; }
+  .nav-links.open {
+    display: flex; flex-direction: column; gap: 0;
+    position: absolute; top: 64px; left: 0; right: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--hair);
+    box-shadow: 0 8px 24px rgba(20,32,27,0.08);
+    padding: 8px 0;
+    animation: menuSlideDown 0.22s ease-out;
+    z-index: 200;
+  }
+  .nav-links.open li { list-style: none; }
+  .nav-links.open a {
+    display: block; padding: 14px 28px;
+    font-size: 15px; font-weight: 500;
+    color: var(--ink-2); text-decoration: none;
+    transition: background 0.15s, color 0.15s;
+  }
+  .nav-links.open a:hover { background: var(--green-paper); color: var(--ink); }
+  .mobile-menu-cta {
+    display: block; margin: 8px 20px 12px; padding: 13px 24px;
+    background: var(--green); color: #fff; text-align: center;
+    font: 600 15px/1 var(--sans); border-radius: 999px;
+    text-decoration: none; transition: background 0.18s;
+  }
+  .mobile-menu-cta:hover { background: var(--green-deep); }
+  .mobile-menu-cta-wrap { display: none; }
+  .nav-links.open .mobile-menu-cta-wrap { display: block; }
+  .nav-cta { display: none; }
+  @keyframes menuSlideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero { padding: 64px 0 48px; }
+  .form-card { padding: 24px; }
+  .form-row { grid-template-columns: 1fr; }
+  .line-items-header { display: none; }
+  .line-item {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding: 16px;
+    background: var(--green-paper);
+    border-radius: 12px;
+    margin-bottom: 12px;
+  }
+  .line-item input::placeholder { font-size: 13px; }
+  .line-item .line-total { text-align: left; }
+  .line-item .remove-line { justify-self: end; }
+  .invoice-preview { padding: 28px; }
+  .invoice-header { flex-direction: column; gap: 20px; }
+  .invoice-heading { text-align: left; }
+  .invoice-meta { grid-template-columns: 1fr; gap: 24px; }
+  .edu-grid { grid-template-columns: 1fr; }
+  .cta-section { padding: 40px 24px; }
+  footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px; }
+  .invoice-table { font-size: 13px; }
+}
+
+@media (max-width: 600px) {
+  .form-actions { flex-direction: column; }
+  .form-actions button { width: 100%; justify-content: center; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="/" class="nav-logo" aria-label="WOPA home">
+    <span class="glyph">W</span><span class="o"></span><span class="glyph">P</span><span class="glyph">A</span>
+  </a>
+  <button class="hamburger" aria-label="Menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links">
+    <li><a href="/#how">How it works</a></li>
+    <li><a href="/#demo">Demo</a></li>
+    <li><a href="/#reminders">Reminders</a></li>
+    <li><a href="/#faq">FAQ</a></li>
+    <li><a href="/blog/">Blog</a></li>
+    <li class="mobile-menu-cta-wrap"><a href="/#waitlist" class="mobile-menu-cta">Join waitlist</a></li>
+  </ul>
+  <a href="/#waitlist" class="nav-cta">Join waitlist</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Free tool</div>
+    <h1>Quote to Invoice Converter</h1>
+    <p class="subtitle">Customer accepted your quote? Convert it into a professional invoice in 60 seconds. Add an invoice number, due date, and bank details — then download the PDF.</p>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section">
+  <div class="container">
+
+    <!-- Section 1: Original quote details -->
+    <div class="form-card" id="quoteCard">
+      <h2>Original quote details</h2>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="quoteRef">Quote reference <span style="color:var(--ink-4);font-weight:400;">(optional)</span></label>
+          <input type="text" id="quoteRef" placeholder="e.g. QR-2026-042"/>
+        </div>
+        <div class="form-group">
+          <label for="quoteDate">Quote date</label>
+          <input type="date" id="quoteDate"/>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="custName">Customer name</label>
+          <input type="text" id="custName" placeholder="e.g. Sarah Thompson"/>
+        </div>
+        <div class="form-group">
+          <label for="custEmail">Customer email</label>
+          <input type="email" id="custEmail" placeholder="e.g. sarah@email.com"/>
+        </div>
+      </div>
+
+      <div class="form-row full">
+        <div class="form-group">
+          <label for="custAddress">Customer address</label>
+          <textarea id="custAddress" rows="3" placeholder="e.g. 14 Oakwood Drive&#10;Bristol&#10;BS8 2QN"></textarea>
+        </div>
+      </div>
+
+      <div class="form-row full">
+        <div class="form-group">
+          <label for="workDesc">Description of work</label>
+          <textarea id="workDesc" rows="3" placeholder="e.g. Full bathroom refit including tiling, plumbing, and waste disposal"></textarea>
+        </div>
+      </div>
+
+      <h3 style="font:600 16px/1 var(--sans);color:var(--ink-2);margin:32px 0 16px;letter-spacing:-0.01em;">Line items</h3>
+      <div class="line-items-header">
+        <span>Description</span>
+        <span>Qty</span>
+        <span>Unit price (£)</span>
+        <span>Total</span>
+        <span></span>
+      </div>
+      <div id="lineItems">
+        <div class="line-item">
+          <input type="text" placeholder="Item description" class="li-desc"/>
+          <input type="number" value="1" min="1" class="li-qty"/>
+          <input type="number" step="0.01" min="0" placeholder="0.00" class="li-price"/>
+          <span class="line-total">£0.00</span>
+          <button type="button" class="remove-line" title="Remove">&times;</button>
+        </div>
+      </div>
+      <button type="button" class="btn-add-line" id="addLineBtn">+ Add line item</button>
+
+      <div class="vat-toggle">
+        <input type="checkbox" id="vatToggle"/>
+        <label for="vatToggle">Add VAT at 20%</label>
+      </div>
+
+      <div class="totals-bar">
+        <div class="totals-row"><span>Subtotal</span><span id="subtotalDisplay">£0.00</span></div>
+        <div class="totals-row" id="vatRow" style="display:none;"><span>VAT (20%)</span><span id="vatDisplay">£0.00</span></div>
+        <div class="totals-row total-final"><span>Total</span><span id="totalDisplay">£0.00</span></div>
+      </div>
+    </div>
+
+    <!-- Section 2: Convert to invoice -->
+    <div class="form-card convert-card" id="convertCard">
+      <h2>Convert to invoice</h2>
+      <p style="font:400 14px/1.55 var(--sans);color:var(--ink-3);margin:-16px 0 28px;">These fields transform your quote into a proper invoice.</p>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="invNumber">Invoice number</label>
+          <input type="text" id="invNumber"/>
+        </div>
+        <div class="form-group">
+          <label for="invDate">Invoice date</label>
+          <input type="date" id="invDate"/>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="dueDate">Due date</label>
+          <input type="date" id="dueDate"/>
+        </div>
+        <div class="form-group">
+          <label for="payTerms">Payment terms</label>
+          <select id="payTerms">
+            <option value="7">7 days</option>
+            <option value="14">14 days</option>
+            <option value="30" selected>30 days</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="bizName">Your business name</label>
+          <input type="text" id="bizName" placeholder="e.g. Thompson Plumbing Ltd"/>
+        </div>
+        <div class="form-group">
+          <label for="bizEmail">Your email</label>
+          <input type="email" id="bizEmail" placeholder="e.g. you@business.com"/>
+        </div>
+      </div>
+
+      <div class="form-row full">
+        <div class="form-group">
+          <label for="bizAddress">Your address</label>
+          <textarea id="bizAddress" rows="3" placeholder="e.g. Unit 5, Park Industrial Estate&#10;Manchester&#10;M12 4WD"></textarea>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="sortCode">Sort code <span style="color:var(--ink-4);font-weight:400;">(optional)</span></label>
+          <input type="text" id="sortCode" placeholder="e.g. 12-34-56"/>
+        </div>
+        <div class="form-group">
+          <label for="accNumber">Account number <span style="color:var(--ink-4);font-weight:400;">(optional)</span></label>
+          <input type="text" id="accNumber" placeholder="e.g. 12345678"/>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" class="btn-ghost" id="previewBtn">Preview Invoice</button>
+        <button type="button" class="btn-primary" id="downloadBtn">Download PDF</button>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- INVOICE PREVIEW -->
+<section class="preview-section" id="previewSection">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:18px;">Invoice preview</div>
+    <div class="invoice-preview" id="invoicePreview"></div>
+  </div>
+</section>
+
+<!-- EDUCATIONAL SECTION -->
+<section class="edu-section">
+  <div class="container">
+    <h2>Everything you need to know about converting quotes to invoices</h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <h3>When should you convert a quote to an invoice?</h3>
+        <p>Once your customer has accepted your quote — whether by email, text, or a verbal agreement — you should convert it into a formal invoice. The invoice is the document that requests payment and starts the clock on your payment terms. The sooner you invoice after the work is done, the sooner you get paid.</p>
+      </div>
+      <div class="edu-card">
+        <h3>What changes between a quote and an invoice?</h3>
+        <p>A quote is an estimate; an invoice is a request for payment. The key additions are: a unique invoice number, a due date, your bank or payment details, and legal standing. A quote has no obligation to pay — an invoice does. You may also update the date to reflect when the work was completed.</p>
+      </div>
+      <div class="edu-card">
+        <h3>What if the scope changed since the quote?</h3>
+        <p>If extra work was agreed during the job, update the line items on your invoice to reflect the actual work done. It is good practice to note the original quote reference and explain any differences. Communicate changes to your customer before invoicing to avoid disputes.</p>
+      </div>
+      <div class="edu-card">
+        <h3>Do I need a unique invoice number?</h3>
+        <p>Yes. HMRC requires every invoice to have a unique, sequential number. This tool auto-generates one for you, but you can edit it to match your own numbering system. Never reuse an invoice number — it makes your records harder to audit and could cause issues with tax returns.</p>
+      </div>
+    </div>
+    <div class="edu-disclaimer">
+      <strong>Note:</strong> This tool is for information only. It does not constitute legal or accounting advice. Always consult a qualified accountant for your specific circumstances.
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="padding:0 0 64px;">
+  <div class="container">
+    <div class="cta-section">
+      <h2>Skip the form. <span class="em">Just message WOPA.</span></h2>
+      <p>With WOPA, there's no form to fill. Just message "invoice the bathroom job for Sarah" and WOPA does the rest — from quote details you've already shared.</p>
+      <a href="/#waitlist" class="btn-primary" style="font-size:17px;padding:18px 36px;">Reserve founder pricing</a>
+    </div>
+  </div>
+</section>
+
+<!-- RELATED READING -->
+<section class="related-section">
+  <div class="container">
+    <div class="eyebrow" style="margin-bottom:18px;">Related reading</div>
+    <div class="related-links">
+      <a href="/tools/invoice-generator.html">Free invoice generator</a>
+      <a href="/blog/how-to-invoice-sole-trader-uk.html">How to invoice as a sole trader in the UK</a>
+      <a href="/blog/send-invoice-whatsapp.html">How to send an invoice on WhatsApp</a>
+      <a href="/tools/late-payment-calculator.html">Late payment interest calculator</a>
+      <a href="/plumbers.html">WOPA for plumbers</a>
+      <a href="/builders.html">WOPA for builders</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="/" class="footer-logo" aria-label="WOPA">
+    <span class="glyph">W</span><span class="o"></span><span class="glyph">P</span><span class="glyph">A</span>
+  </a>
+  <span class="footer-copy">WhatsApp invoicing for UK tradespeople / Beta / 2026</span>
+  <div class="footer-links">
+    <a href="#">WhatsApp</a>
+    <a href="/blog/">Blog</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/data-processing.html">Data processing</a>
+    <a href="/privacy.html">Privacy</a>
+  </div>
+</footer>
+
+<script>
+(function() {
+  /* ── Helpers ── */
+  function formatDate(dateStr) {
+    if (!dateStr) return '';
+    var d = new Date(dateStr + 'T00:00:00');
+    var dd = String(d.getDate()).padStart(2, '0');
+    var mm = String(d.getMonth() + 1).padStart(2, '0');
+    var yyyy = d.getFullYear();
+    return dd + '/' + mm + '/' + yyyy;
+  }
+
+  function formatCurrency(n) {
+    return '£' + Number(n).toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  }
+
+  function todayISO() {
+    var d = new Date();
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  }
+
+  function addDays(iso, days) {
+    var d = new Date(iso + 'T00:00:00');
+    d.setDate(d.getDate() + days);
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  }
+
+  /* ── Defaults ── */
+  var today = todayISO();
+  document.getElementById('quoteDate').value = today;
+  document.getElementById('invDate').value = today;
+  document.getElementById('dueDate').value = addDays(today, 30);
+  document.getElementById('invNumber').value = 'INV-' + new Date().getFullYear() + '-001';
+
+  /* ── Payment terms → due date sync ── */
+  document.getElementById('payTerms').addEventListener('change', function() {
+    var invDate = document.getElementById('invDate').value || today;
+    document.getElementById('dueDate').value = addDays(invDate, parseInt(this.value));
+  });
+  document.getElementById('invDate').addEventListener('change', function() {
+    var terms = parseInt(document.getElementById('payTerms').value);
+    document.getElementById('dueDate').value = addDays(this.value, terms);
+  });
+
+  /* ── Line Items ── */
+  var lineItemsContainer = document.getElementById('lineItems');
+  var addLineBtn = document.getElementById('addLineBtn');
+
+  function createLineItem() {
+    var div = document.createElement('div');
+    div.className = 'line-item';
+    div.innerHTML =
+      '<input type="text" placeholder="Item description" class="li-desc"/>' +
+      '<input type="number" value="1" min="1" class="li-qty"/>' +
+      '<input type="number" step="0.01" min="0" placeholder="0.00" class="li-price"/>' +
+      '<span class="line-total">£0.00</span>' +
+      '<button type="button" class="remove-line" title="Remove">&times;</button>';
+    return div;
+  }
+
+  addLineBtn.addEventListener('click', function() {
+    lineItemsContainer.appendChild(createLineItem());
+    bindLineEvents();
+  });
+
+  function calcTotals() {
+    var items = lineItemsContainer.querySelectorAll('.line-item');
+    var subtotal = 0;
+    items.forEach(function(item) {
+      var qty = parseFloat(item.querySelector('.li-qty').value) || 0;
+      var price = parseFloat(item.querySelector('.li-price').value) || 0;
+      var total = qty * price;
+      item.querySelector('.line-total').textContent = formatCurrency(total);
+      subtotal += total;
+    });
+    var vatOn = document.getElementById('vatToggle').checked;
+    var vat = vatOn ? subtotal * 0.2 : 0;
+    var grandTotal = subtotal + vat;
+    document.getElementById('subtotalDisplay').textContent = formatCurrency(subtotal);
+    document.getElementById('vatDisplay').textContent = formatCurrency(vat);
+    document.getElementById('vatRow').style.display = vatOn ? 'flex' : 'none';
+    document.getElementById('totalDisplay').textContent = formatCurrency(grandTotal);
+  }
+
+  function bindLineEvents() {
+    lineItemsContainer.querySelectorAll('.line-item').forEach(function(item) {
+      item.querySelector('.li-qty').oninput = calcTotals;
+      item.querySelector('.li-price').oninput = calcTotals;
+      item.querySelector('.remove-line').onclick = function() {
+        if (lineItemsContainer.querySelectorAll('.line-item').length > 1) {
+          item.remove();
+          calcTotals();
+        }
+      };
+    });
+  }
+  bindLineEvents();
+
+  document.getElementById('vatToggle').addEventListener('change', calcTotals);
+
+  /* ── Build Invoice Preview HTML ── */
+  function buildInvoice() {
+    var bizName = document.getElementById('bizName').value || 'Your Business Name';
+    var bizAddress = document.getElementById('bizAddress').value || '';
+    var bizEmail = document.getElementById('bizEmail').value || '';
+    var invNumber = document.getElementById('invNumber').value || '';
+    var invDate = document.getElementById('invDate').value || '';
+    var dueDate = document.getElementById('dueDate').value || '';
+    var custName = document.getElementById('custName').value || '';
+    var custEmail = document.getElementById('custEmail').value || '';
+    var custAddress = document.getElementById('custAddress').value || '';
+    var quoteRef = document.getElementById('quoteRef').value || '';
+    var quoteDate = document.getElementById('quoteDate').value || '';
+    var sortCode = document.getElementById('sortCode').value || '';
+    var accNumber = document.getElementById('accNumber').value || '';
+    var vatOn = document.getElementById('vatToggle').checked;
+
+    // Gather line items
+    var items = [];
+    var subtotal = 0;
+    lineItemsContainer.querySelectorAll('.line-item').forEach(function(item) {
+      var desc = item.querySelector('.li-desc').value || '';
+      var qty = parseFloat(item.querySelector('.li-qty').value) || 0;
+      var price = parseFloat(item.querySelector('.li-price').value) || 0;
+      var total = qty * price;
+      subtotal += total;
+      if (desc || qty || price) {
+        items.push({ desc: desc, qty: qty, price: price, total: total });
+      }
+    });
+    var vat = vatOn ? subtotal * 0.2 : 0;
+    var grandTotal = subtotal + vat;
+
+    // Quote ref line
+    var quoteRefLine = '';
+    if (quoteRef || quoteDate) {
+      quoteRefLine = '<div class="invoice-quote-ref">Re: Quote ' +
+        (quoteRef ? quoteRef : '') +
+        (quoteDate ? ' dated ' + formatDate(quoteDate) : '') +
+        '</div>';
+    }
+
+    // Line items table
+    var rows = '';
+    items.forEach(function(it) {
+      rows += '<tr><td>' + escHtml(it.desc) + '</td><td>' + it.qty + '</td><td>' + formatCurrency(it.price) + '</td><td>' + formatCurrency(it.total) + '</td></tr>';
+    });
+
+    // Bank details
+    var bankHtml = '';
+    if (sortCode || accNumber) {
+      bankHtml = '<div class="invoice-bank"><h4>Bank details</h4><p>' +
+        (sortCode ? 'Sort code: ' + escHtml(sortCode) + '<br/>' : '') +
+        (accNumber ? 'Account number: ' + escHtml(accNumber) : '') +
+        '</p></div>';
+    }
+
+    var html =
+      '<div class="invoice-header">' +
+        '<div>' +
+          '<div class="invoice-biz-name">' + escHtml(bizName) + '</div>' +
+          (bizAddress ? '<div class="invoice-biz-address">' + escHtml(bizAddress) + '</div>' : '') +
+          (bizEmail ? '<div class="invoice-biz-email">' + escHtml(bizEmail) + '</div>' : '') +
+        '</div>' +
+        '<div class="invoice-heading">INVOICE</div>' +
+      '</div>' +
+      '<div class="invoice-meta">' +
+        '<div class="invoice-meta-block">' +
+          '<h3>Bill to</h3>' +
+          '<p>' + escHtml(custName) + (custAddress ? '\n' + escHtml(custAddress) : '') + (custEmail ? '\n' + escHtml(custEmail) : '') + '</p>' +
+        '</div>' +
+        '<div class="invoice-meta-block">' +
+          '<h3>Invoice details</h3>' +
+          '<div class="invoice-detail-row"><span>Invoice no.</span><span>' + escHtml(invNumber) + '</span></div>' +
+          '<div class="invoice-detail-row"><span>Date</span><span>' + formatDate(invDate) + '</span></div>' +
+          '<div class="invoice-detail-row"><span>Due date</span><span>' + formatDate(dueDate) + '</span></div>' +
+        '</div>' +
+      '</div>' +
+      quoteRefLine +
+      '<table class="invoice-table">' +
+        '<thead><tr><th>Description</th><th>Qty</th><th>Unit price</th><th>Total</th></tr></thead>' +
+        '<tbody>' + rows + '</tbody>' +
+      '</table>' +
+      '<div class="invoice-totals">' +
+        '<div class="inv-row"><span>Subtotal</span><span>' + formatCurrency(subtotal) + '</span></div>' +
+        (vatOn ? '<div class="inv-row"><span>VAT (20%)</span><span>' + formatCurrency(vat) + '</span></div>' : '') +
+        '<div class="inv-row inv-total"><span>Total</span><span>' + formatCurrency(grandTotal) + '</span></div>' +
+      '</div>' +
+      bankHtml +
+      '<div class="invoice-footer">Thank you for your business</div>';
+
+    return html;
+  }
+
+  function escHtml(str) {
+    var div = document.createElement('div');
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  }
+
+  /* ── Preview button ── */
+  document.getElementById('previewBtn').addEventListener('click', function() {
+    var preview = document.getElementById('invoicePreview');
+    preview.innerHTML = buildInvoice();
+    var section = document.getElementById('previewSection');
+    section.classList.add('visible');
+    section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  /* ── Download PDF (window.print) ── */
+  document.getElementById('downloadBtn').addEventListener('click', function() {
+    var preview = document.getElementById('invoicePreview');
+    preview.innerHTML = buildInvoice();
+    document.getElementById('previewSection').classList.add('visible');
+    setTimeout(function() { window.print(); }, 200);
+  });
+
+  /* ── Hamburger menu ── */
+  var hamburger = document.querySelector('.hamburger');
+  var navLinks = document.querySelector('.nav-links');
+  if (hamburger && navLinks) {
+    function closeMenu() {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('active');
+      hamburger.setAttribute('aria-expanded', 'false');
+    }
+    hamburger.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var isOpen = navLinks.classList.toggle('open');
+      hamburger.classList.toggle('active');
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+    });
+    navLinks.querySelectorAll('a').forEach(function(link) {
+      link.addEventListener('click', closeMenu);
+    });
+    document.addEventListener('click', function(e) {
+      if (!navLinks.classList.contains('open')) return;
+      if (!navLinks.contains(e.target) && !hamburger.contains(e.target)) {
+        closeMenu();
+      }
+    });
+  }
+})();
+</script>
+</body>
+</html>
