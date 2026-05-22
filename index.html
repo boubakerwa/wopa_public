@@ -82,6 +82,14 @@
         "@type": "Answer",
         "text": "No. WOPA lives in your WhatsApp chat, where it can create invoices and chase payments for you."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does WOPA cost?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Founder pricing is £9.99 per month for the first 200 signups. All features included, price locked in. Regular price will be £14.99 per month."
+      }
     }
   ]
 }
@@ -563,7 +571,7 @@ h1.hero-h1 .line-serif {
   gap: 2px;
   background: var(--hair);
   border: 1px solid var(--hair);
-  border-radius: 24px;
+  border-radius: 18px;
   overflow: hidden;
   margin-top: 48px;
 }
@@ -1083,7 +1091,7 @@ h1.hero-h1 .line-serif {
 .faq-item {
   background: #fff;
   border: 1px solid var(--hair);
-  border-radius: 16px;
+  border-radius: 18px;
   padding: 22px;
 }
 .faq-item h3 {
@@ -1178,10 +1186,10 @@ footer {
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
 }
-.footer-copy { font: 400 13px/1 var(--sans); color: var(--ink-4); }
+.footer-copy { font: 400 13px/1 var(--sans); color: var(--ink-3); }
 .footer-links { display: flex; gap: 24px; }
-.footer-links a { font: 400 13px/1 var(--sans); color: var(--ink-4); text-decoration: none; }
-.footer-links a:hover { color: var(--ink-2); }
+.footer-links a { font: 400 13px/1 var(--sans); color: var(--ink-3); text-decoration: none; }
+.footer-links a:hover { color: var(--ink); }
 
 /* =====================================================
    FADE-IN SCROLL
@@ -1392,20 +1400,13 @@ footer {
     <div class="hero">
       <!-- LEFT -->
       <div>
-        <div class="hero-logo-lockup" aria-label="WOPA">
-          <div class="hero-owl-logo" aria-hidden="true">
-            <svg viewBox="0 0 400 400"><use href="#owl-icon"/></svg>
-          </div>
-          <p><strong>WOPA</strong>WhatsApp invoicing for UK tradespeople.</p>
-        </div>
         <h1 class="hero-h1">
-          Send invoices<br>
-          and chase<br>
-          <span class="line-green">payments</span><br>
+          Invoice in<br>
+          <span class="line-green">30 seconds</span><br>
           <span class="line-serif">from WhatsApp.</span>
         </h1>
         <p class="hero-desc">
-          WOPA helps <strong>UK tradespeople</strong> create invoice PDFs, email customers, schedule reminders, and mark jobs paid without opening accounting software.
+          WOPA helps <strong>UK tradespeople</strong> create invoice PDFs, email customers, and chase payments — all from WhatsApp. No app to download. No spreadsheet to maintain.
         </p>
         <div class="hero-actions">
           <a href="#waitlist" class="btn-primary">Reserve founder pricing</a>
@@ -1525,185 +1526,7 @@ footer {
         <p>Your customer gets a proper PDF invoice by email. They do not need WhatsApp to receive or pay it.</p>
         <div class="chat-snippet">sent to chris@example.com<br>PDF attached</div>
       </div>
-      <div class="how-card">
-        <span class="how-num">04</span>
-        <div class="how-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
-        </div>
-        <h3>Track and chase</h3>
-        <p>Ask what is outstanding, pause reminders, or mark an invoice paid. WOPA stops chasing the moment you say it is settled.</p>
-        <div class="chat-snippet">chris paid<br>reminders stopped</div>
-      </div>
-      <div class="how-card">
-        <span class="how-num">05</span>
-        <div class="how-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
-        </div>
-        <h3>Save customers once</h3>
-        <p>"Hey WOPA, save Chris as a customer, chris@example.com." Next time, just say the name.</p>
-        <div class="chat-snippet">save chris as customer<br>chris@example.com saved</div>
-      </div>
-      <div class="how-card">
-        <span class="how-num">06</span>
-        <div class="how-icon">
-          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
-        </div>
-        <h3>Set up once, WOPA remembers</h3>
-        <p>"Hey WOPA, here are my business details and all my customers." Trade name, email, and bank details get saved and reused on every invoice.</p>
-        <div class="chat-snippet">setup my business details<br>saved for invoices</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ====================================================
-     WAITLIST / CTA
-     ==================================================== -->
-<section class="section" id="waitlist" style="scroll-margin-top:80px;">
-  <div class="container">
-    <div class="cta-section fade-up">
-      <svg class="cta-bg-owl" viewBox="0 0 400 440" aria-hidden="true"><use href="#owl-full"/></svg>
-
-      <div style="position:relative;">
-          <div class="eyebrow" style="justify-content:center;margin-bottom:20px;">
-            Early access
-          </div>
-          <h2>Join early.<br><span class="em">Pay less.</span></h2>
-
-          <div style="display:inline-flex;align-items:baseline;gap:12px;margin-bottom:24px;">
-            <span style="font:800 48px/1 var(--sans);letter-spacing:-0.04em;color:var(--green);">&pound;9.99</span>
-            <span style="font:400 16px/1 var(--sans);color:var(--ink-3);">/month</span>
-            <span style="font:400 15px/1 var(--sans);color:var(--ink-4);text-decoration:line-through;">&pound;14.99</span>
-          </div>
-
-          <p><strong>Founder pricing</strong> for the first 200 signups. All features, one price, locked in. Leave an email, a WhatsApp number, or both. No card required today.</p>
-
-          <form class="waitlist-form" data-waitlist-form>
-            <div class="field-group">
-              <div class="form-note">Fill one field or both. Marketing updates are optional.</div>
-              <div class="field">
-                <label for="wl-email">Email address <span>optional</span></label>
-                <input id="wl-email" name="contact_email" type="email" placeholder="you@example.com" autocomplete="email"/>
-            </div>
-            <div class="field">
-                <label for="wl-phone">WhatsApp number <span>optional</span></label>
-                <input id="wl-phone" name="contact_messaging" type="text" placeholder="+44 7700 900123" autocomplete="tel"/>
-              </div>
-            </div>
-            <label class="checkbox-field" for="wl-marketing">
-              <input id="wl-marketing" name="marketing_opt_in" type="checkbox"/>
-              <span><strong>Send me optional product and launch updates.</strong> Waitlist access messages are separate. You can opt out of marketing at any time.</span>
-            </label>
-            <input class="form-hidden" type="text" name="company" tabindex="-1" autocomplete="off"/>
-            <button class="submit-btn" type="submit" data-waitlist-submit>Reserve founder pricing</button>
-            <div class="form-status" data-waitlist-status role="status" aria-live="polite"></div>
-            <div class="form-privacy">By submitting, you agree that WOPA can contact you about waitlist access using the details you provide. If we message you on WhatsApp, reply STOP to opt out. See the <a href="privacy.html">privacy notice</a>.</div>
-          </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ====================================================
-     MASCOT SECTION
-     ==================================================== -->
-<section class="section" style="border-top: 1px solid var(--hair); padding: 0 0 88px;">
-  <div class="container">
-    <div class="mascot-section fade-up">
-      <div class="mascot-section-text">
-        <div class="eyebrow" style="color:rgba(255,255,255,0.65); margin-bottom:18px;">
-          <span style="background:rgba(255,255,255,0.5);"></span>
-          Meet WOPA
-        </div>
-        <h2>
-          The apprentice who<br>
-          <span class="em">never forgets.</span>
-        </h2>
-        <p>
-          WOPA's the polite invoicing assistant in your WhatsApp. He drafts the invoice, sends the PDF by email, and keeps reminders moving without another dashboard to check.
-        </p>
-        <div class="mascot-trades">
-          <span class="trade-chip">Electricians</span>
-          <span class="trade-chip">Plumbers</span>
-          <span class="trade-chip">Carpenters</span>
-          <span class="trade-chip">Builders</span>
-          <span class="trade-chip">Painters &amp; decorators</span>
-          <span class="trade-chip">Roofers</span>
-          <span class="trade-chip">HVAC</span>
-          <span class="trade-chip">Landscapers</span>
-          <span class="trade-chip">Sole traders</span>
-          <span class="trade-chip">Small limited companies</span>
-        </div>
-      </div>
-      <div style="position:relative; flex-shrink:0;">
-        <div class="mascot-bubbles">
-          <span class="bubble-float">"Done. Invoice sent."</span>
-          <span class="bubble-float right">"Dan, 14 days overdue."</span>
-        </div>
-        <div class="mascot-visual">
-          <svg viewBox="0 0 400 440"><use href="#owl-wave"/></svg>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ====================================================
-     REMINDER TIMELINE
-     ==================================================== -->
-<section class="section" id="reminders">
-  <div class="container">
-    <div class="fade-up">
-      <div class="eyebrow" style="margin-bottom:18px;">Payment chasing</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;">
-        <h2 style="font:800 clamp(34px,4vw,52px)/1.05 var(--sans);letter-spacing:-0.035em;">
-            Automatic.<br><span class="serif-em" style="color:var(--green);">Still under your control.</span>
-        </h2>
-        <p style="font:400 17px/1.55 var(--sans);color:var(--ink-2);max-width:440px;">
-            Once sent, WOPA watches the clock. Friendly reminders can run automatically until the invoice is paid, paused, or switched off.
-        </p>
-      </div>
-    </div>
-
-    <div class="timeline-track fade-up" style="transition-delay:0.12s;">
-      <div class="tl-item">
-        <div class="tl-node sent">D0</div>
-        <div class="tl-label">Sent</div>
-        <div class="tl-sub">PDF emailed with bank details</div>
-        <div class="tl-auto">auto</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-node nudge">D7</div>
-        <div class="tl-label">Nudge 1</div>
-        <div class="tl-sub">Friendly reminder</div>
-        <div class="tl-auto">auto</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-node nudge">D14</div>
-        <div class="tl-label">Nudge 2</div>
-        <div class="tl-sub">Second follow-up</div>
-        <div class="tl-auto">auto</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-node warning">D28</div>
-        <div class="tl-label">Overdue</div>
-        <div class="tl-sub">Firm notice</div>
-        <div class="tl-auto">auto</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-node overdue">D30</div>
-          <div class="tl-label">Firm follow-up</div>
-          <div class="tl-sub">Review before sending</div>
-        <div class="tl-auto manual">you confirm</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-node paid">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-        </div>
-        <div class="tl-label">Paid</div>
-        <div class="tl-sub">All reminders cancelled</div>
-        <div class="tl-auto">"dan paid"</div>
-      </div>
+      <!-- Features 4-6 moved to feature cards below -->
     </div>
   </div>
 </section>
@@ -1792,83 +1615,157 @@ footer {
 </section>
 
 <!-- ====================================================
-     BOUNDARIES / COMPLIANCE
+     REMINDER TIMELINE
      ==================================================== -->
-<section class="section" id="boundaries">
+<section class="section" id="reminders">
   <div class="container">
     <div class="fade-up">
-      <div class="eyebrow" style="margin-bottom:18px;">Product boundaries</div>
-      <h2 style="font:800 clamp(34px,4vw,52px)/1.05 var(--sans);letter-spacing:-0.035em;margin-bottom:8px;">
-        Built for invoicing admin.<br><span class="serif-em" style="color:var(--green);">Not accounting software.</span>
-      </h2>
-      <p style="font:400 17px/1.55 var(--sans);color:var(--ink-2);max-width:660px;margin-top:16px;">
-        WOPA helps you draft invoices, send PDFs by email, and follow up from WhatsApp. You stay responsible for checking invoice details, tax treatment, and customer communications before sending.
-      </p>
+      <div class="eyebrow" style="margin-bottom:18px;">Payment chasing</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:end;">
+        <h2 style="font:800 clamp(34px,4vw,52px)/1.05 var(--sans);letter-spacing:-0.035em;">
+            Automatic.<br><span class="serif-em" style="color:var(--green);">Still under your control.</span>
+        </h2>
+        <p style="font:400 17px/1.55 var(--sans);color:var(--ink-2);max-width:440px;">
+            Once sent, WOPA watches the clock. Friendly reminders can run automatically until the invoice is paid, paused, or switched off.
+        </p>
+      </div>
     </div>
-    <div class="boundary-grid fade-up" style="transition-delay:0.1s;">
-      <div class="boundary-card">
-        <h3>What WOPA is</h3>
-        <p>A WhatsApp-first assistant for UK tradespeople who want to create invoice PDFs, email customers, track what is outstanding, and mark invoices paid from chat.</p>
+
+    <div class="timeline-track fade-up" style="transition-delay:0.12s;">
+      <div class="tl-item">
+        <div class="tl-node sent">D0</div>
+        <div class="tl-label">Sent</div>
+        <div class="tl-sub">PDF emailed with bank details</div>
+        <div class="tl-auto">auto</div>
       </div>
-      <div class="boundary-card">
-        <h3>What WOPA is not</h3>
-        <p>WOPA is not bookkeeping software, accounting software, a bank, a payment processor, or a debt collection service.</p>
+      <div class="tl-item">
+        <div class="tl-node nudge">D7</div>
+        <div class="tl-label">Nudge 1</div>
+        <div class="tl-sub">Friendly reminder</div>
+        <div class="tl-auto">auto</div>
       </div>
-      <div class="boundary-card">
-        <h3>Current beta limits</h3>
-        <p>No payment links, open banking, custom sending domains, or automated bank reconciliation yet. VAT, reverse-charge VAT, and CIS are supported.</p>
+      <div class="tl-item">
+        <div class="tl-node nudge">D14</div>
+        <div class="tl-label">Nudge 2</div>
+        <div class="tl-sub">Second follow-up</div>
+        <div class="tl-auto">auto</div>
       </div>
-      <div class="boundary-card warning">
-        <h3>VAT and CIS</h3>
-        <p>WOPA supports standard VAT, reverse-charge VAT for construction, and CIS deductions. VAT-registered users should verify invoice details match HMRC requirements for their situation.</p>
+      <div class="tl-item">
+        <div class="tl-node warning">D28</div>
+        <div class="tl-label">Overdue</div>
+        <div class="tl-sub">Firm notice</div>
+        <div class="tl-auto">auto</div>
       </div>
-      <div class="boundary-card warning">
-        <h3>Late payment</h3>
-        <p>Late-payment rules depend on the customer, contract, invoice, jurisdiction, and debt size. WOPA can help prepare follow-up text, but you approve it and decide what to send.</p>
+      <div class="tl-item">
+        <div class="tl-node overdue">D30</div>
+          <div class="tl-label">Firm follow-up</div>
+          <div class="tl-sub">Review before sending</div>
+        <div class="tl-auto manual">you confirm</div>
       </div>
-      <div class="boundary-card warning">
-        <h3>General information</h3>
-        <p>Content on this site is general information only. It is not legal, tax, accounting, financial, or debt collection advice.</p>
+      <div class="tl-item">
+        <div class="tl-node paid">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+        </div>
+        <div class="tl-label">Paid</div>
+        <div class="tl-sub">All reminders cancelled</div>
+        <div class="tl-auto">"dan paid"</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ====================================================
-     TRUST / SECURITY / SUPPORT
+     MASCOT SECTION
      ==================================================== -->
-<section class="section" id="trust">
+<section class="section" style="border-top: 1px solid var(--hair); padding: 0 0 88px;">
   <div class="container">
-    <div class="fade-up">
-      <div class="eyebrow" style="margin-bottom:18px;">Trust and support</div>
-      <h2 style="font:800 clamp(34px,4vw,52px)/1.05 var(--sans);letter-spacing:-0.035em;margin-bottom:8px;">
-        Your invoice details<br><span class="serif-em" style="color:var(--green);">need careful handling.</span>
-      </h2>
-      <p style="font:400 17px/1.55 var(--sans);color:var(--ink-2);max-width:660px;margin-top:16px;">
-        WOPA handles business contact details, customer emails, invoice information, and bank payment details. The product is being built around explicit approval, clear logs, and deletion on request.
-      </p>
+    <div class="mascot-section fade-up">
+      <div class="mascot-section-text">
+        <div class="eyebrow" style="color:rgba(255,255,255,0.65); margin-bottom:18px;">
+          <span style="background:rgba(255,255,255,0.5);"></span>
+          Meet WOPA
+        </div>
+        <h2>
+          The apprentice who<br>
+          <span class="em">never forgets.</span>
+        </h2>
+        <p>
+          WOPA's the polite invoicing assistant in your WhatsApp. He drafts the invoice, sends the PDF by email, and keeps reminders moving without another dashboard to check.
+        </p>
+        <div class="mascot-trades">
+          <span class="trade-chip">Electricians</span>
+          <span class="trade-chip">Plumbers</span>
+          <span class="trade-chip">Carpenters</span>
+          <span class="trade-chip">Builders</span>
+          <span class="trade-chip">Painters &amp; decorators</span>
+          <span class="trade-chip">Roofers</span>
+          <span class="trade-chip">HVAC</span>
+          <span class="trade-chip">Landscapers</span>
+          <span class="trade-chip">Sole traders</span>
+          <span class="trade-chip">Small limited companies</span>
+        </div>
+      </div>
+      <div style="position:relative; flex-shrink:0;">
+        <div class="mascot-bubbles">
+          <span class="bubble-float">"Done. Invoice sent."</span>
+          <span class="bubble-float right">"Dan, 14 days overdue."</span>
+        </div>
+        <div class="mascot-visual">
+          <svg viewBox="0 0 400 440"><use href="#owl-wave"/></svg>
+        </div>
+      </div>
     </div>
-    <div class="detail-grid fade-up" style="transition-delay:0.1s;">
-      <div class="detail-card">
-        <h3>Security basics</h3>
-        <ul>
-          <li>Encrypted HTTPS connections for the public site and API.</li>
-          <li>Access to waitlist and product data limited to people operating WOPA.</li>
-          <li>Confirmation gates before customer-facing invoice emails and firm follow-ups.</li>
-          <li>Retention and deletion handled through the privacy and data processing notices.</li>
-        </ul>
-      </div>
-      <div class="detail-card">
-        <h3>Core providers</h3>
-        <p>The public landing page currently uses Cloudflare for hosting and waitlist storage, Resend for confirmation emails, and PostHog for analytics only if analytics cookies are accepted. Chat, database, and AI providers may vary as the product changes.</p>
-      </div>
-      <div class="detail-card">
-        <h3>Email delivery</h3>
-        <p>Invoices are emailed as PDF attachments. If an email fails, WOPA should surface the failure so you can correct the customer address or send the invoice another way.</p>
-      </div>
-      <div class="detail-card">
-        <h3>Getting help</h3>
-        <p>During early access, support is handled by the WOPA team through the same contact route used for onboarding. Urgent production support hours are not yet advertised, so the page avoids promising a fixed response time.</p>
+  </div>
+</section>
+
+<!-- ====================================================
+     WAITLIST / CTA
+     ==================================================== -->
+<section class="section" id="waitlist" style="scroll-margin-top:80px;">
+  <div class="container">
+    <div class="cta-section fade-up">
+      <svg class="cta-bg-owl" viewBox="0 0 400 440" aria-hidden="true"><use href="#owl-full"/></svg>
+
+      <div style="position:relative;">
+          <div class="eyebrow" style="justify-content:center;margin-bottom:20px;">
+            Early access
+          </div>
+          <h2>Join early.<br><span class="em">Pay less.</span></h2>
+
+          <div style="display:inline-flex;align-items:baseline;gap:12px;margin-bottom:24px;">
+            <span style="font:800 48px/1 var(--sans);letter-spacing:-0.04em;color:var(--green);">&pound;9.99</span>
+            <span style="font:400 16px/1 var(--sans);color:var(--ink-3);">/month</span>
+            <span style="font:400 15px/1 var(--sans);color:var(--ink-4);text-decoration:line-through;">&pound;14.99</span>
+          </div>
+
+          <p><strong>Founder pricing</strong> for the first 200 signups. All features, one price, locked in. Leave an email, a WhatsApp number, or both. No card required today.</p>
+
+          <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:24px;padding:8px 16px;background:var(--green-paper);border:1px solid rgba(11,107,77,0.15);border-radius:999px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            <span style="font:500 13px/1 var(--sans);color:var(--green-deep);">Trusted by tradespeople in the beta</span>
+          </div>
+
+          <form class="waitlist-form" data-waitlist-form>
+            <div class="field-group">
+              <div class="form-note">Fill one field or both. Marketing updates are optional.</div>
+              <div class="field">
+                <label for="wl-email">Email address <span>optional</span></label>
+                <input id="wl-email" name="contact_email" type="email" placeholder="you@example.com" autocomplete="email"/>
+            </div>
+            <div class="field">
+                <label for="wl-phone">WhatsApp number <span>optional</span></label>
+                <input id="wl-phone" name="contact_messaging" type="text" placeholder="+44 7700 900123" autocomplete="tel"/>
+              </div>
+            </div>
+            <label class="checkbox-field" for="wl-marketing">
+              <input id="wl-marketing" name="marketing_opt_in" type="checkbox"/>
+              <span><strong>Send me optional product and launch updates.</strong> Waitlist access messages are separate. You can opt out of marketing at any time.</span>
+            </label>
+            <input class="form-hidden" type="text" name="company" tabindex="-1" autocomplete="off"/>
+            <button class="submit-btn" type="submit" data-waitlist-submit>Reserve founder pricing</button>
+            <div class="form-status" data-waitlist-status role="status" aria-live="polite"></div>
+            <div class="form-privacy">By submitting, you agree that WOPA can contact you about waitlist access using the details you provide. If we message you on WhatsApp, reply STOP to opt out. See the <a href="privacy.html">privacy notice</a>.</div>
+          </form>
       </div>
     </div>
   </div>
@@ -1913,6 +1810,10 @@ footer {
       <div class="faq-item">
         <h3>Will customers see WOPA?</h3>
         <p>Customers receive an invoice email and PDF. The exact sender details may change during early access and will be made clear before you send live invoices.</p>
+      </div>
+      <div class="faq-item">
+        <h3>How much does WOPA cost?</h3>
+        <p>Founder pricing is £9.99 per month for the first 200 signups. All features included, price locked in. Regular price will be £14.99 per month after that.</p>
       </div>
     </div>
   </div>
