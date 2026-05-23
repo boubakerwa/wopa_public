@@ -2,8 +2,10 @@ from pathlib import Path
 import re
 import sys
 import xml.etree.ElementTree as ET
+from urllib.parse import urlparse
 
 ROOT = Path('.')
+SITE_ORIGIN = 'https://mywopa.com'
 
 # Only validate public, indexable HTML pages.
 # Draft/design/helper HTML files are intentionally excluded.
@@ -27,6 +29,30 @@ if not html_files:
 errors = []
 warnings = []
 
+
+def file_to_url(path: Path) -> str:
+    normalized = path.as_posix()
+    if normalized == 'index.html':
+        return f'{SITE_ORIGIN}/'
+    return f'{SITE_ORIGIN}/{normalized}'
+
+
+def url_to_file(url: str) -> Path | None:
+    parsed = urlparse(url)
+    if f'{parsed.scheme}://{parsed.netloc}' != SITE_ORIGIN:
+        errors.append(f'sitemap.xml contains non-canonical origin: {url}')
+        return None
+
+    route = parsed.path.lstrip('/')
+    if route == '':
+        return Path('index.html')
+    if route.endswith('/'):
+        return Path(route) / 'index.html'
+    return Path(route)
+
+
+indexable_urls = {file_to_url(path) for path in html_files}
+
 for file_path in html_files:
     content = file_path.read_text(encoding='utf-8', errors='ignore')
 
@@ -46,6 +72,7 @@ for file_path in html_files:
         warnings.append(f'{file_path}: expected 1 <h1>, found {len(h1_matches)}')
 
 sitemap_path = ROOT / 'sitemap.xml'
+sitemap_urls = []
 
 if not sitemap_path.exists():
     errors.append('Missing sitemap.xml')
@@ -57,6 +84,19 @@ else:
         sitemap_urls = [loc.text.strip() for loc in sitemap_root.findall('.//sm:loc', namespace) if loc.text]
         if not sitemap_urls:
             errors.append('sitemap.xml contains no URLs')
+
+        duplicate_urls = sorted({url for url in sitemap_urls if sitemap_urls.count(url) > 1})
+        for url in duplicate_urls:
+            errors.append(f'sitemap.xml contains duplicate URL: {url}')
+
+        for url in sitemap_urls:
+            target_file = url_to_file(url)
+            if target_file is not None and not (ROOT / target_file).exists():
+                errors.append(f'sitemap.xml URL has no matching file: {url} -> {target_file}')
+
+        missing_from_sitemap = sorted(indexable_urls - set(sitemap_urls))
+        for url in missing_from_sitemap:
+            errors.append(f'indexable HTML file missing from sitemap.xml: {url}')
     except ET.ParseError as e:
         errors.append(f'sitemap.xml invalid XML: {e}')
 
