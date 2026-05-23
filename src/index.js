@@ -1,9 +1,37 @@
 import { onRequestOptions, onRequestPost } from '../functions/api/waitlist.js';
 import { onRequestGet as onWhatsAppRequestGet, onRequestPost as onWhatsAppRequestPost } from '../functions/api/whatsapp.js';
 
+function withCacheHeaders(response, pathname) {
+  const headers = new Headers(response.headers);
+
+  if (pathname === '/robots.txt' || pathname === '/sitemap.xml') {
+    headers.set('cache-control', 'public, max-age=3600');
+  } else if (/\.(?:png|jpg|jpeg|gif|webp|svg|ico|css|js|woff2?)$/i.test(pathname)) {
+    headers.set('cache-control', 'public, max-age=31536000, immutable');
+  } else if (headers.get('content-type')?.includes('text/html')) {
+    headers.set('cache-control', 'public, max-age=0, must-revalidate');
+  }
+
+  return new Response(response.body, {
+    status: response.status,
+    statusText: response.statusText,
+    headers
+  });
+}
+
 export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
+
+    if (url.pathname === '/healthz') {
+      return new Response('ok', {
+        status: 200,
+        headers: {
+          'content-type': 'text/plain; charset=utf-8',
+          'cache-control': 'no-store'
+        }
+      });
+    }
 
     if (url.pathname === '/api/waitlist') {
       if (request.method === 'POST') {
@@ -31,6 +59,7 @@ export default {
       });
     }
 
-    return env.ASSETS.fetch(request);
+    const assetResponse = await env.ASSETS.fetch(request);
+    return withCacheHeaders(assetResponse, url.pathname);
   }
 };
