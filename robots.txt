@@ -1,6 +1,27 @@
 User-agent: *
 Allow: /
 
+# Allow AI discovery/citation crawlers.
+# GPTBot / ChatGPT-User: OpenAI crawling and user-triggered browsing.
+# OAI-SearchBot: OpenAI search indexing/citation discovery.
+# PerplexityBot: Perplexity discovery/citations.
+# ClaudeBot: Anthropic crawler.
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+# Block known large-scale training crawlers you may not want.
 User-agent: Amazonbot
 Disallow: /
 
@@ -13,13 +34,7 @@ Disallow: /
 User-agent: CCBot
 Disallow: /
 
-User-agent: ClaudeBot
-Disallow: /
-
 User-agent: Google-Extended
-Disallow: /
-
-User-agent: GPTBot
 Disallow: /
 
 User-agent: meta-externalagent
