@@ -20,3 +20,6 @@ jobs:
 
       - name: Run SEO checks
         run: python scripts/seo_check.py
+
+      - name: Run internal link checks
+        run: python scripts/check_links.py
