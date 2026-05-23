@@ -8,12 +8,14 @@ ROOT = Path('.')
 SITE_ORIGIN = 'https://mywopa.com'
 
 # Only validate public, indexable HTML pages.
-# Draft/design/helper HTML files are intentionally excluded.
+# Draft/design/helper/backup HTML files are intentionally excluded.
 EXCLUDED_HTML_FILES = {
     Path('wopa-landing.html'),
     Path('wopa-landing-2.html'),
+    Path('wopa-landing-rebrand.html'),
     Path('WOPA Brand Book (1) (1).html'),
     Path('gmail-footer-wopa.html'),
+    Path('old_index.html'),
 }
 
 html_files = [
@@ -34,6 +36,8 @@ def file_to_url(path: Path) -> str:
     normalized = path.as_posix()
     if normalized == 'index.html':
         return f'{SITE_ORIGIN}/'
+    if normalized.endswith('/index.html'):
+        return f'{SITE_ORIGIN}/{normalized.removesuffix("index.html")}'
     return f'{SITE_ORIGIN}/{normalized}'
 
 
