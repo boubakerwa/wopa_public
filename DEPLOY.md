@@ -28,16 +28,26 @@ npx wrangler secret put STRIPE_WEBHOOK_SECRET
 
 # Resend (for email delivery)
 npx wrangler secret put RESEND_API_KEY
+
+# Sentry error monitoring (optional; the Worker runs fine without it).
+# Use the Cloudflare-Workers Sentry project DSN (separate from the backend Node project).
+npx wrangler secret put SENTRY_DSN
 ```
 
-## Deploy
+## Install & deploy
+
+The Worker now bundles an npm dependency (`@sentry/cloudflare`), so install before deploying:
 
 ```bash
 cd wopa_public
+npm install
 npx wrangler deploy
 ```
 
 Secrets survive redeployments. You only need to re-run `wrangler secret put` when a value changes.
+
+> Note: `node_modules`, source, and config files are excluded from the public asset upload
+> via `.assetsignore`; Sentry is compiled into the Worker bundle, not served as an asset.
 
 ## Quick tunnel URL changes
 

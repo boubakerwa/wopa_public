@@ -1,3 +1,4 @@
+import * as Sentry from '@sentry/cloudflare';
 import { onRequestOptions, onRequestPost } from '../functions/api/waitlist.js';
 import { onRequestGet as onWhatsAppRequestGet, onRequestPost as onWhatsAppRequestPost } from '../functions/api/whatsapp.js';
 
@@ -19,7 +20,7 @@ function withCacheHeaders(response, pathname) {
   });
 }
 
-export default {
+const handler = {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
@@ -63,3 +64,18 @@ export default {
     return withCacheHeaders(assetResponse, url.pathname);
   }
 };
+
+// Wrap the Worker with Sentry. No-op when SENTRY_DSN is unset (so local/dev and any
+// environment without the secret behave exactly as before). DSN is provided via a
+// Cloudflare secret, never committed. PII (user IPs, etc.) is NOT sent — the gateway
+// handles WhatsApp phone numbers, so we keep sendDefaultPii off for GDPR.
+export default Sentry.withSentry(
+  (env) => ({
+    dsn: env.SENTRY_DSN ?? '',
+    enabled: Boolean(env.SENTRY_DSN),
+    tracesSampleRate: 1.0,
+    enableLogs: true,
+    sendDefaultPii: false,
+  }),
+  handler,
+);

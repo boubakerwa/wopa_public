@@ -1,6 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "wopa",
+  "account_id": "5706e0b4db215094705bc71d8059896d",
   "main": "src/index.js",
   "compatibility_date": "2026-05-14",
   "observability": {

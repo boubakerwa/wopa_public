@@ -1,0 +1,16 @@
+{
+  "name": "wopa-public",
+  "version": "0.0.1",
+  "private": true,
+  "description": "WOPA marketing site + Cloudflare Worker (waitlist + WhatsApp webhook gateway)",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev"
+  },
+  "dependencies": {
+    "@sentry/cloudflare": "^9"
+  },
+  "devDependencies": {
+    "wrangler": "^4"
+  }
+}
