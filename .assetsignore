@@ -1,0 +1,13 @@
+# Files in the repo root that must NOT be uploaded as public static assets.
+# (The assets directory is "." — see wrangler.jsonc.)
+node_modules
+src
+functions
+package.json
+package-lock.json
+wrangler.jsonc
+.gitignore
+.assetsignore
+.git
+DEPLOY.md
+README.md
