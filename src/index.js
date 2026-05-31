@@ -24,12 +24,6 @@ const handler = {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
-    // TEMPORARY (#89 verification): unhandled throw to confirm Sentry captures errors.
-    // Remove after confirming the event appears in the Sentry "wopa gateway" project.
-    if (url.pathname === '/__sentry-test') {
-      throw new Error('WOPA gateway Sentry test — please ignore');
-    }
-
     if (url.pathname === '/healthz') {
       return new Response('ok', {
         status: 200,
