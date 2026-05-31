@@ -47,11 +47,11 @@
 <main>
   <div class="eyebrow">Data processing</div>
   <h1>Data processing summary</h1>
-  <p>This page explains WOPA's intended processor posture for business users. A fuller Data Processing Agreement should replace or supplement this page before paid production use.</p>
+  <p>This page explains WOPA's processor posture for business users. WOPA is operated by <strong>WOPA LTD</strong> (company number 17242400, 11 Raglan Close, Hounslow, United Kingdom, TW4 5EF). For data-processing questions, contact <a href="mailto:admin@mywopa.com">admin@mywopa.com</a>.</p>
 
   <section class="panel">
     <h2>Roles</h2>
-    <p>For invoice and customer data entered by a tradesperson, the tradesperson is generally the controller and WOPA acts as a processor. For WOPA's own waitlist, analytics, security, and account administration, WOPA acts as controller.</p>
+    <p>For invoice and customer data entered by a tradesperson, the tradesperson is generally the controller and WOPA LTD acts as a processor. For WOPA's own waitlist, analytics, security, and account administration, WOPA LTD acts as controller.</p>
   </section>
 
   <section class="panel">
@@ -71,7 +71,18 @@
 
   <section class="panel">
     <h2>Subprocessors</h2>
-    <p>The public landing page currently uses Cloudflare for hosting and waitlist storage, Resend for email delivery, and PostHog for consented analytics. Product subprocessors for chat delivery, database hosting, email delivery, AI assistance, logging, and analytics may change as the product develops and should be listed before broader production rollout.</p>
+    <p>We use the following subprocessors. Where a subprocessor processes data outside the UK, we rely on UK adequacy decisions or the UK International Data Transfer Addendum / Standard Contractual Clauses as a safeguard.</p>
+    <ul>
+      <li><strong>Cloudflare</strong> — site hosting, the WhatsApp webhook gateway, and waitlist storage. EU/global.</li>
+      <li><strong>Meta Platforms (WhatsApp Business Cloud API)</strong> — delivery and receipt of WhatsApp messages. US/global.</li>
+      <li><strong>OpenRouter</strong> and <strong>Anthropic</strong> — AI processing of message text to interpret instructions and transcribe voice notes. US.</li>
+      <li><strong>Supabase</strong> (PostgreSQL) — the application database storing seller, client, and invoice records. EU region.</li>
+      <li><strong>Resend</strong> — sending invoice and reminder emails to your customers. US/EU.</li>
+      <li><strong>Stripe</strong> — subscription billing and payment processing. US/EU.</li>
+      <li><strong>Google (Drive)</strong> — optional archive of invoice PDFs where a seller enables it. US/global.</li>
+      <li><strong>PostHog</strong> — product and landing-page analytics, where consented. EU region.</li>
+    </ul>
+    <p>We will update this list before adding or changing a subprocessor that handles personal data.</p>
   </section>
 
   <section class="panel">
@@ -85,11 +96,16 @@
   </section>
 
   <section class="panel">
+    <h2>Personal data breaches</h2>
+    <p>If a personal data breach occurs that affects controller data we process, we will notify the affected controller without undue delay after becoming aware of it, and assist with their obligations to notify the ICO and affected individuals where required.</p>
+  </section>
+
+  <section class="panel">
     <h2>Retention and deletion</h2>
-    <p>Waitlist records can be deleted on request. Product records should be retained only as long as needed to provide WOPA, meet legal obligations, resolve disputes, maintain security, or support user-requested exports and deletion.</p>
+    <p>Waitlist records are deleted on request. Product records are retained only as long as needed to provide WOPA or to meet a legal obligation. In particular, invoices and VAT records are kept for the period UK tax law requires (typically up to six years) even after deletion of the rest of an account; outside that, data is deleted on request as described in the <a href="privacy.html#data-deletion">privacy notice</a>.</p>
   </section>
 </main>
 
-<footer>WOPA data processing summary. Last updated May 17, 2026.</footer>
+<footer>WOPA LTD data processing summary. Last updated May 31, 2026.</footer>
 </body>
 </html>
