@@ -99,10 +99,23 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "WOPA",
+  "legalName": "WOPA LTD",
   "url": "https://mywopa.com",
   "logo": "https://mywopa.com/wopa-whatsapp-bot-profile.png",
   "description": "WhatsApp invoicing assistant for UK tradespeople. Create invoice PDFs, email customers, and chase payments from WhatsApp.",
-  "foundingDate": "2025",
+  "email": "admin@mywopa.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "11 Raglan Close",
+    "addressLocality": "Hounslow",
+    "postalCode": "TW4 5EF",
+    "addressCountry": "GB"
+  },
+  "identifier": {
+    "@type": "PropertyValue",
+    "propertyID": "UK Company Number",
+    "value": "17242400"
+  },
   "areaServed": {
     "@type": "Country",
     "name": "United Kingdom"
@@ -110,6 +123,7 @@
   "contactPoint": {
     "@type": "ContactPoint",
     "contactType": "customer support",
+    "email": "admin@mywopa.com",
     "availableLanguage": "English",
     "areaServed": "GB"
   }
@@ -1186,7 +1200,9 @@ footer {
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
 }
-.footer-copy { font: 400 13px/1 var(--sans); color: var(--ink-3); }
+.footer-copy { font: 400 13px/1.5 var(--sans); color: var(--ink-3); }
+.footer-copy a { color: var(--ink-3); text-decoration: none; }
+.footer-copy a:hover { color: var(--ink); }
 .footer-links { display: flex; gap: 24px; }
 .footer-links a { font: 400 13px/1 var(--sans); color: var(--ink-3); text-decoration: none; }
 .footer-links a:hover { color: var(--ink); }
@@ -1740,9 +1756,11 @@ footer {
 
           <p><strong>Founder pricing</strong> for the first 200 signups. All features, one price, locked in. Leave an email, a WhatsApp number, or both. No card required today.</p>
 
+          <p style="font:400 13px/1.5 var(--sans);color:var(--ink-4);margin-bottom:20px;">Billed monthly once you start. Founder price stays locked while your subscription is active; cancel anytime. See the <a href="terms.html" style="color:var(--ink-3);">terms</a>.</p>
+
           <div style="display:inline-flex;align-items:center;gap:8px;margin-bottom:24px;padding:8px 16px;background:var(--green-paper);border:1px solid rgba(11,107,77,0.15);border-radius:999px;">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--green)" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
-            <span style="font:500 13px/1 var(--sans);color:var(--green-deep);">Trusted by tradespeople in the beta</span>
+            <span style="font:500 13px/1 var(--sans);color:var(--green-deep);">In active beta with UK tradespeople</span>
           </div>
 
           <form class="waitlist-form" data-waitlist-form>
@@ -1813,7 +1831,7 @@ footer {
       </div>
       <div class="faq-item">
         <h3>How much does WOPA cost?</h3>
-        <p>Founder pricing is £9.99 per month for the first 200 signups. All features included, price locked in. Regular price will be £14.99 per month after that.</p>
+        <p>Founder pricing is £9.99 per month for the first 200 signups. All features included, price locked in for as long as your subscription stays active. Regular price will be £14.99 per month after that. You're billed monthly once you start and can cancel anytime — see the <a href="terms.html">terms</a>.</p>
       </div>
     </div>
   </div>
@@ -1861,7 +1879,7 @@ footer {
   <a href="#" class="footer-logo" aria-label="WOPA">
     <span class="glyph">W</span><span class="o"></span><span class="glyph">P</span><span class="glyph">A</span>
   </a>
-  <span class="footer-copy">WhatsApp invoicing for UK tradespeople / Beta / 2026</span>
+  <span class="footer-copy">WhatsApp invoicing for UK tradespeople / Beta / 2026<br/>WOPA LTD · Company No. 17242400 (England &amp; Wales) · <a href="mailto:admin@mywopa.com">admin@mywopa.com</a></span>
   <div class="footer-links">
     <a href="#">WhatsApp</a>
     <a href="blog/">Blog</a>
