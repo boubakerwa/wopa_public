@@ -408,13 +408,26 @@ h1.hero-h1 .line-serif {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 8px;
   margin-top: 12px;
   padding: 10px 16px;
   border-radius: 999px;
-  background: var(--green);
+  background: #25D366;
   color: #fff;
-  font: 700 13px/1 var(--sans);
+  font: 800 13px/1 var(--sans);
   letter-spacing: -0.005em;
+  box-shadow: 0 2px 4px rgba(37,211,102,0.22), 0 8px 22px rgba(37,211,102,0.24);
+  transition: background 0.18s, box-shadow 0.18s;
+}
+.qr-cta:hover .qr-cta-button,
+.qr-cta:focus-visible .qr-cta-button {
+  background: #1EBE5D;
+  box-shadow: 0 3px 6px rgba(37,211,102,0.24), 0 10px 26px rgba(37,211,102,0.28);
+}
+.qr-cta-button svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
 }
 .qr-cta-hint {
   display: block;
@@ -1474,7 +1487,13 @@ footer {
           <span class="qr-cta-copy">
             <strong class="qr-cta-title">Try WOPA on WhatsApp</strong>
             <span class="qr-cta-text">Open a chat with a starter message: "Hi, I need an invoice".</span>
-            <span class="qr-cta-button" aria-hidden="true">Open WhatsApp</span>
+            <span class="qr-cta-button" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M4.8 19.2l1-3.7a7.7 7.7 0 1 1 2.9 2.8l-3.9.9Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                <path d="M9.1 8.4c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.5c.1.2.1.4-.1.6l-.4.5c-.1.2-.1.3 0 .5.4.8 1.3 1.6 2.1 2.1.2.1.4.1.5-.1l.6-.7c.2-.2.4-.2.6-.1l1.5.7c.3.1.4.3.4.6 0 .5-.2 1.1-.6 1.4-.4.4-1 .5-1.7.4-2.7-.4-5.6-3.2-6-6 0-.4.1-.8.3-1Z" fill="currentColor"/>
+              </svg>
+              Chat on WhatsApp
+            </span>
             <span class="qr-cta-hint">On desktop, you can scan the QR instead.</span>
           </span>
         </a>
