@@ -84,10 +84,10 @@
             messaging_contact: result.messaging,
             company: trap ? trap.value : '',
             marketing_opt_in: marketingOptIn,
-            consent_version: 'landing-2026-05-17',
-            mode: document.body.dataset.wopaMode || 'unknown',
+            consent_version: form.dataset.consentVersion || 'landing-2026-05-17',
+            mode: form.dataset.waitlistMode || document.body.dataset.wopaMode || 'unknown',
             page_path: window.location.pathname,
-            incentive: 'founder_pricing'
+            incentive: form.dataset.waitlistIncentive || 'founder_pricing'
           })
         });
 
@@ -97,7 +97,7 @@
         }
 
         form.reset();
-        setStatus(form, 'You are on the waitlist. Founder pricing reserved.', 'success');
+        setStatus(form, form.dataset.successMessage || 'You are on the waitlist. Founder pricing reserved.', 'success');
         capture('wopa_waitlist_joined', {
           channels: getChannels(result),
           waitlist_id: data.id || ''
