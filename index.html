@@ -363,20 +363,26 @@ h1.hero-h1 .line-serif {
   grid-template-columns: 112px minmax(0, 1fr);
   gap: 16px;
   align-items: center;
-  max-width: 400px;
+  max-width: 440px;
   margin-top: 18px;
   padding: 12px;
   background: #fff;
   border: 1px solid var(--hair);
   border-radius: 20px;
   text-decoration: none;
+  cursor: pointer;
   box-shadow: 0 3px 18px rgba(20,32,27,0.06);
   transition: border-color 0.18s, transform 0.12s, box-shadow 0.18s;
 }
-.qr-cta:hover {
+.qr-cta:hover,
+.qr-cta:focus-visible {
   border-color: rgba(11,107,77,0.28);
   transform: translateY(-1px);
   box-shadow: 0 8px 28px rgba(11,107,77,0.10);
+}
+.qr-cta:focus-visible {
+  outline: 3px solid rgba(11,107,77,0.22);
+  outline-offset: 4px;
 }
 .qr-cta img {
   width: 112px;
@@ -384,16 +390,37 @@ h1.hero-h1 .line-serif {
   border-radius: 12px;
   border: 1px solid var(--hair);
 }
-.qr-cta strong {
+.qr-cta-copy {
+  min-width: 0;
+}
+.qr-cta-title {
   display: block;
   font: 700 16px/1.15 var(--sans);
   color: var(--ink);
 }
-.qr-cta span {
+.qr-cta-text {
   display: block;
   margin-top: 8px;
   font: 400 13px/1.45 var(--sans);
   color: var(--ink-3);
+}
+.qr-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12px;
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: var(--green);
+  color: #fff;
+  font: 700 13px/1 var(--sans);
+  letter-spacing: -0.005em;
+}
+.qr-cta-hint {
+  display: block;
+  margin-top: 8px;
+  font: 500 12px/1.35 var(--sans);
+  color: var(--ink-4);
 }
 .btn-primary {
   background: var(--green);
@@ -1273,8 +1300,22 @@ footer {
   .hero { grid-template-columns: 1fr; gap: 48px; padding-top: 64px; }
   .hero-logo-lockup { align-items: flex-start; }
   .hero-owl-logo { width: 78px; height: 78px; }
-  .qr-cta { grid-template-columns: 96px minmax(0, 1fr); max-width: none; }
-  .qr-cta img { width: 96px; height: 96px; }
+  .qr-cta {
+    display: block;
+    max-width: none;
+    padding: 16px;
+    border-color: rgba(11,107,77,0.18);
+    box-shadow: 0 2px 10px rgba(20,32,27,0.05);
+  }
+  .qr-cta img,
+  .qr-cta-hint {
+    display: none;
+  }
+  .qr-cta-button {
+    width: 100%;
+    padding: 13px 18px;
+    font-size: 14px;
+  }
   .phone-badge { display: none; }
   .how-grid { grid-template-columns: 1fr; }
   .boundary-grid { grid-template-columns: 1fr; }
@@ -1428,11 +1469,13 @@ footer {
           <a href="#waitlist" class="btn-primary">Reserve founder pricing</a>
           <a href="#how" class="btn-ghost">See how it works</a>
         </div>
-        <a class="qr-cta" href="https://wa.me/447760474870?text=Hi%20WOPA!%20I'm%20a%20tradesman%20and%20I%20need%20to%20invoice%20Dan%20Schmidt%20300%20pound%20for%20the%20Kitchen%20wiring%20electrical%20work." target="_blank" rel="noopener">
-          <img src="/wopa-bot-qr.png" alt="QR code to open WOPA on WhatsApp"/>
-          <span>
-            <strong>Try WOPA now on WhatsApp</strong>
-            <span>Scan the QR or tap to open a demo conversation with the WOPA bot.</span>
+        <a class="qr-cta" href="https://wa.me/447760474870?text=Hi%2C%20I%20need%20an%20invoice" target="_blank" rel="noopener" aria-label="Open WhatsApp with WOPA">
+          <img src="/wopa-bot-qr.png" alt="QR code to open WOPA on WhatsApp" class="qr-cta-code"/>
+          <span class="qr-cta-copy">
+            <strong class="qr-cta-title">Try WOPA on WhatsApp</strong>
+            <span class="qr-cta-text">Open a chat with a starter message: "Hi, I need an invoice".</span>
+            <span class="qr-cta-button" aria-hidden="true">Open WhatsApp</span>
+            <span class="qr-cta-hint">On desktop, you can scan the QR instead.</span>
           </span>
         </a>
       </div>
