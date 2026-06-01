@@ -21,6 +21,7 @@ EXCLUDED_HTML_FILES = {
 html_files = [
     path for path in ROOT.rglob('*.html')
     if not any(part.startswith('.') for part in path.parts)
+    and 'node_modules' not in path.parts
     and path not in EXCLUDED_HTML_FILES
 ]
 
@@ -41,7 +42,7 @@ def file_to_url(path: Path) -> str:
     return f'{SITE_ORIGIN}/{normalized}'
 
 
-def url_to_file(url: str) -> Path | None:
+def url_to_file(url: str):
     parsed = urlparse(url)
     if f'{parsed.scheme}://{parsed.netloc}' != SITE_ORIGIN:
         errors.append(f'sitemap.xml contains non-canonical origin: {url}')
