@@ -1,8 +1,10 @@
 from pathlib import Path
 import re
 import sys
+from urllib.parse import urlparse
 
 ROOT = Path('.').resolve()
+SITE_ORIGIN = 'https://mywopa.com'
 
 # Keep this aligned with scripts/seo_check.py.
 EXCLUDED_HTML_FILES = {
@@ -26,8 +28,19 @@ errors = []
 href_pattern = re.compile(r'href=["\']([^"\']+)["\']', re.IGNORECASE)
 
 
+def is_redirect_style_route(path: str) -> bool:
+    return path.endswith('.html') or path.endswith('/index.html')
+
+
+def is_internal_absolute_url(href: str) -> bool:
+    parsed = urlparse(href)
+    return f'{parsed.scheme}://{parsed.netloc}' == SITE_ORIGIN
+
+
 def resolve_internal_path(current_file: Path, href: str) -> Path:
     clean_href = href.split('#')[0].split('?')[0]
+    if is_internal_absolute_url(clean_href):
+        clean_href = urlparse(clean_href).path
 
     if clean_href.startswith('/'):
         clean_href = clean_href.lstrip('/')
@@ -51,13 +64,21 @@ for html_file in html_files:
     content = html_file.read_text(encoding='utf-8', errors='ignore')
 
     for href in href_pattern.findall(content):
-        if href.startswith(('http://', 'https://', 'mailto:', 'tel:', '#', 'javascript:')):
+        if href.startswith(('mailto:', 'tel:', '#', 'javascript:')):
+            continue
+
+        if href.startswith(('http://', 'https://')) and not is_internal_absolute_url(href):
             continue
 
         clean_href = href.split('#')[0].split('?')[0]
 
         if not clean_href:
             continue
+
+        parsed_href = urlparse(clean_href)
+        clean_path = parsed_href.path if parsed_href.scheme else clean_href
+        if is_redirect_style_route(clean_path):
+            errors.append(f'{html_file}: internal link should use final clean route -> {href}')
 
         target = resolve_internal_path(html_file, href)
 

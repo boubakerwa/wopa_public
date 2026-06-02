@@ -58,15 +58,33 @@ def clean_url(url: str) -> str:
     return url
 
 
-def clean_internal_href(match: re.Match) -> str:
-    prefix, url = match.groups()
+def clean_internal_route(url: str) -> str:
     if url == '/index.html':
-        return f'{prefix}/'
+        return '/'
+    if url == 'index.html':
+        return './'
     if url.endswith('/index.html'):
-        return f'{prefix}{url[:-len("index.html")]}'
+        return url[:-len('index.html')]
     if url.endswith('.html'):
-        return f'{prefix}{url[:-len(".html")]}'
-    return match.group(0)
+        return url[:-len('.html')]
+    return url
+
+
+def clean_href_value(match: re.Match) -> str:
+    quote, href = match.groups()
+    if href.startswith(('http://', 'https://', 'mailto:', 'tel:', '#', 'javascript:')):
+        return match.group(0)
+
+    route = href
+    suffix = ''
+    for separator in ('#', '?'):
+        if separator in route:
+            route, suffix = route.split(separator, 1)
+            suffix = f'{separator}{suffix}'
+            break
+
+    cleaned = clean_internal_route(route)
+    return f'href={quote}{cleaned}{suffix}{quote}'
 
 
 def cluster_key(path: Path) -> Optional[tuple[str, str]]:
@@ -111,7 +129,7 @@ def normalize_html(path: Path, clusters: dict[tuple[str, str], list[Path]]) -> b
     original = content
 
     content = re.sub(r'https://mywopa\.com/[^\s"\'<>]+?\.html\b', lambda m: clean_url(m.group(0)), content)
-    content = re.sub(r'(href=["\'])(/[^"\']+?\.html)(?=["\'])', clean_internal_href, content)
+    content = re.sub(r'href=(["\'])([^"\']+)["\']', clean_href_value, content)
 
     canonical = f'<link rel="canonical" href="{path_to_url(path)}"/>'
     if re.search(r'<link\b[^>]*rel=["\']canonical["\'][^>]*>', content, flags=re.I):

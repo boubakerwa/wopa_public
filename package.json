@@ -5,7 +5,8 @@
   "description": "WOPA marketing site + Cloudflare Worker (waitlist + WhatsApp webhook gateway)",
   "scripts": {
     "deploy": "wrangler deploy",
-    "dev": "wrangler dev"
+    "dev": "wrangler dev",
+    "test": "python3 scripts/seo_check.py && python3 scripts/check_links.py"
   },
   "dependencies": {
     "@sentry/cloudflare": "^9"

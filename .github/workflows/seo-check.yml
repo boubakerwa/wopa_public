@@ -18,8 +18,5 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Run SEO checks
-        run: python scripts/seo_check.py
-
-      - name: Run internal link checks
-        run: python scripts/check_links.py
+      - name: Run static site tests
+        run: npm test
