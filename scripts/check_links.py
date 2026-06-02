@@ -35,12 +35,16 @@ def resolve_internal_path(current_file: Path, href: str) -> Path:
             return ROOT / 'index.html'
         if clean_href.endswith('/'):
             return ROOT / clean_href / 'index.html'
-        return ROOT / clean_href
+        target = ROOT / clean_href
+        html_target = ROOT / f'{clean_href}.html'
+        return html_target if html_target.exists() else target
 
     if clean_href.endswith('/'):
         return (current_file.parent / clean_href / 'index.html').resolve()
 
-    return (current_file.parent / clean_href).resolve()
+    target = (current_file.parent / clean_href).resolve()
+    html_target = Path(f'{target}.html')
+    return html_target if html_target.exists() else target
 
 
 for html_file in html_files:

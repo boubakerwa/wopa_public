@@ -39,6 +39,8 @@ def file_to_url(path: Path) -> str:
         return f'{SITE_ORIGIN}/'
     if normalized.endswith('/index.html'):
         return f'{SITE_ORIGIN}/{normalized.removesuffix("index.html")}'
+    if normalized.endswith('.html'):
+        return f'{SITE_ORIGIN}/{normalized.removesuffix(".html")}'
     return f'{SITE_ORIGIN}/{normalized}'
 
 
@@ -53,6 +55,9 @@ def url_to_file(url: str):
         return Path('index.html')
     if route.endswith('/'):
         return Path(route) / 'index.html'
+    html_path = Path(f'{route}.html')
+    if (ROOT / html_path).exists():
+        return html_path
     return Path(route)
 
 
@@ -60,6 +65,8 @@ indexable_urls = {file_to_url(path) for path in html_files}
 
 for file_path in html_files:
     content = file_path.read_text(encoding='utf-8', errors='ignore')
+    html_content = re.sub(r'<script\b[^>]*>.*?</script>', '', content, flags=re.IGNORECASE | re.DOTALL)
+    expected_url = file_to_url(file_path)
 
     if not re.search(r'<title>.+?</title>', content, re.IGNORECASE | re.DOTALL):
         errors.append(f'{file_path}: missing <title>')
@@ -67,10 +74,13 @@ for file_path in html_files:
     if not re.search(r'<meta\s+name=["\']description["\']', content, re.IGNORECASE):
         errors.append(f'{file_path}: missing meta description')
 
-    if not re.search(r'<link\s+rel=["\']canonical["\']', content, re.IGNORECASE):
+    canonical_match = re.search(r'<link\b(?=[^>]*rel=["\']canonical["\'])(?=[^>]*href=["\']([^"\']+)["\'])[^>]*>', content, re.IGNORECASE)
+    if not canonical_match:
         errors.append(f'{file_path}: missing canonical link')
+    elif canonical_match.group(1) != expected_url:
+        errors.append(f'{file_path}: canonical should be {expected_url}, found {canonical_match.group(1)}')
 
-    h1_matches = re.findall(r'<h1\b[^>]*>', content, re.IGNORECASE)
+    h1_matches = re.findall(r'<h1\b[^>]*>', html_content, re.IGNORECASE)
     if len(h1_matches) == 0:
         errors.append(f'{file_path}: missing <h1>')
     elif len(h1_matches) > 1:
@@ -102,8 +112,29 @@ else:
         missing_from_sitemap = sorted(indexable_urls - set(sitemap_urls))
         for url in missing_from_sitemap:
             errors.append(f'indexable HTML file missing from sitemap.xml: {url}')
+
+        redirected_style_urls = [url for url in sitemap_urls if url.endswith('.html') or url.endswith('/index.html')]
+        for url in redirected_style_urls:
+            errors.append(f'sitemap.xml URL should use final clean route: {url}')
     except ET.ParseError as e:
         errors.append(f'sitemap.xml invalid XML: {e}')
+
+page_alternates = {}
+for file_path in html_files:
+    content = file_path.read_text(encoding='utf-8', errors='ignore')
+    page_url = file_to_url(file_path)
+    page_alternates[page_url] = set(re.findall(
+        r'<link\b(?=[^>]*rel=["\']alternate["\'])(?=[^>]*hreflang=)(?=[^>]*href=["\']([^"\']+)["\'])[^>]*>',
+        content,
+        flags=re.IGNORECASE,
+    ))
+
+for page_url, alternates in sorted(page_alternates.items()):
+    for alternate_url in sorted(alternates):
+        if alternate_url not in page_alternates:
+            continue
+        if page_url not in page_alternates[alternate_url]:
+            errors.append(f'{page_url}: hreflang alternate lacks return tag from {alternate_url}')
 
 robots_path = ROOT / 'robots.txt'
 
