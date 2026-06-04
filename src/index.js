@@ -24,6 +24,13 @@ const handler = {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
 
+    if (url.pathname === '/chat' || url.pathname === '/chat/') {
+      return Response.redirect(
+        'https://wa.me/447760474870?text=Hi%2C%20I%20need%20an%20invoice',
+        302
+      );
+    }
+
     if (url.pathname === '/healthz') {
       return new Response('ok', {
         status: 200,
