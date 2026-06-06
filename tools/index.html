@@ -183,6 +183,18 @@ nav {
   color: var(--green);
   align-self: flex-start;
 }
+.template-section { padding: 0 0 88px; }
+.template-head { max-width: 680px; margin-bottom: 28px; }
+.template-head h2 {
+  font: 800 clamp(30px, 4vw, 48px)/1.05 var(--sans);
+  letter-spacing: -0.035em;
+  margin-top: 16px;
+}
+.template-head p {
+  font: 400 17px/1.55 var(--sans);
+  color: var(--ink-2);
+  margin-top: 12px;
+}
 
 footer {
   border-top: 1px solid var(--hair);
@@ -245,6 +257,7 @@ footer {
   .nav-cta { display: none; }
   @keyframes menuSlideDown { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
   .tools-grid { grid-template-columns: 1fr; }
+  .template-section { padding-bottom: 64px; }
   .hero { padding: 64px 0 32px; }
   footer { flex-direction: column; gap: 16px; text-align: center; padding: 24px; }
 }
@@ -339,6 +352,53 @@ footer {
         <span class="tool-tag">Invoicing</span>
       </a>
 
+    </div>
+  </div>
+</section>
+
+<section class="template-section">
+  <div class="container">
+    <div class="template-head fade-up">
+      <div class="eyebrow">Invoice templates</div>
+      <h2>UK invoice templates for real jobs.</h2>
+      <p>Template guides for the common situations WOPA users run into: VAT, sole traders, contractors, builders, cleaners, landlords, and general UK invoices.</p>
+    </div>
+    <div class="tools-grid" style="padding:0;">
+      <a href="/tools/templates/uk-invoice-template" class="tool-card fade-up">
+        <h2>UK Invoice Template</h2>
+        <p>The core invoice fields every UK business should get right: numbers, dates, customer details, work, totals, payment terms, and records.</p>
+        <span class="tool-tag">Core template</span>
+      </a>
+      <a href="/tools/templates/vat-invoice-template-uk" class="tool-card fade-up">
+        <h2>VAT Invoice Template UK</h2>
+        <p>VAT number, tax point, net amounts, VAT rates, VAT totals, reverse charge notes, and common VAT invoice mistakes.</p>
+        <span class="tool-tag">VAT</span>
+      </a>
+      <a href="/tools/templates/sole-trader-invoice-template" class="tool-card fade-up">
+        <h2>Sole Trader Invoice Template</h2>
+        <p>A practical structure for self-employed work, trade jobs, mobile services, due dates, and clean payment records.</p>
+        <span class="tool-tag">Sole traders</span>
+      </a>
+      <a href="/tools/templates/contractor-invoice-template" class="tool-card fade-up">
+        <h2>Contractor Invoice Template</h2>
+        <p>Day rates, milestones, project references, purchase orders, expenses, VAT, CIS, and payment terms for contractor billing.</p>
+        <span class="tool-tag">Contractors</span>
+      </a>
+      <a href="/tools/templates/builder-invoice-template" class="tool-card fade-up">
+        <h2>Builder Invoice Template</h2>
+        <p>Construction-friendly invoice fields for labour, materials, stage payments, CIS, reverse charge VAT, and retention.</p>
+        <span class="tool-tag">Construction</span>
+      </a>
+      <a href="/tools/templates/cleaner-invoice-template" class="tool-card fade-up">
+        <h2>Cleaner Invoice Template</h2>
+        <p>Invoice structure for domestic, commercial, recurring, end-of-tenancy, and deep cleaning work.</p>
+        <span class="tool-tag">Services</span>
+      </a>
+      <a href="/tools/templates/landlord-rent-invoice-template" class="tool-card fade-up">
+        <h2>Landlord Rent Invoice Template</h2>
+        <p>Rent period, property address, tenant details, arrears, payment references, and property-income record keeping.</p>
+        <span class="tool-tag">Landlords</span>
+      </a>
     </div>
   </div>
 </section>

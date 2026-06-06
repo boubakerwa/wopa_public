@@ -1043,6 +1043,65 @@ h1.hero-h1 .line-serif {
 .legal-note strong { color: var(--ink-2); }
 
 /* =====================================================
+   MAKING TAX DIGITAL
+   ===================================================== */
+.mtd-section {
+  background: linear-gradient(180deg, rgba(240,246,242,0.72), rgba(251,248,242,0));
+}
+.mtd-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 44px;
+}
+.mtd-heading-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: end;
+}
+.mtd-card {
+  background: #fff;
+  border: 1px solid var(--hair);
+  border-radius: 18px;
+  padding: 28px;
+}
+.mtd-card h3 {
+  font: 700 20px/1.15 var(--sans);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  margin-bottom: 10px;
+}
+.mtd-card p,
+.mtd-card li {
+  font: 400 15px/1.6 var(--sans);
+  color: var(--ink-3);
+}
+.mtd-card ul {
+  padding-left: 18px;
+  margin-top: 10px;
+}
+.mtd-status {
+  display: inline-flex;
+  margin-bottom: 14px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: var(--green-tint);
+  color: var(--green-deep);
+  font: 700 10px/1 var(--mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.mtd-status.planned {
+  background: var(--amber-soft);
+  color: #8A5A10;
+}
+.mtd-status.research {
+  background: #FCE1DC;
+  color: #9A302A;
+}
+
+/* =====================================================
    TRUST / FAQ
    ===================================================== */
 .detail-grid {
@@ -1232,6 +1291,7 @@ footer {
   .mobile-trust-strip { order: 20; }
   .demo-section { order: 30; }
   .how-section { order: 40; }
+  .mtd-section { order: 45; }
   .reminders-section { order: 50; }
   .pricing-section { order: 60; }
   .faq-section { order: 70; }
@@ -1317,6 +1377,8 @@ footer {
     margin-bottom: 2px;
   }
   .how-grid { grid-template-columns: 1fr; margin-top: 24px; }
+  .mtd-heading-grid { grid-template-columns: 1fr; gap: 18px; }
+  .mtd-grid { grid-template-columns: 1fr; margin-top: 28px; }
   .how-card { padding: 24px 22px 26px; }
   .how-num { font-size: 48px; top: 18px; right: 18px; }
   .how-icon { width: 40px; height: 40px; margin-bottom: 16px; }
@@ -1504,6 +1566,7 @@ footer {
     <li><a href="#how">How it works</a></li>
     <li><a href="#demo">Demo</a></li>
     <li><a href="#reminders">Reminders</a></li>
+    <li><a href="making-tax-digital-whatsapp-invoicing">MTD</a></li>
     <li><a href="#faq">FAQ</a></li>
     <li><a href="blog/">Blog</a></li>
     <li><a href="tools/">Tools</a></li>
@@ -1676,6 +1739,53 @@ footer {
       </div>
       <!-- Features 4-6 moved to feature cards below -->
     </div>
+  </div>
+</section>
+
+<!-- ====================================================
+     MAKING TAX DIGITAL
+     ==================================================== -->
+<section class="section mtd-section" id="mtd">
+  <div class="container">
+    <div class="fade-up">
+      <div class="eyebrow" style="margin-bottom:18px;">Making Tax Digital</div>
+      <div class="mtd-heading-grid">
+        <h2 style="font:800 clamp(34px,4vw,52px)/1.05 var(--sans);letter-spacing:-0.035em;">
+          Built for the UK shift<br><span class="serif-em" style="color:var(--green);">to digital records.</span>
+        </h2>
+        <p style="font:400 17px/1.55 var(--sans);color:var(--ink-2);max-width:470px;">
+          Making Tax Digital is turning invoice software into a record-keeping decision. WOPA creates invoices from WhatsApp today and is building MTD-ready workflows for digital records, accountant exports, and future HMRC-compatible submissions.
+        </p>
+      </div>
+    </div>
+
+    <div class="mtd-grid fade-up" style="transition-delay:0.1s;">
+      <div class="mtd-card">
+        <span class="mtd-status">Available now</span>
+        <h3>WhatsApp invoices with cleaner records</h3>
+        <p>Create invoice PDFs, email customers, track payment status, and support VAT, CIS, and construction reverse charge fields from chat.</p>
+      </div>
+      <div class="mtd-card">
+        <span class="mtd-status planned">Planned</span>
+        <h3>MTD-ready record workflows</h3>
+        <p>We are shaping the product around digital invoice records, expense capture, accountant exports, and less manual cleanup at tax time.</p>
+      </div>
+      <div class="mtd-card">
+        <span class="mtd-status research">Research</span>
+        <h3>HMRC-compatible software path</h3>
+        <p>We are researching HMRC API requirements and recognised software expectations. WOPA does not claim MTD compatibility until that status is earned.</p>
+      </div>
+      <div class="mtd-card">
+        <span class="mtd-status planned">Early access</span>
+        <h3>Help shape the MTD roadmap</h3>
+        <p>We want feedback from sole traders, landlords, tradespeople, and accountants already dealing with MTD software.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;">
+          <a href="making-tax-digital-whatsapp-invoicing" class="btn-ghost" style="padding:12px 18px;">See MTD plan</a>
+          <a href="https://wa.me/447760474870?text=Hi%2C%20I%20want%20MTD%20early%20access" class="btn-primary" style="padding:12px 18px;">Join early access</a>
+        </div>
+      </div>
+    </div>
+    <p class="legal-note"><strong>Important:</strong> WOPA is not currently HMRC-recognised or MTD-compatible software. The current product helps with invoicing from WhatsApp while the MTD workflow is being built.</p>
   </div>
 </section>
 
@@ -1975,6 +2085,8 @@ footer {
     <div class="eyebrow" style="margin-bottom:18px;">Related reading</div>
     <div class="related-links" style="display:flex;flex-wrap:wrap;gap:10px;">
       <a href="blog/send-invoice-whatsapp">How to send an invoice on WhatsApp</a>
+      <a href="making-tax-digital-whatsapp-invoicing">Making Tax Digital invoicing through WhatsApp</a>
+      <a href="roadmap/making-tax-digital">WOPA MTD roadmap</a>
       <a href="blog/how-to-invoice-sole-trader-uk">How to invoice as a sole trader in the UK</a>
       <a href="blog/late-payment-rights-uk-tradespeople">Late payment rights for UK tradespeople</a>
       <a href="electricians">WOPA for electricians</a>
