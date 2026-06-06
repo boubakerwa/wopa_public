@@ -18,7 +18,7 @@ EXCLUDED_HTML_FILES = {
 
 html_files = [
     p for p in Path('.').rglob('*.html')
-    if '.git' not in p.parts
+    if not any(part.startswith('.') for part in p.parts)
     and 'node_modules' not in p.parts
     and p not in EXCLUDED_HTML_FILES
 ]
