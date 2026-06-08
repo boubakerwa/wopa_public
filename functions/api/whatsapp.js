@@ -37,16 +37,24 @@ export async function onRequestPost({ request, env }) {
     return new Response('Payload too large', { status: 413 });
   }
 
-  if (env.META_APP_SECRET) {
-    const valid = await isValidMetaSignature(
-      env.META_APP_SECRET,
-      body,
-      request.headers.get('X-Hub-Signature-256')
-    );
-    if (!valid) {
-      console.warn('whatsapp_webhook_signature_failed');
-      return new Response('Invalid signature', { status: 401 });
-    }
+  // Fail closed: without META_APP_SECRET we cannot verify the Meta signature, so we
+  // must NOT forward an unverified payload to the backend (the Worker attaches the
+  // trusted X-Wopa-Webhook-Secret on forward, so an unverified body would be vouched
+  // for downstream). Mirrors the GET verify handler's 503 and the backend's own
+  // fail-closed behaviour.
+  if (!env.META_APP_SECRET) {
+    console.error('whatsapp_webhook_meta_app_secret_missing');
+    return new Response('Webhook signing secret is not configured', { status: 503 });
+  }
+
+  const valid = await isValidMetaSignature(
+    env.META_APP_SECRET,
+    body,
+    request.headers.get('X-Hub-Signature-256')
+  );
+  if (!valid) {
+    console.warn('whatsapp_webhook_signature_failed');
+    return new Response('Invalid signature', { status: 401 });
   }
 
   try {
