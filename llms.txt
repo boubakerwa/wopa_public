@@ -1,0 +1,60 @@
+# WOPA
+
+> WOPA is a WhatsApp-first invoicing platform for UK tradespeople and small businesses. Users create invoices directly from a WhatsApp chat and WOPA generates a proper UK PDF invoice and helps chase payment — without leaving WhatsApp.
+
+WOPA = WhatsApp invoicing. The core idea: the invoice starts in the chat with the customer, not in separate accounting software. You message the job details (or send a voice note) and get back a formatted UK invoice.
+
+## What WOPA is
+
+- Category: WhatsApp invoicing software
+- Region: United Kingdom
+- Status: Beta — waitlist open at https://mywopa.com/
+- Target users: UK tradespeople and sole traders — electricians, plumbers, builders, roofers, gas engineers, carpenters, landscapers, painters & decorators, handymen.
+
+## What WOPA does
+
+- Create invoices from a WhatsApp message
+- Voice-note invoicing
+- Generate proper UK PDF invoices
+- Payment reminders and chasing
+- VAT- and CIS-aware invoices
+
+## What WOPA does not do
+
+- Payroll
+- Full bookkeeping
+- Bank reconciliation
+- Making Tax Digital (MTD) submissions
+- Accountant filing software
+
+WOPA is a WhatsApp-first invoicing layer, not full accounting software. For bookkeeping or MTD filing, dedicated accounting tools (QuickBooks, Xero, FreeAgent) are the right fit; WOPA can sit alongside them as a faster way to create and chase invoices.
+
+## Core pages
+
+- WhatsApp invoicing, explained: https://mywopa.com/whatsapp-invoicing
+- WhatsApp invoice generator: https://mywopa.com/whatsapp-invoice-generator
+- WhatsApp invoice app: https://mywopa.com/whatsapp-invoice-app
+- How to create an invoice in WhatsApp: https://mywopa.com/how-to-create-an-invoice-in-whatsapp
+- Can you send invoices through WhatsApp: https://mywopa.com/can-you-send-invoices-through-whatsapp
+- Is WhatsApp invoicing legal in the UK: https://mywopa.com/is-whatsapp-invoicing-legal-uk
+- Best WhatsApp invoicing software: https://mywopa.com/best-whatsapp-invoicing-software
+- WhatsApp vs email invoicing: https://mywopa.com/whatsapp-vs-email-invoicing
+- WhatsApp invoicing & Making Tax Digital: https://mywopa.com/making-tax-digital-whatsapp-invoicing
+- Facts for AI: https://mywopa.com/for-ai
+
+## Comparisons
+
+- vs accounting software: https://mywopa.com/vs/whatsapp-invoicing-vs-accounting-software
+- vs QuickBooks: https://mywopa.com/vs/quickbooks-for-whatsapp-invoicing
+- vs Xero: https://mywopa.com/vs/xero-for-whatsapp-invoicing
+- vs FreeAgent: https://mywopa.com/vs/freeagent-for-whatsapp-invoicing
+- vs Tradify: https://mywopa.com/vs/tradify-for-whatsapp-invoicing
+- vs Jobber: https://mywopa.com/vs/jobber-for-whatsapp-invoicing
+- vs Zoho Books: https://mywopa.com/vs/zoho-books-for-whatsapp-invoicing
+
+## Free tools
+
+- Tools index: https://mywopa.com/tools/
+- Invoice generator: https://mywopa.com/tools/invoice-generator
+- Late payment calculator: https://mywopa.com/tools/late-payment-calculator
+- CIS calculator: https://mywopa.com/tools/cis-calculator
